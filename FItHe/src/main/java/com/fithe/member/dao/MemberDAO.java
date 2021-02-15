@@ -23,4 +23,7 @@ public interface MemberDAO {
 	// 로그인
 	public MemberVO memberLogin(MemberVO mvo);
 	
+	
+	// 인증번호 저장
+	public int authInsert(MemberVO mvo);
 }

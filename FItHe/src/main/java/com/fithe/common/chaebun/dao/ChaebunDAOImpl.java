@@ -21,4 +21,12 @@ public class ChaebunDAOImpl implements ChaebunDAO {
 		return sqlSession.selectOne("getChaebun_m");
 	}
 
+	@Override
+	public MemberVO getChaebun_a() {
+		// TODO Auto-generated method stub
+		System.out.println("(DAOImpl) getChaebun_a() 진입");
+		
+		return sqlSession.selectOne("getChaebun_a");
+	}
+
 }
