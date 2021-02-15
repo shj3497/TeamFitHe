@@ -2,6 +2,6 @@ package com.fithe.common;
 
 public class CommonUtils {
 
-	public static final String EMAIL_ID = "";
-	public static final String EMAIL_PW = "";
+	public static final String MAIL_ID = "shj3497@gmail.com";
+	public static final String MAIL_PW = "rkawkrhrnak123";
 }

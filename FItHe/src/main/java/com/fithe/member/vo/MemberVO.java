@@ -9,7 +9,7 @@ public class MemberVO {
     private String mgender; 		// 성별 'M','F'
     private String mbir;			// 생년월일 주민등록번호 앞 6자리
     private String mzonecode;   	// 우편번호
-    private String maddress;	// 도로명주소
+    private String maddress;		// 도로명주소
     private String maddress_detail; // 상세주소 
     private String mph;				// 핸드폰번호
     private String memail;			// 이메일
@@ -17,6 +17,15 @@ public class MemberVO {
     private String mupdatedate;		// 수정일
     private String mdelyn;			// 삭제여부
     private String mauth;		    // 권한 'A', 'M' >> : 'A' : 관리자, 'M' : 회원
+    
+    
+    // 이메일 관련 vo
+    private String anum;			// 채번
+    private String aemail;			// 인증번호를 요청한 이메일
+    private String aname;			// 인증번호를 요청한 이름
+    private String authnum;			// 이메일로 보낼 인증번호가 담긴다.
+    private String ainsertdate;		// 인증번호를 요청한 시간
+    
     
     public MemberVO() {}
     
@@ -27,14 +36,19 @@ public class MemberVO {
     				String mgender,
     				String mbir,
     				String mzonecode,
-    				String maddress_road,
+    				String maddress,
     				String maddress_detail,
     				String mph,
     				String memail,
     				String minsertdate,
     				String mupdatedate,
     				String mdelyn,
-    				String mauth) {
+    				String mauth,
+    				String anum,
+    				String aemail,
+    				String aname,
+    				String authnum,
+    				String ainsertdate) {
     	this.mnum = mnum;
     	this.mid = mid;
     	this.mpw = mpw;
@@ -50,6 +64,11 @@ public class MemberVO {
     	this.mupdatedate = mupdatedate;
     	this.mdelyn = mdelyn;
     	this.mauth = mauth;
+    	this.anum = anum;
+    	this.aname = aname;
+    	this.aemail = aemail;
+    	this.authnum = authnum;
+    	this.ainsertdate = ainsertdate;
     }
 
 	public String getMnum() {
@@ -112,7 +131,7 @@ public class MemberVO {
 		return maddress;
 	}
 
-	public void setMaddress_Road(String maddress) {
+	public void setMaddress(String maddress) {
 		this.maddress = maddress;
 	}
 
@@ -171,6 +190,47 @@ public class MemberVO {
 	public void setMauth(String mauth) {
 		this.mauth = mauth;
 	}
-    
+
+	public String getAnum() {
+		return anum;
+	}
+
+	public void setAnum(String anum) {
+		this.anum = anum;
+	}
+
+	public String getAemail() {
+		return aemail;
+	}
+
+	public void setAemail(String aemail) {
+		this.aemail = aemail;
+	}
+
+	public String getAname() {
+		return aname;
+	}
+
+	public void setAname(String aname) {
+		this.aname = aname;
+	}
+
+	public String getAuthnum() {
+		return authnum;
+	}
+
+	public void setAuthnum(String authnum) {
+		this.authnum = authnum;
+	}
+
+	public String getAinsertdate() {
+		return ainsertdate;
+	}
+
+	public void setAinsertdate(String ainsertdate) {
+		this.ainsertdate = ainsertdate;
+	}
+
+
     
 }

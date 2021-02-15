@@ -11,7 +11,7 @@
 		<result column="MGENDER" 		 property="mgender"			/>
 		<result column="MBIR" 			 property="mbir" 			/>
 		<result column="MZONECODE" 		 property="mzonecode" 		/>
-		<result column="MADDRESS" 	 	 property="maddress"	/>
+		<result column="MADDRESS" 	 	 property="maddress"		/>
 		<result column="MADDRESS_DETAIL" property="maddress_detail"	/>
 		<result column="MPH" 			 property="mph"				/>
 		<result column="MEMAIL" 		 property="memail"			/>
@@ -19,6 +19,12 @@
 		<result column="MUPDATEDATE" 	 property="mupdatedate"		/>
 		<result column="MDELYN" 		 property="mdelyn"			/>
 		<result column="MAUTH" 			 property="mauth"			/>
+		
+		<result column="ANUM" 			 property="anum"			/>
+		<result column="ANAME" 			 property="aname"			/>
+		<result column="AEMAIL" 		 property="aemail"			/>
+		<result column="AUTHNUM" 		 property="authnum"			/>
+		<result column="AINSERTDATE"	 property="ainsertdate"		/>
 	</resultMap>
 	
 	<!-- 멤버 조회(관리자) -->
@@ -112,10 +118,29 @@
 	</select>
 	
 	
+	<!-- 인증번호 테이블에 입력된 정보들 insert -->
+	<insert id="authInsert" parameterType="com.fithe.member.vo.MemberVO">
+		INSERT INTO FIT_AUTH(
+			ANUM,
+			ANAME,
+			AEMAIL,
+			AUTHNUM,
+			AINSERTDATE)
+		VALUES(
+			#{anum, jdbcType=VARCHAR},
+			#{aname, jdbcType=VARCHAR},
+			#{aemail, jdbcType=VARCHAR},
+			#{authnum, jdbcType=VARCHAR},
+			SYSDATE
+		)
+		
 	
+	</insert>
 	
-	
-	
+	<!-- 인증번호 선택시  id와 -->
+	<select id="" parameterType="com.fithe.member.vo.MemberVO" resultType="int">
+		
+	</select>
 	
 	
 	

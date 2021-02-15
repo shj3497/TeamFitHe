@@ -5,10 +5,65 @@
 <head>
 <meta charset="UTF-8">
 <title>ID 찾기</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		$('#sendAuthnum').on('click',function(){
+			
+			console.log("인증번호전송");
+			
+			let goURL = "sendAuthnum.do";
+			let method = "POST";
+			let param = {
+					aname:$('#aname').val(),
+					aemail:$('#aemail').val()
+			} 
+			
+			$.ajax({
+				url : goURL,
+				type : method,
+				data : param,
+				success : whenSuccess,
+				error : whenError
+			});
+			
+			function whenSuccess(resData){
+				if(resData == 1){
+					alert("이메일을 확인해주세요");
+					// 인증번호 전송에 성공하면 입력한 이름과 이메일은 수정 불가
+					$('#aname').attr('readonly','true');
+					$('#aemail').attr('readonly','true');
+					$('#authnumber').focus();
+				}else if(resData == 0){
+					alert("전송에 실패하였습니다.")
+				}
+			}
+			
+			function whenError(resData){
+				alert("시스템 오류입니다. 관리자에게문의해주세요." + e);
+			}
+		}) // 이메일 전송
+		
+		$('#showId').on('click',function(){
+			
+			$('#idFindForm').attr('action','memberIdFind.do');
+			$('#idFindForm').attr('method','POST');
+			$('#idFindForm').submit();
+			
+		})
+		
+		
+	})
+
+</script>
+
 </head>
 <body>
 	<h1>Id 찾기</h1>
-	<form>
+	<form id="idFindForm">
 		<ul>
 			<li>본인확인 이메일로 인증</li>
 		</ul>
@@ -17,15 +72,15 @@
 		<br><br>
 		<div>
 			<label>이름</label>
-			<input type="text" id="mname" name="mname">
+			<input type="text" id="aname" name="aname">
 		</div>
 		<div>
 			<label>이메일 주소</label>
-			<input type="text" id="memail" name="memail">
-			<input type="button" id="mailsend" value="인증번호받기">
+			<input type="text" id="aemail" name="aemail">
+			<input type="button" id="sendAuthnum" value="인증번호받기">
 		</div>
 		<div>
-			<input type="text" id="authnumber" placeholder="인증번호6자리">		
+			<input type="text" id="authnum" name="authnum" placeholder="인증번호6자리">		
 		</div>
 		<div>
 			<input type="button" id="showId" value="찾기">

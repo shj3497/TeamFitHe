@@ -77,4 +77,14 @@ public class MemberDAOImpl implements MemberDAO{
 		return (MemberVO)sqlSession.selectList("memberLogin", mvo);
 	}
 
+	@Override
+	public int authInsert(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		System.out.println("(DAOImpl) authInsert() 진입");
+		
+		return (Integer)sqlSession.insert("authInsert", mvo);
+	}
+	
+	
+
 }

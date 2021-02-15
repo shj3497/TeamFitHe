@@ -17,8 +17,8 @@ public class MailAuth extends Authenticator {
 	
 	public MailAuth() {
 		// 보내는 메일
-		String mail_id = CommonUtils.EMAIL_ID;
-		String mail_pw = CommonUtils.EMAIL_PW;
+		String mail_id = CommonUtils.MAIL_ID;
+		String mail_pw = CommonUtils.MAIL_PW;
 		pa = new PasswordAuthentication(mail_id, mail_pw);
 	}
 	

@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fithe.common.chaebun.ChaebunUtil;
 import com.fithe.common.chaebun.service.ChaebunService;
+import com.fithe.common.commons.AuthcodeUtil;
 import com.fithe.common.commons.encryption.PasswordEncoding;
+import com.fithe.common.commons.mail.MailSend;
 import com.fithe.member.service.MemberService;
 import com.fithe.member.vo.MemberVO;
 
@@ -36,7 +38,7 @@ public class MemberController {
 	
 	@RequestMapping(value="memberInsertForm", method=RequestMethod.GET)
 	public String memberForm() {
-		
+		// 회원가입 폼으로 이동
 		
 		return "member/insertForm";
 	}
@@ -55,7 +57,7 @@ public class MemberController {
 	
 	@RequestMapping(value="memberInsert", method=RequestMethod.POST)
 	public String memberInsert(Model model, MemberVO mvo, HttpServletRequest request) {
-		// 회원 가입
+		// 회원 가입 처리
 		
 		// 데이터 받아오기
 		String memail_a = request.getParameter("memail_a");
@@ -69,15 +71,17 @@ public class MemberController {
 		
 		// vo에 세팅
 		mvo.setMemail(memail);
-		System.out.println("mzonecode >>> : " + mvo.getMzonecode());
-		System.out.println("maddress_road >>> : " + mvo.getMaddress());
-		System.out.println("maddress_detail >>> : " + mvo.getMaddress_detail());
+
+		// 데이터 잘넘어오나 확인
+		//System.out.println("mzonecode >>> : " + mvo.getMzonecode());
+		//System.out.println("maddress >>> : " + mvo.getMaddress());
+		//System.out.println("maddress_detail >>> : " + mvo.getMaddress_detail());
 		
 		// 비밀번호 암호화
 		String pw = mvo.getMpw();
-		System.out.println("pw >>> : " + pw); // vo에 저장된 mpw가져옴
+		// System.out.println("pw >>> : " + pw); // vo에 저장된 mpw가져옴
 		String encrypt_pw = PasswordEncoding.encode(pw); // pw암호화
-		System.out.println("encrypt_pw >>> : " + encrypt_pw);
+		// System.out.println("encrypt_pw >>> : " + encrypt_pw);
 		mvo.setMpw(encrypt_pw);	// 암호화된 pw vo에 세팅
 		
 		// 채번 번호를 얻어온다.
@@ -89,7 +93,7 @@ public class MemberController {
 		
 		if(nCnt == 1) {
 			System.out.println("입력 성공");
-			return "member/success";
+			return "member/loginForm";
 		}else {
 			System.out.println("입력 실패");
 			return "member/error";
@@ -215,11 +219,51 @@ public class MemberController {
 		return "member/idFindForm";
 	}
 	
+	@RequestMapping(value="sendAuthnum", method=RequestMethod.POST)
+	@ResponseBody
+	public String sendAuthnum(MemberVO mvo) {
+		// 인증번호를 전송하는 것을 처리하는 메소드
+		logger.info("sendAuthnum() 진입");
+		
+		String authnum = AuthcodeUtil.authcode(6);
+		logger.info("mauthnum >>> : " + authnum);
+		
+		// 인증번호 VO에 세팅
+		mvo.setAuthnum(authnum);
+		logger.info("인증번호 찍어보기 >>> : " + mvo.getAuthnum());
+		
+		// AUTH 테이블의 채번 VO에 세팅
+		String chaebun = ChaebunUtil.getMemberChaebun("Y", chaebunService.getChaebun_a().getAnum());
+		mvo.setAnum(chaebun);
+		logger.info("AUTH 테이블 채번 찍어보기 >>> : " + mvo.getAnum());
+		
+		logger.info("이름 >>> : " + mvo.getAname());
+		logger.info("이메일 >>> : " + mvo.getAemail());
+		
+		
+		// insert 결과물
+		int nCnt = memberService.authInsert(mvo);
+		
+		String result = "";
+		
+		if(nCnt == 1) {
+			result = "1";
+			MailSend ms = new MailSend();
+			ms.mailSend(mvo);
+			
+		}else {
+			result = "0";
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping(value="memberIdFind", method=RequestMethod.POST)
 	public String memberIdFind() {
 		// id찾기
 		logger.info("memberIdFind() 진입");
 		
-		return "";
+		return "member/idFind";
 	}
 	
 	

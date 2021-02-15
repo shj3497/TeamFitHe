@@ -4,6 +4,7 @@
 	
 	<resultMap type="com.fithe.member.vo.MemberVO" id="memberVO">
 		<result column="MNUM" property="mnum"/>
+		<result column="ANUM" property="anum"/>
 	</resultMap>
 	
 	<!-- parameterType=값을 받아올 곳, resultMap=쿼리문의 결과를 저장할 곳 -->
@@ -12,5 +13,8 @@
 		FROM 	FIT_MEMBER M
 	</select>
 	
-	
+	<select id="getChaebun_a" parameterType="com.fithe.member.vo.MemberVO" resultMap="memberVO">
+		SELECT 	NVL(MAX(SUBSTR(A.ANUM, -4, 4)), 0) + 1 AS ANUM
+		FROM 	FIT_AUTH A
+	</select>
 </mapper>
