@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fithe.member.dao.MemberDAO">
+	
+	<resultMap type="com.fithe.member.vo.MemberVO" id="memberVO">
+		<result column="MNUM" 			 property="mnum"	 		/>
+		<result column="MID" 			 property="mid" 			/>
+		<result column="MPW" 			 property="mpw" 			/>
+		<result column="MNAME" 			 property="mname" 			/>
+		<result column="MGENDER" 		 property="mgender"			/>
+		<result column="MBIR" 			 property="mbir" 			/>
+		<result column="MZONECODE" 		 property="mzonecode" 		/>
+		<result column="MADDRESS" 	 	 property="maddress"	/>
+		<result column="MADDRESS_DETAIL" property="maddress_detail"	/>
+		<result column="MPH" 			 property="mph"				/>
+		<result column="MEMAIL" 		 property="memail"			/>
+		<result column="MINSERTDATE" 	 property="minsertdate"		/>
+		<result column="MUPDATEDATE" 	 property="mupdatedate"		/>
+		<result column="MDELYN" 		 property="mdelyn"			/>
+		<result column="MAUTH" 			 property="mauth"			/>
+	</resultMap>
+	
+	<!-- 멤버 조회(관리자) -->
+	<select id="memberSelectAll" parameterType="com.fithe.member.vo.MemberVO"
+			resultMap="memberVO">
+	
+	
+	</select>
+	
+	<!-- 회원 선택 조회 -->
+	<select id="memberSelect" parameterType="com.fithe.member.vo.MemberVO"
+			resultMap="memberVO">
+		SELECT	*
+		FROM 	FIT_MEMBER
+		WHERE 	MID = #{mid, jdbcType=VARCHAR}
+			AND MDELYN= 'Y'
+	
+	</select>
+	
+	<!-- 회원등록 -->
+	<insert id="memberInsert" parameterType="com.fithe.member.vo.MemberVO">
+		INSERT INTO FIT_MEMBER(
+			MNUM,
+			MID,
+			MPW,
+			MNAME,
+			MGENDER,
+			MBIR,
+			MZONECODE,
+			MADDRESS,
+			MADDRESS_DETAIL,
+			MPH,
+			MEMAIL,
+			MINSERTDATE,
+			MUPDATEDATE,
+			MDELYN,
+			MAUTH )
+		VALUES(
+			#{mnum, jdbcType=VARCHAR},
+			#{mid, jdbcType=VARCHAR},
+			#{mpw, jdbcType=VARCHAR},
+			#{mname, jdbcType=VARCHAR},
+			#{mgender, jdbcType=VARCHAR},
+			#{mbir, jdbcType=VARCHAR},
+			#{mzonecode, jdbcType=VARCHAR},
+			#{maddress, jdbcType=VARCHAR},
+			#{maddress_detail, jdbcType=VARCHAR},
+			#{mph, jdbcType=VARCHAR},
+			#{memail, jdbcType=VARCHAR},
+			SYSDATE,
+			SYSDATE,
+			'Y',
+			'A'
+		)
+	</insert>
+	
+	<!-- 외원정보 수정 -->
+	<update id="memberUpdate" parameterType="com.fithe.member.vo.MemberVO">
+		UPDATE	FIT_MEMBER
+		SET		MZONECODE = #{mzonecode, jdbcType=VARCHAR},
+				MADDRESS_ROAD = #{maddress, jdbcType=VARCHAR},
+				MADDRESS_DETAIL = #{maddress_detail, jdbcType=VARCHAR},
+				MPH = #{mph, jdbcType=VARCHAR},
+				MEMAIL = #{memail, jdbcType=VARCHAR},
+				MUPDATEDATE = SYSDATE
+		WHERE	MID = #{mid, jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<update id="memberDelete" parameterType="com.fithe.member.vo.MemberVO">
+		UPDATE	FIT_MEMBER
+		SET		MDELYN = 'N'
+		WHERE	MID = #{mid, jdbcType=VARCHAR}
+			AND MDELYN = 'Y'
+	</update>
+	
+	<!-- id 중복 체크 -->
+	<select id="memberIdCheck" parameterType="com.fithe.member.vo.MemberVO" resultType="int">
+		SELECT COUNT(*)
+		FROM FIT_MEMBER
+		WHERE MID = #{mid, jdbcType=VARCHAR}
+		 
+	</select>
+	
+	
+	<!-- 로그인 처리 -->
+	<select id="memberLogin" parameterType="com.fithe.member.vo.MemberVO" resultMap="memberVO">
+		SELECT	*
+		FROM	FIT_MEMBER
+		WHERE	MID = #{mid, jdbcType=VARCHAR}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

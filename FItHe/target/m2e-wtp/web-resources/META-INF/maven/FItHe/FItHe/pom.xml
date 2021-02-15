@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>FItHe</groupId>
+  <artifactId>FItHe</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  	<!-- 여기서 버전관리를 한다. version에따라 Libraries 버전이 바뀌는것을 확인 -->
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-webmvc</artifactId>
+  		<version>4.3.16.RELEASE</version>
+  	</dependency>
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>4.3.16.RELEASE</version>
+	</dependency>
+  	<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+	<dependency>
+	    <groupId>jstl</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+  	<!-- https://mvnrepository.com/artifact/taglibs/standard -->
+	<dependency>
+	    <groupId>taglibs</groupId>
+	    <artifactId>standard</artifactId>
+	    <version>1.1.2</version>
+	</dependency>
+  	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>3.2.4</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>4.3.16.RELEASE</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>1.3.1</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.8.0</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+	<dependency>
+	    <groupId>commons-dbcp</groupId>
+	    <artifactId>commons-dbcp</artifactId>
+	    <version>1.4</version>
+	</dependency>
+  	<!-- ojdbc 세팅 -->
+  	<dependency>
+		<groupId>com.oracle.ojdbc</groupId>
+		<artifactId>ojdbc6</artifactId>
+		<version>6.0</version>
+	</dependency>
+	
+  	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-core</artifactId>
+	    <version>4.2.4.RELEASE</version>
+	</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.17</version>
+	</dependency>
+	
+  	<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+	<dependency>
+	    <groupId>javax.mail</groupId>
+	    <artifactId>mail</artifactId>
+	    <version>1.4.7</version>
+	</dependency>
+  	
+  </dependencies>
+  
+</project>
