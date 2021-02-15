@@ -26,4 +26,6 @@ public interface MemberService {
 	
 	// 인증번호 저장
 	public int authInsert(MemberVO mvo);
+	// 인증번호 확인 후 아이디, insertdate 반환
+	public MemberVO authCheck(MemberVO mvo);
 }

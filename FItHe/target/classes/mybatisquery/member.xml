@@ -4,6 +4,7 @@
 <mapper namespace="com.fithe.member.dao.MemberDAO">
 	
 	<resultMap type="com.fithe.member.vo.MemberVO" id="memberVO">
+		<!-- 회원테이블의 컬럼과 변수 -->
 		<result column="MNUM" 			 property="mnum"	 		/>
 		<result column="MID" 			 property="mid" 			/>
 		<result column="MPW" 			 property="mpw" 			/>
@@ -19,7 +20,7 @@
 		<result column="MUPDATEDATE" 	 property="mupdatedate"		/>
 		<result column="MDELYN" 		 property="mdelyn"			/>
 		<result column="MAUTH" 			 property="mauth"			/>
-		
+		<!-- 인증번호 관련 테이블 컬럼과 변수 -->
 		<result column="ANUM" 			 property="anum"			/>
 		<result column="ANAME" 			 property="aname"			/>
 		<result column="AEMAIL" 		 property="aemail"			/>
@@ -81,16 +82,27 @@
 		)
 	</insert>
 	
-	<!-- 외원정보 수정 -->
+	<!-- 회원정보 수정 -->
 	<update id="memberUpdate" parameterType="com.fithe.member.vo.MemberVO">
 		UPDATE	FIT_MEMBER
-		SET		MZONECODE = #{mzonecode, jdbcType=VARCHAR},
-				MADDRESS_ROAD = #{maddress, jdbcType=VARCHAR},
-				MADDRESS_DETAIL = #{maddress_detail, jdbcType=VARCHAR},
-				MPH = #{mph, jdbcType=VARCHAR},
-				MEMAIL = #{memail, jdbcType=VARCHAR},
-				MUPDATEDATE = SYSDATE
+		SET		MUPDATEDATE = SYSDATE	
+		<if test="mzonecode != '' and mzonecode != null">
+				,MZONECODE = #{mzonecode, jdbcType=VARCHAR}
+		</if>
+		<if test="maddress != '' and maddress != null">
+				,MADDRESS = #{maddress, jdbcType=VARCHAR}
+		</if>
+		<if test="maddress_detail != '' and maddress_detail != null">
+				,MADDRESS_DETAIL = #{maddress_detail, jdbcType=VARCHAR}
+		</if>
+		<if test="mph != '' and mph != null">
+				,MPH = #{mph, jdbcType=VARCHAR}
+		</if>
+		<if test="memail != '' and memail != null">
+				,MEMAIL = #{memail, jdbcType=VARCHAR}
+		</if>
 		WHERE	MID = #{mid, jdbcType=VARCHAR}
+			AND MDELYN = 'Y'
 	</update>
 	
 	<!-- 회원 탈퇴 -->
@@ -106,7 +118,7 @@
 		SELECT COUNT(*)
 		FROM FIT_MEMBER
 		WHERE MID = #{mid, jdbcType=VARCHAR}
-		 
+		<!-- 삭제된 아이디도 중복되면 안된다. -->
 	</select>
 	
 	
@@ -115,6 +127,7 @@
 		SELECT	*
 		FROM	FIT_MEMBER
 		WHERE	MID = #{mid, jdbcType=VARCHAR}
+			AND	MDELYN = 'Y'
 	</select>
 	
 	
@@ -131,18 +144,48 @@
 			#{aname, jdbcType=VARCHAR},
 			#{aemail, jdbcType=VARCHAR},
 			#{authnum, jdbcType=VARCHAR},
-			SYSDATE
-		)
-		
-	
+			TO_CHAR(SYSDATE, 'YYYYMMDD')
+		)	
 	</insert>
 	
-	<!-- 인증번호 선택시  id와 -->
-	<select id="" parameterType="com.fithe.member.vo.MemberVO" resultType="int">
-		
+	<!-- 인증번호 선택시 해당되는 리스트 반환 -->
+	<!-- 인증번호의 유효기간(?)을 주기위해 해당 날짜에 발행된 인증번호만 사용 -->
+	<!-- 추후 필요없는 쿼리 결과물은 제거 가능 -->
+	<select id="authCheck" parameterType="com.fithe.member.vo.MemberVO" resultMap="memberVO">
+		SELECT	M.MNUM				AS MNUM,
+				M.MID				AS MID,
+				M.MPW				AS MPW,
+				M.MNAME				AS MNAME,
+				M.MGENDER			AS MGENDER,
+				M.MBIR				AS MBIR,
+				M.MZONECODE			AS MZONECODE,
+				M.MADDRESS			AS MADDRESS,
+				M.MADDRESS_DETAIL	AS MADDRESS_DETAIL,
+				M.MPH				AS MPH,
+				M.MEMAIL			AS MEMAIL,
+				M.MINSERTDATE		AS MINSERTDATE,
+				M.MUPDATEDATE		AS MUPDATEDATE,
+				M.MDELYN			AS MDELYN,
+				M.MAUTH				AS MAUTH 
+		FROM 	FIT_MEMBER M, (
+			SELECT	ANAME, AEMAIL
+			FROM	FIT_AUTH
+			WHERE	AUTHNUM = #{authnum, jdbcType=VARCHAR}
+				AND	AINSERTDATE = TO_CHAR(SYSDATE, 'YYYYMMDD')
+		) A
+		WHERE	M.MNAME = A.ANAME
+			AND	M.MEMAIL = A.AEMAIL
+			AND M.MDELYN = 'Y'
 	</select>
 	
-	
+	<!-- 패스워드를 업데이트 하는 쿼리 -->
+	<update id="">
+		UPDATE	FIT_MEMBER
+		SET		MPW = #{mpw, jdbcType=VARCHAR},
+				MUPDATEDATE = SYSDATE
+		WHERE	MID = #{mid, jdbcType=VARCHAR}
+			AND MDELYN = 'Y'
+	</update>
 	
 	
 	

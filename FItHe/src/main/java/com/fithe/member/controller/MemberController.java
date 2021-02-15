@@ -1,5 +1,7 @@
 package com.fithe.member.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -259,11 +261,28 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberIdFind", method=RequestMethod.POST)
-	public String memberIdFind() {
+	public String memberIdFind(Model model, MemberVO mvo) {
 		// id찾기
 		logger.info("memberIdFind() 진입");
 		
-		return "member/idFind";
+		// 데이터가 잘 넘어오나 확인
+		logger.info("aname >>> : " + mvo.getAname());
+		logger.info("aemail >>> : " + mvo.getAemail());
+		logger.info("authnum >>> : " + mvo.getAuthnum());
+		
+		MemberVO _mvo = null;
+		_mvo = memberService.authCheck(mvo);
+		
+		
+		if(_mvo!=null) {
+			
+			model.addAttribute("memberVO", _mvo);
+			
+			return "member/idFind";
+		}else {
+			
+			return "member/error";
+		}
 	}
 	
 	

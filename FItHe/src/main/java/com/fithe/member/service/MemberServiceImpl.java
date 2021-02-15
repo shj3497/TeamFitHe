@@ -107,4 +107,16 @@ public class MemberServiceImpl implements MemberService{
 		return nCnt;
 	}
 
+
+	@Override
+	public MemberVO authCheck(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		logger.info("(ServiceImpl) authCheck() 진입");
+		
+		MemberVO _mvo = null;
+		_mvo = memberDAO.authCheck(mvo);
+		
+		return _mvo;
+	}
+
 }

@@ -5,14 +5,48 @@
 <head>
 <meta charset="UTF-8">
 <title>ID FIND</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		var vue = new Vue({
+			el:'#show',
+			data:{
+				id:"${memberVO.mid}",
+				minsertdate:"${memberVO.minsertdate}"
+			}
+		})
+		
+		$('#loginGo').on('click',function(){
+			
+			console.log("로그인 버튼 선택");
+			location.href="memberLoginForm.do"
+
+		});
+		
+		$('#findPW').on('click',function(){
+			
+			console.log("패스워드 찾기 버튼 선택");
+			location.href="memberPwFindForm.do"
+		})
+	})
+
+</script>
 </head>
 <body>
-<h1>아이디!!</h1>
 	<form>
+		<div id="show" v-cloak>
+			<div>
+				<ul>
+					<li>{{id}}&nbsp;&nbsp;&nbsp;가입 : {{minsertdate}}</li>
+				</ul>
+			</div>
+		</div>
 		<div>
-			<ul>
-				<li>shj3497&nbsp;&nbsp;&nbsp;가입 : 2005.03.29</li>
-			</ul>
+			<input type="button" id="loginGo" value="로그인">
+			<input type="button" id="findPW" value="패스워드 찾기">
 		</div>
 	</form>
 </body>

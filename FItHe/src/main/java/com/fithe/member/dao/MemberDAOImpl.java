@@ -77,12 +77,22 @@ public class MemberDAOImpl implements MemberDAO{
 		return (MemberVO)sqlSession.selectList("memberLogin", mvo);
 	}
 
+	// 인증번호를 인증번호 저장 테이블에 insert한다.
 	@Override
 	public int authInsert(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		System.out.println("(DAOImpl) authInsert() 진입");
 		
 		return (Integer)sqlSession.insert("authInsert", mvo);
+	}
+
+	// 인증번호테이블에 있는 name과 이메일을 가지고 멤버테이블에있는 것과 비교
+	@Override
+	public MemberVO authCheck(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		System.out.println("(DAOImpl) authCheck() 진입");
+		
+		return (MemberVO)sqlSession.selectList("authCheck", mvo);
 	}
 	
 	
