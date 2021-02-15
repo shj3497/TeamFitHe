@@ -7,6 +7,7 @@
 <title>ID FIND</title>
 </head>
 <body>
+<h1>아이디!!</h1>
 	<form>
 		<div>
 			<ul>
