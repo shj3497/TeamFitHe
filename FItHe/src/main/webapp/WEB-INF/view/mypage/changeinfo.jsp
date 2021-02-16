@@ -17,21 +17,44 @@
 				mid:"${memberVO.mid}",
 				mname:"${memberVO.mname}",
 				mph:"${memberVO.mph}",
-				memail:"${memberVO.memail}",
 				mzonecode:"${memberVO.mzonecode}",
 				maddress:"${memberVO.maddress}",
-				maddress_detail:"${memberVO.maddress_detail}"		
+				maddress_detail:"${memberVO.maddress_detail}",
+				memail:"${memberVO.memail}"
+			},
+			computed:{
+				// db에서 받아온 memail은 합쳐저 있는 것 이므로 쪼개서 뿌려준다.
+				memail_a:function(){
+					return this.memail.split('@')[0];
+				},
+				memail_b:function(){
+					var mail_b = this.memail.split('@')[1];
+					return '@'.concat(mail_b);
+				}
 			}
+
 		}) // end of vue
 		
+		// 수정하기 버튼을 클릭해서 db업데이트가 이루어진다.
 		$('#updateBtn').on('click',function(){
 			
 			console.log("수정하기 버튼 선택");
 			
 			$('#updateInfoForm').attr('method','POST');
-			$('#updateInfoForm').attr('action','');
+			$('#updateInfoForm').attr('action','memberUpdate.do');
 			$('#updateInfoForm').submit();
 		})
+		
+		// 이메일 셀렉트 박스
+		$('#memail_c').on('change', function() {
+            if ($('#memail_c').val() == '1') {
+            	$('#memail_b').attr('readonly', false);
+            	$('#memail_b').val('');
+            } else {
+            	$('#memail_b').attr('readonly', true);
+            	$('#memail_b').val('@' + $('#memail_c').val());
+            }
+        });
 	})
 
 </script>
@@ -58,7 +81,7 @@
                 document.getElementById('mzonecode').value = data.zonecode;
                 document.getElementById("maddress").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("maddress_detail").focus();
+                document.getElementById("maddress_detail");
             }
         }).open();
     }
@@ -67,12 +90,15 @@
 <body>
 	<form id="updateInfoForm">
 		<div id="show" v-cloak>
+			<input type="hidden" id="mid" name="mid" v-model="mid">
 			<div>
 				<h3>연락처 및 알림 설정</h3>
 				<label>{{mid}}님의 연락처 정보입니다.<br>
-				회원정보는 개인정보처리방침에 따라 안전하게 보호되며,회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다.<br>
+				회원정보는 개인정보처리방침에 따라 안전하게 보호되며,<br> 
+				회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다.<br>
 				</label>
 			</div>
+			<br>
 			<div>
 				<label>사용자이름</label>
 				<input type="text" id="mname" name="mname" v-model="mname">
@@ -83,7 +109,15 @@
 			</div>
 			<div>
 				<label>이메일</label>
-				<input type="text" id="memail" name="memail" v-model="memail">
+				<input type="text" id="memail_a" name="memail_a" v-model="memail_a">
+				<input type="text" id="memail_b" name="memail_b" v-model="memail_b">
+				<select id="memail_c" name="memail_c">
+				<option value="" disabled selected>선택하세요</option>
+				<option value="gmail.com">gmail.com</option>
+				<option value="naver.com">naver.com</option>
+				<option value="hanmail.net">hanmail.net</option>
+				<option value="1">직접입력</option>
+			</select>
 			</div>
 			<div>
 				<label>우편번호</label>

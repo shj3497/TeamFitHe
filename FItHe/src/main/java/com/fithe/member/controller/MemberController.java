@@ -72,13 +72,13 @@ public class MemberController {
 		
 		// 데이터 받아오기
 		String memail_a = request.getParameter("memail_a");
-		System.out.println("memail_a >>> : " + memail_a);
+		logger.info("memail_a >>> : " + memail_a);
 		String memail_b = request.getParameter("memail_b");
-		System.out.println("memail_b >>> : " + memail_b);
+		logger.info("memail_b >>> : " + memail_b);
 		
 		// 조합
 		String memail = memail_a.concat(memail_b);
-		System.out.println("memail >>> : " + memail);
+		logger.info("memail >>> : " + memail);
 		
 		// vo에 세팅
 		mvo.setMemail(memail);
@@ -97,16 +97,16 @@ public class MemberController {
 		
 		// 채번 번호를 얻어온다.
 		String chaebun = ChaebunUtil.getMemberChaebun("Y", chaebunService.getChaebun_m().getMnum());
-		System.out.println("chaebun >>> : " + chaebun);
+		logger.info("chaebun >>> : " + chaebun);
 		mvo.setMnum(chaebun);
 				
 		int nCnt = memberService.memberInsert(mvo);
 		
 		if(nCnt == 1) {
-			System.out.println("입력 성공");
+			logger.info("입력 성공");
 			return "member/loginForm";
 		}else {
-			System.out.println("입력 실패");
+			logger.info("입력 실패");
 			return "member/error";
 		}
 	}
@@ -123,7 +123,7 @@ public class MemberController {
 		// ID 중복 체크
 		
 		int nCnt = memberService.memberIdCheck(mvo);
-		System.out.print("nCnt >>> : " + nCnt);
+		logger.info("nCnt >>> : " + nCnt);
 		
 		String result = "";
 		
@@ -415,11 +415,35 @@ public class MemberController {
 		return "mypage/changeinfo";
 	}
 	
+	// db업데이트가 이루어지는 회원 정보 업데이트 메소드
 	@RequestMapping(value="memberUpdate", method=RequestMethod.POST)
-	public String memberUpdate(Model model, MemberVO mvo) {
+	public String memberUpdate(Model model, MemberVO mvo, HttpServletRequest request) {
 		// 회원 정보 수정
+		logger.info("memberUpdate() 진입");
 		
-		return "";
+		// 이메일을 합쳐야한다.
+		String memail_a = request.getParameter("memail_a");
+		String memail_b = request.getParameter("memail_b");
+		String memail = memail_a.concat(memail_b);
+
+		// 데이터 잘 넘어와서 합쳐졌나 확인
+		logger.info("memail >>> : " + memail);
+		
+		// VO에 세팅해준다.
+		mvo.setMemail(memail);
+		
+		// 업데이트 쿼리 실행결과가 담긴다.
+		int nCnt = memberService.memberUpdate(mvo);
+		logger.info("nCnt >>> : " + nCnt);
+		if(nCnt==1){
+			logger.info("회원 정보 수정 성공");
+			
+			return "mypage/mypage";
+		}
+		else {
+			logger.info("회원 정보 수정 실패");
+			return "member/error";
+		}
 	}
 	
 	
