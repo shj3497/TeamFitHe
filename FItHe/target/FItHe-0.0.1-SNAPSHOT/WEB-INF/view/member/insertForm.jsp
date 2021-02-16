@@ -106,7 +106,7 @@
                 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('mzonecode').value = data.zonecode;
-                document.getElementById("maddress_road").value = addr;
+                document.getElementById("maddress").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("maddress_detail").focus();
             }
@@ -150,7 +150,7 @@
 		</div>
 		<div>
 			<label>주소</label>
-			<input type="text" id="maddress_road" name="maddress_road">
+			<input type="text" id="maddress" name="maddress">
 		</div>
 		<div>
 			<label>상세주소</label>

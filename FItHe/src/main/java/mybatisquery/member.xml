@@ -115,9 +115,10 @@
 	
 	<!-- id 중복 체크 -->
 	<select id="memberIdCheck" parameterType="com.fithe.member.vo.MemberVO" resultType="int">
-		SELECT COUNT(*)
-		FROM FIT_MEMBER
-		WHERE MID = #{mid, jdbcType=VARCHAR}
+		SELECT 	COUNT(*)
+		FROM 	FIT_MEMBER
+		WHERE 	MID = #{mid, jdbcType=VARCHAR}
+			AND MDELYN = 'Y'
 		<!-- 삭제된 아이디도 중복되면 안된다. -->
 	</select>
 	
@@ -173,13 +174,15 @@
 			WHERE	AUTHNUM = #{authnum, jdbcType=VARCHAR}
 				AND	AINSERTDATE = TO_CHAR(SYSDATE, 'YYYYMMDD')
 		) A
-		WHERE	M.MNAME = A.ANAME
-			AND	M.MEMAIL = A.AEMAIL
+		WHERE	M.MNAME = A.ANAME		<!-- A.ANAME  이게 인증번호를 부여받은 이름 -->
+			AND	M.MEMAIL = A.AEMAIL		<!-- A.AEMAIL 이게 인증번호를 부여받은 이메일 -->
 			AND M.MDELYN = 'Y'
+		<!-- 인증번호 테이블에서 가져온 이름과 이메일이 
+			  회원 DB에 존재하는 이름과 이메일이 일치하면 해당 정보를 반환한다. -->
 	</select>
 	
 	<!-- 패스워드를 업데이트 하는 쿼리 -->
-	<update id="">
+	<update id="pwUpdate" parameterType="com.fithe.member.vo.MemberVO">
 		UPDATE	FIT_MEMBER
 		SET		MPW = #{mpw, jdbcType=VARCHAR},
 				MUPDATEDATE = SYSDATE

@@ -94,6 +94,14 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return (MemberVO)sqlSession.selectList("authCheck", mvo);
 	}
+
+	@Override
+	public int pwUpdate(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		System.out.println("(DAOImpl) pwUpdate() 진입");
+		
+		return (Integer)sqlSession.update("pwUpdate", mvo);
+	}
 	
 	
 

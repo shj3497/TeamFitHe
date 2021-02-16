@@ -36,7 +36,7 @@
 					// 인증번호 전송에 성공하면 입력한 이름과 이메일은 수정 불가
 					$('#aname').attr('readonly','true');
 					$('#aemail').attr('readonly','true');
-					$('#authnumber').focus();
+					$('#authnum').focus();
 				}else if(resData == 0){
 					alert("전송에 실패하였습니다.")
 				}
