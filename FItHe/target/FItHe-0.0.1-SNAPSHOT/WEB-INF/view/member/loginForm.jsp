@@ -12,9 +12,11 @@
 		
 		// 로그인 버튼 선택
 		$('#loginChk').on('click',function(){
+			
 			$('#loginForm').attr('method','POST');
 			$('#loginForm').attr('action','memberLogin.do');
 			$('#loginForm').submit();
+			
 		});
 		
 		// 회원가입 버튼 선택
@@ -55,6 +57,10 @@
 		<div>
 			<input type="button" id="findID" value="ID찾기">
 			<input type="button" id="findPW" value="PW찾기">
+		</div>
+		<!-- 추후에 지울 태그 -->
+		<div>
+			<a href="tempmain.do">임시 메인페이지</a>		
 		</div>
 	</form>
 </body>
