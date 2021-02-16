@@ -42,6 +42,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>test test</h3>
 <!-- 추후에 메인페이지로 이동해야한다. -->
 	<h1>로그인 성공!!</h1>
 	<h3>${memberVO.mid}</h3>
