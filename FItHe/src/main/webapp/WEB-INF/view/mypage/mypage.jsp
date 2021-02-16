@@ -51,7 +51,6 @@
 				<input type="button" id="calendergo" value="조회하기">
 			</div>
 		</div>
-					
 		<div>
 			<div>
 				<h3>연락처 및 알림</h3>
