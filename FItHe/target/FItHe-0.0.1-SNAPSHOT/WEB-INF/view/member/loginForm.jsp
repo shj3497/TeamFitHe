@@ -18,9 +18,20 @@
 		});
 		
 		// 회원가입 버튼 선택
-		
 		$('#memberInsert').on('click',function(){
 			location.href="memberInsertForm.do"
+		})
+		
+		// ID찾기 버튼 선택
+		$('#findID').on('click',function(){
+			console.log("id찾기 버튼 선택");
+			location.href="memberIdFindForm.do"
+		})
+		
+		// PW찾기 버튼 선택
+		$('#findPW').on('click',function(){
+			console.log("pw찾기 버튼 선택");
+			location.href="memberPwFindForm.do"
 		})
 	})
 	
@@ -39,6 +50,11 @@
 		<div>
 			<input type="button" id="loginChk" value="로그인">
 			<input type="button" id="memberInsert" value="회원가입">
+		</div>
+		<br>
+		<div>
+			<input type="button" id="findID" value="ID찾기">
+			<input type="button" id="findPW" value="PW찾기">
 		</div>
 	</form>
 </body>

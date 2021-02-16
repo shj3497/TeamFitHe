@@ -38,9 +38,17 @@ public class MemberController {
 		this.chaebunService=chaebunService;
 	}
 	
+	@RequestMapping(value="tempmain", method=RequestMethod.GET)
+	public String tempmain() {
+		logger.info("tempmain() 진입");
+		
+		return "member/tempmain";
+	}
+	
 	@RequestMapping(value="memberInsertForm", method=RequestMethod.GET)
 	public String memberForm() {
 		// 회원가입 폼으로 이동
+		logger.info("memberForm() 진입");
 		
 		return "member/insertForm";
 	}
@@ -60,6 +68,7 @@ public class MemberController {
 	@RequestMapping(value="memberInsert", method=RequestMethod.POST)
 	public String memberInsert(Model model, MemberVO mvo, HttpServletRequest request) {
 		// 회원 가입 처리
+		logger.info("memberInsert() 진입");
 		
 		// 데이터 받아오기
 		String memail_a = request.getParameter("memail_a");
@@ -102,37 +111,6 @@ public class MemberController {
 		}
 	}
 	
-	@RequestMapping(value="updateForm", method=RequestMethod.POST)
-	public String memberUpdateForm(Model model, HttpServletRequest request, MemberVO mvo) {
-		// 회원 정보 수정 페이지로 이동
-		
-		logger.info("memberUpdateForm() 진입");
-		
-		// 세션 번호로 정보 가져오기
-		HttpSession session = request.getSession();
-		String mid = (String)session.getAttribute("mid");
-		logger.info("세션 mid >>> : " + mid);
-				
-		// 세션으로 정보 가져오기
-		mvo.setMid(mid);
-		
-		// 세션으로 불러온 mid에 따른 멤버 정보조회
-		MemberVO _mvo = memberService.memberSelect(mvo); // >>?? 이거만 해줘도 자동으로 세션이 불러오는데?
-		// 잘 불러오나 확인
-		// logger.info("_mvo.mname >>> : " + _mvo.getMname());
-		
-		model.addAttribute("memberVO", _mvo);
-		
-		return "/member/updateForm";
-	}
-	
-	@RequestMapping(value="memberUpdate", method=RequestMethod.POST)
-	public String memberUpdate(Model model, MemberVO mvo) {
-		// 회원 정보 수정
-		
-		return "";
-	}
-	
 	public String memberDelete() {
 		// 회원 탈퇴
 		
@@ -157,6 +135,7 @@ public class MemberController {
 		return result;
 	}
 	
+//	#################### 로그인 ####################	
 	// 로그인 화면 이동
 	@RequestMapping(value="memberLoginForm", method=RequestMethod.GET)
 	public String memberLoginForm() {
@@ -192,12 +171,11 @@ public class MemberController {
 			 * 
 			 * */
 			HttpSession session = request.getSession();
-			session.setAttribute("mnum", _mvo.getMnum()); // 관리자는 mnum으로 부여하겠다.
 			session.setAttribute("mid", _mvo.getMid()); // id에 세션값을 부여
 			session.setMaxInactiveInterval(-1); // 세션 무한대
 			
-			// 로그인에 성공한 getMnum()이 관리자의 채번이라면
-			if(_mvo.getMnum().equals("M20210001")) {
+			// 로그인에 성공한 getMnum()이 관리자의 아이디이라면
+			if(_mvo.getMid().equals("admin")) {
 				// 관리자 페이지로 리턴
 				return "member/admin";
 			}
@@ -205,6 +183,7 @@ public class MemberController {
 			model.addAttribute("memberVO", _mvo);
 			
 			// 사용자가 로그인에 성공하면 이동하는 페이지
+			// 메인페이지로 이동해야함
 			return "member/loginsuccess";
 		}else {
 			// 로그인에 실패하면 보여지는 페이지
@@ -212,7 +191,21 @@ public class MemberController {
 		}
 	}// end of memberLogin()
 	
+	@RequestMapping(value="memberLogout", method=RequestMethod.GET)
+	public String memberLogout(HttpServletRequest request) {
+		// 로그아웃 버튼 선택시 처리하는 메소드
+		logger.info("memberLogout() 진입");
+		HttpSession session = request.getSession();
+		
+		// session.invalidate()는 세션을 모두 삭제한다.
+		session.invalidate();
+		
+		return "member/loginForm";
+	}
 	
+	
+	
+//  #################### ID찾기 ####################
 	@RequestMapping(value="memberIdFindForm", method=RequestMethod.GET)
 	public String memberIdFindForm() {
 		// id찾기 폼으로 이동
@@ -266,9 +259,9 @@ public class MemberController {
 		logger.info("memberIdFind() 진입");
 		
 		// 데이터가 잘 넘어오나 확인
-		logger.info("aname >>> : " + mvo.getAname());
-		logger.info("aemail >>> : " + mvo.getAemail());
-		logger.info("authnum >>> : " + mvo.getAuthnum());
+		//logger.info("aname >>> : " + mvo.getAname());
+		//logger.info("aemail >>> : " + mvo.getAemail());
+		//logger.info("authnum >>> : " + mvo.getAuthnum());
 		
 		MemberVO _mvo = null;
 		_mvo = memberService.authCheck(mvo);
@@ -283,6 +276,150 @@ public class MemberController {
 			
 			return "member/error";
 		}
+	}
+	
+//  #################### PW찾기 ####################
+	@RequestMapping(value="memberPwFindForm", method=RequestMethod.GET)
+	public String memberPwFindForm() {
+		// pw찾기 form으로 이동
+		logger.info("memberPwFindForm() 진입");
+		
+		
+		return "member/pwFindFormfirst";
+	}
+	
+	@RequestMapping(value="pwFindfirst", method=RequestMethod.POST)
+	public String memberPwFindfirst(Model model, MemberVO mvo) {
+		// 입력받은 아이디에 해당하는 정보가 있는지 DB 검색
+		logger.info("memberPwFindFormfirst() 진입");
+		
+		// 아이디 잘 넘어왔는지 확인 > check
+		logger.info("mid >>> : " + mvo.getMid());
+		
+		// 넘겨 받은 아이디로 FIT_MEMBER 테이블에 해당 id가 등록되어있는지 조회한다.
+		MemberVO _mvo = null;
+		_mvo = memberService.memberSelect(mvo);
+		
+		// 객체로 넘겨서 pwFindForm_2에서 히든태그로 mid를 가지고 이동할 것 
+		model.addAttribute("memberVO", _mvo);
+		
+		return "member/pwFindFormsecond";
+	}
+	
+	@RequestMapping(value="pwFindsecond", method=RequestMethod.POST)
+	public String memberPwFindsecond(Model model, MemberVO mvo) {
+		// 입력받은 인증번호를 확인하고 새로운 pw 설정하는 페이지로 이동
+		logger.info("memberPwFindsecond() 진입");
+		
+		// 데이터가 잘 넘어오나 확인
+		logger.info("mid >>> : " + mvo.getMid());
+		logger.info("aname >>> : " + mvo.getAname());
+		logger.info("aemail >>> : " + mvo.getAemail());
+		logger.info("authnum >>> : " + mvo.getAuthnum());
+		
+		// 인증번호를  부여받기 위해 입력한 name, email을 가지고 회원 DB에 있는 정보 조회에 성공한다면
+		MemberVO _mvo = null;
+		_mvo = memberService.authCheck(mvo);
+		
+		if(_mvo!=null) {
+			// mid를 가지고 패스워드 변경 페이지로 이동
+			model.addAttribute("memberVO", _mvo);
+			
+			return "member/pwUpdateForm";
+		}else {
+			
+			// 실패하면 에러페이지로 이동
+			return "member/error";
+		}
+	}
+	
+	@RequestMapping(value="pwUpdate", method=RequestMethod.POST)
+	@ResponseBody
+	public String pwUpdate(MemberVO mvo) {
+		// 새로운 패스워드로 DB 업데이트
+		logger.info("pwUdpate() 진입");
+		
+		// 데이터 잘 넘어오나 확인
+		logger.info("mid >>> : " + mvo.getMid());
+		String pw = mvo.getMpw();
+		logger.info("pw >>> : " + pw); // vo에 저장된 mpw가져옴
+
+		// 비밀번호 암호화
+		String encrypt_pw = PasswordEncoding.encode(pw); // pw암호화
+		// System.out.println("encrypt_pw >>> : " + encrypt_pw);
+		mvo.setMpw(encrypt_pw);	// 암호화된 pw vo에 세팅
+		
+		// 암호화된 pw 업데이트
+		int nCnt = memberService.pwUpdate(mvo);
+		
+		String result = "";
+		// 업데이트에 성공했다면
+		if(nCnt == 1) {
+			// 로그인 페이지로 이동
+			result = "1";
+		}else {
+			result = "0";
+		}
+		return result;
+	}
+	
+	
+	
+//	#################### MyPage ####################
+	
+	@RequestMapping(value="mypage", method=RequestMethod.GET)
+	public String mypage(Model model, MemberVO mvo, HttpServletRequest request) {
+		// 로그인 후 마이페이지 이동 버튼 클릭시 동작
+		logger.info("mypage() 진입");
+		
+		// 로그인 이후에 클릭할 페이지 이므로 세션으로 정보를 가져온다.
+		HttpSession session = request.getSession();
+		// 세션을 아이디로 설정했으니까 getAttribute("mid")이다.
+		String mid = (String)session.getAttribute("mid");
+		logger.info("현재 로그인되어있는 id >>> : " + mid);
+		
+		// 로그인 되어있는 id를 vo에 세팅
+		mvo.setMid(mid);
+		
+		// 로그인 되어있는 id를 VO에 세팅해줬으므로 select문으로 회원 정보를 조회한다.
+		MemberVO _mvo = memberService.memberSelect(mvo);
+		
+		// 모델객체로 view에 조회한 회원 정보를 전달한다.
+		model.addAttribute("memberVO", _mvo);
+		
+		return "mypage/mypage";
+	}
+	
+	
+	@RequestMapping(value="memberupdateForm", method=RequestMethod.GET)
+	public String memberUpdateForm(Model model, HttpServletRequest request, MemberVO mvo) {
+		// 회원 정보 수정 페이지로 이동
+		
+		logger.info("memberUpdateForm() 진입");
+		
+		// 세션 번호로 정보 가져오기
+		HttpSession session = request.getSession();
+		String mid = (String)session.getAttribute("mid");
+		logger.info("세션 mid >>> : " + mid);
+
+		// 세션으로 정보 가져오기
+		mvo.setMid(mid);
+		
+		// 세션으로 불러온 mid에 따른 멤버 정보조회
+		MemberVO _mvo = memberService.memberSelect(mvo); // >>?? 이거만 해줘도 자동으로 세션이 불러오는데?
+		// 잘 불러오나 확인
+		// logger.info("_mvo.mname >>> : " + _mvo.getMname());
+		
+		model.addAttribute("memberVO", _mvo);
+		
+		return "mypage/changeinfo";
+	}
+	
+	@RequestMapping(value="memberUpdate", method=RequestMethod.POST)
+	public String memberUpdate(Model model, MemberVO mvo) {
+		// 회원 정보 수정
+		
+		return "";
 	}
 	
 	

@@ -11,7 +11,7 @@
     </appender>
 
 	<!-- Application Loggers -->
-    <logger name="com.fithe" additivity="false">
+    <logger name="com.fithe.**" additivity="false">
         <level value="trace" />
     </logger>
     

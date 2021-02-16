@@ -119,4 +119,15 @@ public class MemberServiceImpl implements MemberService{
 		return _mvo;
 	}
 
+
+	@Override
+	public int pwUpdate(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		logger.info("(ServiceImpl) pwUpdate() 진입");
+		
+		int nCnt = memberDAO.pwUpdate(mvo);
+		
+		return nCnt;
+	}
+
 }
