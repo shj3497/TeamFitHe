@@ -1,6 +1,8 @@
 package com.fithe.member.vo;
 
-public class MemberVO {
+import com.fithe.common.page.PagingVO;
+
+public class MemberVO extends PagingVO{
 
     private String mnum;			// 회원 채번 Myyyy0001, yyyy:년도
     private String mid;				// 아이디

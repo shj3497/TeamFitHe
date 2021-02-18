@@ -24,6 +24,15 @@ import com.fithe.member.vo.MemberVO;
 @Controller
 public class MemberController {
 
+// #################### ctrl+f 로 키워드 검색후 해당 함수 확인하세요!! ####################
+	// 회원관련함수 검색 >>> !회원!
+	// 로그인 관련 함수 검색 >>> !로그인!
+	// ID찾기 관련 함수 검색 >>> !ID찾기!
+	// PW찾기 관련 함수 검색 >>> !PW찾기!
+	// Mypage 관련 함수 검색 >>> !MYPAGE!
+	
+	
+	
 	@Autowired(required=false)
 	private MemberService memberService;
 	@Autowired(required=false)
@@ -45,6 +54,7 @@ public class MemberController {
 		return "member/tempmain";
 	}
 	
+//	#################### !회원! ####################	
 	@RequestMapping(value="memberInsertForm", method=RequestMethod.GET)
 	public String memberForm() {
 		// 회원가입 폼으로 이동
@@ -135,7 +145,7 @@ public class MemberController {
 		return result;
 	}
 	
-//	#################### 로그인 ####################	
+//	#################### !로그인! ####################	
 	// 로그인 화면 이동
 	@RequestMapping(value="memberLoginForm", method=RequestMethod.GET)
 	public String memberLoginForm() {
@@ -177,7 +187,7 @@ public class MemberController {
 			// 로그인에 성공한 getMnum()이 관리자의 아이디이라면
 			if(_mvo.getMid().equals("admin")) {
 				// 관리자 페이지로 리턴
-				return "member/admin";
+				return "admin/admin";
 			}
 			
 			model.addAttribute("memberVO", _mvo);
@@ -205,7 +215,7 @@ public class MemberController {
 	
 	
 	
-//  #################### ID찾기 ####################
+//  #################### !ID찾기! ####################
 	@RequestMapping(value="memberIdFindForm", method=RequestMethod.GET)
 	public String memberIdFindForm() {
 		// id찾기 폼으로 이동
@@ -278,7 +288,7 @@ public class MemberController {
 		}
 	}
 	
-//  #################### PW찾기 ####################
+//  #################### !PW찾기! ####################
 	@RequestMapping(value="memberPwFindForm", method=RequestMethod.GET)
 	public String memberPwFindForm() {
 		// pw찾기 form으로 이동
@@ -365,7 +375,7 @@ public class MemberController {
 	
 	
 	
-//	#################### MyPage ####################
+//	#################### !MyPage! ####################
 	
 	@RequestMapping(value="mypage", method=RequestMethod.GET)
 	public String mypage(Model model, MemberVO mvo, HttpServletRequest request) {

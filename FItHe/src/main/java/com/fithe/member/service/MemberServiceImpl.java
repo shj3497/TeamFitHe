@@ -21,22 +21,11 @@ public class MemberServiceImpl implements MemberService{
 	public MemberServiceImpl(MemberDAO memberDAO) {
 		this.memberDAO = memberDAO;
 	}
-	
-	
-	@Override
-	public List<MemberVO> memberSelectAll(MemberVO mvo) {
-		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) memberSelectAll() 진입");
-		
-		List<MemberVO> list = memberDAO.memberSelectAll(mvo);
-		
-		return list;
-	}
 
 	@Override
 	public MemberVO memberSelect(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) memberSelect() 진입");
+		logger.info("(MemberServiceImpl) memberSelect() 진입");
 		
 		MemberVO _mvo = null;
 		_mvo = memberDAO.memberSelect(mvo);
@@ -47,7 +36,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int memberInsert(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) memberInsert() 진입");
+		logger.info("(MemberServiceImpl) memberInsert() 진입");
 		
 		int nCnt = memberDAO.memberInsert(mvo);
 		
@@ -57,7 +46,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int memberUpdate(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) memberUpdate() 진입");
+		logger.info("(MemberServiceImpl) memberUpdate() 진입");
 		
 		int nCnt = memberDAO.memberUpdate(mvo);
 		
@@ -67,7 +56,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int memberDelete(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) memberDelete() 진입");
+		logger.info("(MemberServiceImpl) memberDelete() 진입");
 		
 		int nCnt = memberDAO.memberDelete(mvo);
 		
@@ -77,7 +66,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int memberIdCheck(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) memberIdCheck() 진입");
+		logger.info("(MemberServiceImpl) memberIdCheck() 진입");
 		
 		int nCnt = memberDAO.memberIdCheck(mvo);
 		
@@ -88,7 +77,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberVO memberLogin(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) memberLogin() 진입");
+		logger.info("(MemberServiceImpl) memberLogin() 진입");
 		
 		MemberVO _mvo = null;
 		_mvo = memberDAO.memberLogin(mvo);
@@ -100,7 +89,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int authInsert(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) authInsert() 진입");
+		logger.info("(MemberServiceImpl) authInsert() 진입");
 		
 		int nCnt = memberDAO.authInsert(mvo);
 		
@@ -111,7 +100,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberVO authCheck(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) authCheck() 진입");
+		logger.info("(MemberServiceImpl) authCheck() 진입");
 		
 		MemberVO _mvo = null;
 		_mvo = memberDAO.authCheck(mvo);
@@ -123,9 +112,29 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int pwUpdate(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(ServiceImpl) pwUpdate() 진입");
+		logger.info("(MemberServiceImpl) pwUpdate() 진입");
 		
 		int nCnt = memberDAO.pwUpdate(mvo);
+		
+		return nCnt;
+	}
+
+	@Override
+	public List<MemberVO> memberList(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		logger.info("(MemberServiceImpl) memberList() 진입");
+		
+		List<MemberVO> list = memberDAO.memberList(mvo);
+		
+		return list;
+	}
+
+	@Override
+	public int memberCount() {
+		// TODO Auto-generated method stub
+		logger.info("(MemberServiceImpl) memberCount() 진입");
+		
+		int nCnt = memberDAO.memberCount();
 		
 		return nCnt;
 	}

@@ -16,15 +16,7 @@ public class MemberDAOImpl implements MemberDAO{
 	// SqlSessionTemplate는 쓰레드에 안전하고 여러개의 DAO나 Mapper에서 공유 할 수 있다.
 	@Autowired(required=false)
 	private SqlSessionTemplate sqlSession;
-	
-	
-	@Override
-	public List<MemberVO> memberSelectAll(MemberVO mvo) {
-		// TODO Auto-generated method stub
-		System.out.println("(DAOImpl) memberSelectAll() 진입");
-		
-		return sqlSession.selectList("memberSelectAll", mvo);
-	}
+
 
 	@Override
 	public MemberVO memberSelect(MemberVO mvo) {
@@ -101,6 +93,22 @@ public class MemberDAOImpl implements MemberDAO{
 		System.out.println("(DAOImpl) pwUpdate() 진입");
 		
 		return (Integer)sqlSession.update("pwUpdate", mvo);
+	}
+
+	@Override
+	public List<MemberVO> memberList(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		System.out.println("(DAOImpl) memberList() 진입");
+		
+		return sqlSession.selectList("memberList", mvo);
+	}
+	
+	@Override
+	public int memberCount() {
+		// TODO Auto-generated method stub
+		System.out.println("(DAOImpl) memberCount() 진입");
+		
+		return (Integer)sqlSession.selectOne("memberCount");
 	}
 	
 	

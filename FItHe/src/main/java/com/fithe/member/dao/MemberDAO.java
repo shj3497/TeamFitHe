@@ -6,8 +6,6 @@ import com.fithe.member.vo.MemberVO;
 
 public interface MemberDAO {
 
-	// 관리자가 회원 전체 조회시
-	public List<MemberVO> memberSelectAll(MemberVO mvo);
 	// 회원 조회시
 	public MemberVO memberSelect(MemberVO mvo);
 	// 회원 가입시
@@ -30,5 +28,10 @@ public interface MemberDAO {
 	public MemberVO authCheck(MemberVO mvo);
 	// pw찾기 수행시 인증번호 확인후 pw변경
 	public int pwUpdate(MemberVO mvo);
+	
+	// 관리자가 회원 전체 조회시
+	public List<MemberVO> memberList(MemberVO mvo);
+	// 회원 전체 수 조회
+	public int memberCount();
 	
 }

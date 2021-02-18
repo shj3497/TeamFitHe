@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fithe.common.chaebun.dao.ChaebunDAO">
+	
+	<resultMap type="com.fithe.member.vo.MemberVO" id="memberVO">
+		<result column="MNUM" property="mnum"/>
+		<result column="ANUM" property="anum"/>
+	</resultMap>
+	
+	<!-- parameterType=값을 받아올 곳, resultMap=쿼리문의 결과를 저장할 곳 -->
+	<select id="getChaebun_m" parameterType="com.fithe.member.vo.MemberVO" resultMap="memberVO">
+		SELECT 	NVL(MAX(SUBSTR(M.MNUM, -4, 4)), 0) + 1 AS MNUM
+		FROM 	FIT_MEMBER M
+	</select>
+	
+	<select id="getChaebun_a" parameterType="com.fithe.member.vo.MemberVO" resultMap="memberVO">
+		SELECT 	NVL(MAX(SUBSTR(A.ANUM, -4, 4)), 0) + 1 AS ANUM
+		FROM 	FIT_AUTH A
+	</select>
+</mapper>
