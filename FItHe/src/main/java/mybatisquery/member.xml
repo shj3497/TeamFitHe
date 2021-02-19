@@ -235,8 +235,7 @@
 	<!-- 회원 전체 수 조회  -->
 	<select id="memberCount" parameterType="com.fithe.member.vo.MemberVO" resultType="int">
 		SELECT 	COUNT(MNUM)
-		FROM 	FIT_MEMBER
-		WHERE	MDELYN = 'Y'		
+		FROM 	FIT_MEMBER		
 	</select>
 	
 	<!-- 관리자가 탈퇴 시킬때 -->

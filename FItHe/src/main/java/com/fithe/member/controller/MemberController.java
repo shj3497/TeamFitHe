@@ -62,13 +62,7 @@ public class MemberController {
 		
 		return "member/insertForm";
 	}
-	
-	public String memberSelectAll() {
-		// 회원 전체 조회(관리자)
-		
-		return "";
-	}
-	
+
 	public String memberSelect() {
 		// 회원 정보 조회(당사자)
 		
@@ -121,11 +115,6 @@ public class MemberController {
 		}
 	}
 	
-	public String memberDelete() {
-		// 회원 탈퇴
-		
-		return "";
-	}
 	
 	@RequestMapping(value="memberIdCheck", method=RequestMethod.POST)
 	@ResponseBody // ajax 통신할 때는 ResponseBody 어노테이션 사용
@@ -372,89 +361,5 @@ public class MemberController {
 		}
 		return result;
 	}
-	
-	
-	
-//	#################### !MyPage! ####################
-	
-	@RequestMapping(value="mypage", method=RequestMethod.GET)
-	public String mypage(Model model, MemberVO mvo, HttpServletRequest request) {
-		// 로그인 후 마이페이지 이동 버튼 클릭시 동작
-		logger.info("mypage() 진입");
-		
-		// 로그인 이후에 클릭할 페이지 이므로 세션으로 정보를 가져온다.
-		HttpSession session = request.getSession();
-		// 세션을 아이디로 설정했으니까 getAttribute("mid")이다.
-		String mid = (String)session.getAttribute("mid");
-		logger.info("현재 로그인되어있는 id >>> : " + mid);
-		
-		// 로그인 되어있는 id를 vo에 세팅
-		mvo.setMid(mid);
-		
-		// 로그인 되어있는 id를 VO에 세팅해줬으므로 select문으로 회원 정보를 조회한다.
-		MemberVO _mvo = memberService.memberSelect(mvo);
-		
-		// 모델객체로 view에 조회한 회원 정보를 전달한다.
-		model.addAttribute("memberVO", _mvo);
-		
-		return "mypage/mypage";
-	}
-	
-	
-	@RequestMapping(value="memberupdateForm", method=RequestMethod.GET)
-	public String memberUpdateForm(Model model, HttpServletRequest request, MemberVO mvo) {
-		// 회원 정보 수정 페이지로 이동
-		
-		logger.info("memberUpdateForm() 진입");
-		
-		// 세션 번호로 정보 가져오기
-		HttpSession session = request.getSession();
-		String mid = (String)session.getAttribute("mid");
-		logger.info("세션 mid >>> : " + mid);
-
-		// 세션으로 정보 가져오기
-		mvo.setMid(mid);
-		
-		// 세션으로 불러온 mid에 따른 멤버 정보조회
-		MemberVO _mvo = memberService.memberSelect(mvo); // >>?? 이거만 해줘도 자동으로 세션이 불러오는데?
-		// 잘 불러오나 확인
-		// logger.info("_mvo.mname >>> : " + _mvo.getMname());
-		
-		model.addAttribute("memberVO", _mvo);
-		
-		return "mypage/changeinfo";
-	}
-	
-	// db업데이트가 이루어지는 회원 정보 업데이트 메소드
-	@RequestMapping(value="memberUpdate", method=RequestMethod.POST)
-	public String memberUpdate(Model model, MemberVO mvo, HttpServletRequest request) {
-		// 회원 정보 수정
-		logger.info("memberUpdate() 진입");
-		
-		// 이메일을 합쳐야한다.
-		String memail_a = request.getParameter("memail_a");
-		String memail_b = request.getParameter("memail_b");
-		String memail = memail_a.concat(memail_b);
-
-		// 데이터 잘 넘어와서 합쳐졌나 확인
-		logger.info("memail >>> : " + memail);
-		
-		// VO에 세팅해준다.
-		mvo.setMemail(memail);
-		
-		// 업데이트 쿼리 실행결과가 담긴다.
-		int nCnt = memberService.memberUpdate(mvo);
-		logger.info("nCnt >>> : " + nCnt);
-		if(nCnt==1){
-			logger.info("회원 정보 수정 성공");
-			
-			return "mypage/mypage";
-		}
-		else {
-			logger.info("회원 정보 수정 실패");
-			return "member/error";
-		}
-	}
-	
 	
 }

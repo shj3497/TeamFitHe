@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My page</title>
+<title>회원정보</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript">
@@ -22,7 +22,7 @@
 		
 		
 		// 개인정보 수정하는 페이지로 이동
-		$('#changeinfogo').on('click',function(){
+		$('#changeInfogo').on('click',function(){
 			location.href="memberupdateForm.do";
 		})
 		
@@ -41,6 +41,7 @@
 <!-- 단지 디자인적으로 생각만 하고있는거라 언제든지 변경 가능합니다. -->
 	<div id="show" v-cloak>
 		<div>
+			<!-- 이 div태그가 고정임 -->
 			<ul>
 				<!-- 회원 정보 Mypage 이동시 기본은 회원정보를 보여준다. -->
 				<li><a href="mypage.do">회원정보</a></li>
@@ -50,16 +51,16 @@
 		</div>
 		<div>
 			<div>
-				<label>캘린더</label>
+				<h3><label>캘린더</label></h3>
 				<input type="button" id="calendergo" value="조회하기">
 			</div>
 		</div>
 		<div>
 			<div>
-				<h3>연락처 및 알림</h3>
+				<h3><label>연락처 및 알림</label></h3>
 				<label>이메일</label>&nbsp;&nbsp;<label>{{memail}}</label><br>			
 				<label>연락처</label>&nbsp;&nbsp;<label>{{mph}}</label><br>
-				<input type="button" id="changeinfogo" value="수정">
+				<input type="button" id="changeInfogo" value="수정">
 				<input type="button" id="logoutgo" value="로그아웃">
 			</div>
 		</div>

@@ -54,12 +54,11 @@
 		// 탈퇴 버튼 처리 이벤트
 		$('.memDelBtn').on('click', function(){
 			
-			var goURL = "";
+			var goURL = "adminDelete.do";
 			var method = "POST";
 			var deldata = {
-					mid:$('.memdelBtn').val()
+					mid:$(this).val()
 			};
-			console.log("mid >>> : " + mid)
 			
 			$.ajax({
 				url:goURL,
@@ -71,9 +70,11 @@
 			
 			function whenSuccess(resData){
 			
-				if(resData="1"){
+				if(resData=="1"){
 					alert("탈퇴처리되었습니다.");
-				}else if(resData="0"){
+					goPage(1);
+					
+				}else if(resData=="0"){
 					alert("탈퇴처리 실패하였습니다.");
 				}
 			}
@@ -82,6 +83,12 @@
 				console.log("e >>> : " + e)
 			}
 		});		
+		
+		// 로그아웃 버튼
+		$('#logoutgo').on('click',function(){
+			location.href="memberLogout.do";
+		})
+		
 	});
 	
 	// 정렬 버튼 클릭시 처리함수
@@ -120,12 +127,16 @@
 				<a href="memberList.do">회원관리</a>
 			</div>
 			<div>
-				<a href="communityList.do">게시판 관리</a>
+				<a href="">게시판 관리</a>
 			</div>
 			<div>
 				<a href="">공지사항 관리</a>
 			</div>
 		</div>
+		<div>
+		<!-- 나중에 없애거나 위치 조정 -->
+		<input type="button" id="logoutgo" value="로그아웃">
+	</div>
 	</div>
 	<div id="memberListForm">
 		<%-- === 검색기능!! === --%>
@@ -205,7 +216,7 @@
 									<td>${member.mname}</td>
 									<td>${member.minsertdate}</td>
 									<td>${member.mdelyn}</td>
-									<td><button class='memDelBtn' value="${member.mid}">탈퇴</button></td>
+									<td><button class='memDelBtn' id="mid" name="mid" value="${member.mid}">탈퇴</button></td>
 								</tr>
 							</c:forEach>
 						</c:when>
