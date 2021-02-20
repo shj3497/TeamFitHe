@@ -20,6 +20,17 @@
 				msg:""
 			},
 			watch:{
+				pw:function(pw){
+					if(this.pw.length < 8){
+						let msg = "8자리 이상 입력하세요";
+						this.msg = msg;
+					}else if(this.pw.length > 16){
+						this.pw = pw.substring(0,16);
+					}else {
+						let msg = " ";
+						this.msg = msg;
+					}
+				},
 				pw_r:function(pw_r){
 					if(this.pw == this.pw_r){
 						var msg = " ";
@@ -93,12 +104,7 @@
 				}
 			}
 		})// end of 확인버튼
-		
 	})
-
-
-
-
 </script>
 </head>
 <body>

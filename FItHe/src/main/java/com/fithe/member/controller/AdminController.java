@@ -36,6 +36,8 @@ public class AdminController {
 	public String memberList(Model model, MemberVO mvo, HttpServletRequest request) {
 		logger.info("(AdminController) memberList() 진입");
 
+		String result = "";
+		
 		// 세션 번호로 정보 가져오기
 		HttpSession session = request.getSession();
 		String mid = (String)session.getAttribute("mid");
@@ -79,7 +81,9 @@ public class AdminController {
 			return "admin/memberList";
 		}else {
 			// 관리자 계정이 아니면 에러페이지로 이동
-			return "member/error";
+			result="잘못된 접근입니다.";
+			model.addAttribute("result", result);
+			return "error/error";
 		}
 		
 	}

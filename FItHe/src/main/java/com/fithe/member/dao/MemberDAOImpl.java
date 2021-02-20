@@ -41,15 +41,15 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return (Integer)sqlSession.update("memberUpdate", mvo);
 	}
-
+	
 	@Override
-	public int memberDelete(MemberVO mvo) {
+	public int memberDelynUpdate(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		System.out.println("(DAOImpl) memberDelete() 진입");
+		System.out.println("(DAOImpl) memberDelynUpdate() 진입");
 		
-		return (Integer)sqlSession.update("memberDelete", mvo);
+		return (Integer)sqlSession.update("memberDelynUpdate", mvo);
 	}
-
+	
 	@Override
 	public int memberIdCheck(MemberVO mvo) {
 		// TODO Auto-generated method stub
@@ -58,6 +58,13 @@ public class MemberDAOImpl implements MemberDAO{
 		return (Integer)sqlSession.selectOne("memberIdCheck", mvo);
 	}
 
+	@Override
+	public int memberEmailCheck(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		System.out.println("(DAOImpl) memberEmailCheck() 진입");
+		
+		return (Integer)sqlSession.selectOne("memberEmailCheck", mvo);
+	}
 	
 	
 	
@@ -111,6 +118,12 @@ public class MemberDAOImpl implements MemberDAO{
 		return (Integer)sqlSession.selectOne("memberCount");
 	}
 	
-	
+	@Override
+	public int memberDelete(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		System.out.println("(DAOImpl) memberDelete() 진입");
+		
+		return (Integer)sqlSession.delete("memberDelete", mvo);
+	}
 
 }

@@ -6,16 +6,20 @@
 <meta charset="UTF-8">
 <title>PW 찾기</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
 		
 		$('#findPW_next').on('click',function(){
 			
-			$('#pwFindForm_1').attr('method','POST')
-			$('#pwFindForm_1').attr('action','pwFindfirst.do')
-			$('#pwFindForm_1').submit();
-			
+			if(!chkSubmit($('#mid'), "FitHe 아이디를")){
+				return ;
+			} else{
+				$('#pwFindForm_1').attr('method','POST')
+				$('#pwFindForm_1').attr('action','pwFindfirst.do')
+				$('#pwFindForm_1').submit();
+			}
 		})
 	})
 	

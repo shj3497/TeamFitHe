@@ -19,7 +19,7 @@
 		// 회원 탈퇴페이지로 이동
 		$('#delMemberFormgo').on('click',function(){
 			
-			location.href="";
+			location.href="delMemberFormgo.do";
 		})
 		
 		// 내가 쓴 글 목록 리스트로 이동

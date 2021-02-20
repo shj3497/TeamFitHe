@@ -47,6 +47,7 @@ public class MemberController {
 		this.chaebunService=chaebunService;
 	}
 	
+	// 임시로 만든 메인페이지
 	@RequestMapping(value="tempmain", method=RequestMethod.GET)
 	public String tempmain() {
 		logger.info("tempmain() 진입");
@@ -73,6 +74,9 @@ public class MemberController {
 	public String memberInsert(Model model, MemberVO mvo, HttpServletRequest request) {
 		// 회원 가입 처리
 		logger.info("memberInsert() 진입");
+		
+		String result = "";
+		
 		
 		// 데이터 받아오기
 		String memail_a = request.getParameter("memail_a");
@@ -111,7 +115,9 @@ public class MemberController {
 			return "member/loginForm";
 		}else {
 			logger.info("입력 실패");
-			return "member/error";
+			result = "관리자에게 문의하세요";
+			model.addAttribute("result", result);
+			return "error/error";
 		}
 	}
 	
@@ -120,7 +126,7 @@ public class MemberController {
 	@ResponseBody // ajax 통신할 때는 ResponseBody 어노테이션 사용
 	public String memberIdCheck(MemberVO mvo) {
 		// ID 중복 체크
-		
+		logger.info("(Controller) memberIdCheck() 진입");
 		int nCnt = memberService.memberIdCheck(mvo);
 		logger.info("nCnt >>> : " + nCnt);
 		
@@ -131,6 +137,27 @@ public class MemberController {
 		}else {
 			result = "0";
 		}
+		return result;
+	}
+	
+	@RequestMapping(value="memberEmailCheck", method=RequestMethod.POST)
+	@ResponseBody // ajax 통신할 때는 ResponseBody 어노테이션 사용
+	public String memberEmailCheck(MemberVO mvo) {
+		// ID 중복 체크
+		logger.info("(Controller) memberEmailCheck() 진입");
+		
+		int nCnt = memberService.memberEmailCheck(mvo);
+		
+		logger.info("nCnt >>> : " + nCnt);
+		
+		String result = "";
+		
+		if(nCnt == 1) {
+			result = "1";
+		}else {
+			result = "0";
+		}
+		
 		return result;
 	}
 	
@@ -147,12 +174,24 @@ public class MemberController {
 	public String memberLogin(Model model, MemberVO mvo, HttpServletRequest request) {
 		logger.info("memberLogin() 진입");
 		
+		String result;
+		
 		// view 페이지에서 받아온 pw
 		String pw = mvo.getMpw();
+		String mid = mvo.getMid();
+		logger.info("로그인을 시도하는 id >>> : " + mid);
 		
+			
+		// memberLogin, memberSelect는 동일한 쿼리이지만 직관성을 위해 나눠놓았다.
 		MemberVO _mvo = null;
 		_mvo = memberService.memberLogin(mvo);
 		// _mvo에는 쿼리문에 대한 결과들이 저장되어있다.
+				
+		if(_mvo==null) {
+			result = "존재하지 않는 아이디 입니다.";
+			model.addAttribute("result", result);
+			return "error/error";
+		}
 		
 		// 패스워드 비교
 		boolean bool = PasswordEncoding.matches(pw, _mvo.getMpw());
@@ -171,6 +210,7 @@ public class MemberController {
 			 * */
 			HttpSession session = request.getSession();
 			session.setAttribute("mid", _mvo.getMid()); // id에 세션값을 부여
+			session.setAttribute("mauth", _mvo.getMauth()); // 회원 관리자 구분문자에도 세션값을 부여
 			session.setMaxInactiveInterval(-1); // 세션 무한대
 			
 			// 로그인에 성공한 getMnum()이 관리자의 아이디이라면
@@ -186,8 +226,11 @@ public class MemberController {
 			return "member/loginsuccess";
 		}else {
 			// 로그인에 실패하면 보여지는 페이지
-			return "member/error";
-		}
+			result = "PW가 일치하지 않습니다.";
+			model.addAttribute("result", result);
+			return "error/error";
+		}		
+		
 	}// end of memberLogin()
 	
 	@RequestMapping(value="memberLogout", method=RequestMethod.GET)
@@ -257,6 +300,10 @@ public class MemberController {
 		// id찾기
 		logger.info("memberIdFind() 진입");
 		
+		// 에러페이지 이동시 담길 문자열
+		String result = "";
+		
+		
 		// 데이터가 잘 넘어오나 확인
 		//logger.info("aname >>> : " + mvo.getAname());
 		//logger.info("aemail >>> : " + mvo.getAemail());
@@ -272,8 +319,9 @@ public class MemberController {
 			
 			return "member/idFind";
 		}else {
-			
-			return "member/error";
+			result = "존재하는 ID가 없습니다.";
+			model.addAttribute("result", result);
+			return "error/error";
 		}
 	}
 	
@@ -310,6 +358,8 @@ public class MemberController {
 		// 입력받은 인증번호를 확인하고 새로운 pw 설정하는 페이지로 이동
 		logger.info("memberPwFindsecond() 진입");
 		
+		String result = "";
+		
 		// 데이터가 잘 넘어오나 확인
 		logger.info("mid >>> : " + mvo.getMid());
 		logger.info("aname >>> : " + mvo.getAname());
@@ -326,9 +376,10 @@ public class MemberController {
 			
 			return "member/pwUpdateForm";
 		}else {
-			
 			// 실패하면 에러페이지로 이동
-			return "member/error";
+			result = "존재하는 ID가 없습니다.";
+			model.addAttribute("result", result);
+			return "error/error";
 		}
 	}
 	

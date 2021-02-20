@@ -7,6 +7,7 @@
 <title>내 정보 수정</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -35,14 +36,78 @@
 
 		}) // end of vue
 		
+		// 이메일 중복 체크
+		$('#memailChk').on('click',function(){
+			
+			if(!chkSubmit($('#memail_a'), "이메일을 ")){
+				return ;
+			}else if(!chkSubmit($('#memail_b'), "이메일을 ")){
+				return; 
+			}else {
+				console.log("memailChk 진입");
+				
+				// 아이디 중복체크
+				let goURL = "memberEmailCheck.do";
+				let method = "POST";
+				let param = {
+						memail : $('#memail_a').val() + $('#memail_b').val()
+				}
+				
+				$.ajax({
+					url : goURL,
+					type : method,
+					data : param,
+					success : whenSuccess,
+					error : whenError
+				})
+				function whenSuccess(resData){
+					
+					if(resData == 1){
+						alert("중복된 Email 입니다.")
+						$('#memail_a').val('');
+						$('#memail_b').val('');
+						$('#memail_a').focus();
+					}else if(resData == 0){
+						alert("사용가능한 Email입니다.")
+						$('#memail_a').attr('readonly','true')
+						$('#memail_b').attr('readonly','true')
+						$('#memail_c').attr('disabled','true')
+					}
+					
+				} // end of whenSuccess()
+				function whenError(e){
+					alert("시스템 오류 입니다. 관리자에게 문의하세요." + e);
+				}
+
+				
+			}// end of else{}
+		}) // end of 이메일 중복체크
+		
 		// 수정하기 버튼을 클릭해서 db업데이트가 이루어진다.
 		$('#updateBtn').on('click',function(){
 			
 			console.log("수정하기 버튼 선택");
-			
-			$('#updateInfoForm').attr('method','POST');
-			$('#updateInfoForm').attr('action','memberUpdate.do');
-			$('#updateInfoForm').submit();
+			if(!chkSubmit($('#mid'),"아이디를 ")){
+				return ;
+			}else if(!chkSubmit($('#mpw'),"비밀번호를 ")){
+				return ;
+			}else if(!chkSubmit($('#mname'),"이름을 ")){
+				return ;
+			}else if(!chkSubmit($('#mzonecode'),"우편번호를 ")){
+				return ;
+			}else if(!chkSubmit($('#maddress'),"주소를 ")){
+				return ;
+			}else if(!chkSubmit($('#mph'), "핸드폰번호를 ")){
+				return ;
+			}else if(!chkSubmit($('#memail_a'), "이메일을 ")){
+				return ;
+			}else if(!chkSubmit($('#memail_b'), "이메일을 ")){
+				return ;
+			}else{
+				$('#updateInfoForm').attr('method','POST');
+				$('#updateInfoForm').attr('action','memberUpdate.do');
+				$('#updateInfoForm').submit();
+			}
 		})
 		
 		// 이메일 셀렉트 박스
@@ -101,16 +166,16 @@
 			<br>
 			<div>
 				<label>사용자이름</label>
-				<input type="text" id="mname" name="mname" v-model="mname">
+				<input type="text" id="mname" name="mname" :value="mname">
 			</div>
 			<div>
 				<label>휴대전화</label>
-				<input type="text" id="mph" name="mph" v-model="mph">
+				<input type="text" id="mph" name="mph" :value="mph">
 			</div>
 			<div>
 				<label>이메일</label>
-				<input type="text" id="memail_a" name="memail_a" v-model="memail_a">
-				<input type="text" id="memail_b" name="memail_b" v-model="memail_b">
+				<input type="text" id="memail_a" name="memail_a" :value="memail_a">
+				<input type="text" id="memail_b" name="memail_b" :value="memail_b">
 				<select id="memail_c" name="memail_c">
 				<option value="" disabled selected>선택하세요</option>
 				<option value="gmail.com">gmail.com</option>
@@ -118,19 +183,20 @@
 				<option value="hanmail.net">hanmail.net</option>
 				<option value="1">직접입력</option>
 			</select>
+			<input type="button" id="memailChk" value="중복체크"><!-- 이메일 중복체크 -->
 			</div>
 			<div>
 				<label>우편번호</label>
-				<input type="text" id="mzonecode" name="mzonecode" v-model="mzonecode">
+				<input type="text" id="mzonecode" name="mzonecode" :value="mzonecode">
 				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호찾기">
 			</div>
 			<div>
 				<label>주소</label>
-				<input type="text" id="maddress" name="maddress" v-model="maddress">
+				<input type="text" id="maddress" name="maddress" :value="maddress">
 			</div>
 			<div>
 				<label>상세주소</label>
-				<input type="text" id="maddress_detail" name="maddress_detail" v-model="maddress_detail">
+				<input type="text" id="maddress_detail" name="maddress_detail" :value="maddress_detail">
 			</div>
 			<div>
 				<label>비밀번호</label>

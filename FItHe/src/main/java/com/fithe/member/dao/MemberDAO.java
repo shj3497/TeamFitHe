@@ -13,10 +13,11 @@ public interface MemberDAO {
 	// 회원 정보 수정시
 	public int memberUpdate(MemberVO mvo);
 	// 회원 탈퇴시
-	public int memberDelete(MemberVO mvo);
+	public int memberDelynUpdate(MemberVO mvo);
 	// id 중복 체크
 	public int memberIdCheck(MemberVO mvo);
-	
+	// 이메일 중복 체크
+	public int memberEmailCheck(MemberVO mvo);
 	
 	// 로그인
 	public MemberVO memberLogin(MemberVO mvo);
@@ -33,5 +34,6 @@ public interface MemberDAO {
 	public List<MemberVO> memberList(MemberVO mvo);
 	// 회원 전체 수 조회
 	public int memberCount();
-	
+	// 관리자가 회원 탈퇴시킬시 진짜로 탈퇴된다.
+	public int memberDelete(MemberVO mvo);
 }

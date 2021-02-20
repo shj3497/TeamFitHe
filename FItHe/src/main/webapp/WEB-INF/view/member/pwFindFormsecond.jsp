@@ -7,52 +7,68 @@
 <title>PW 찾기</title>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
 		
 		$('#sendAuthnum').on('click',function(){
 			
-			console.log("인증번호전송");
+			if(!chkSubmit($('#aname'),"이름을")){
+				return ;
+			} else if(!chkSubmit($('#aemail'),"이메일 주소를")){
+				return ;
+			} else {
 			
-			let goURL = "sendAuthnum.do";
-			let method = "POST";
-			let param = {
-					aname:$('#aname').val(),
-					aemail:$('#aemail').val()
-			} 
-			
-			$.ajax({
-				url : goURL,
-				type : method,
-				data : param,
-				success : whenSuccess,
-				error : whenError
-			});
-			
-			function whenSuccess(resData){
-				if(resData == 1){
-					alert("이메일을 확인해주세요");
-					// 인증번호 전송에 성공하면 입력한 이름과 이메일은 수정 불가
-					$('#aname').attr('readonly','true');
-					$('#aemail').attr('readonly','true');
-					$('#authnum').focus();
-				}else if(resData == 0){
-					alert("전송에 실패하였습니다.")
+				console.log("인증번호전송");
+				
+				let goURL = "sendAuthnum.do";
+				let method = "POST";
+				let param = {
+						aname:$('#aname').val(),
+						aemail:$('#aemail').val()
+				} 
+				
+				$.ajax({
+					url : goURL,
+					type : method,
+					data : param,
+					success : whenSuccess,
+					error : whenError
+				});
+				
+				function whenSuccess(resData){
+					if(resData == 1){
+						alert("이메일을 확인해주세요");
+						// 인증번호 전송에 성공하면 입력한 이름과 이메일은 수정 불가
+						$('#aname').attr('readonly','true');
+						$('#aemail').attr('readonly','true');
+						$('#authnum').focus();
+					}else if(resData == 0){
+						alert("전송에 실패하였습니다.")
+					}
 				}
-			}
+				
+				function whenError(e){
+					alert("시스템 오류입니다. 관리자에게문의해주세요." + e);
+				}
+			} // end of elseP{}
 			
-			function whenError(e){
-				alert("시스템 오류입니다. 관리자에게문의해주세요." + e);
-			}
 		}) // 이메일 전송
 		
 		$('#findPW_next').on('click',function(){
-			
-			$('#pwFindForm').attr('action','pwFindsecond.do');
-			$('#pwFindForm').attr('method','POST');
-			$('#pwFindForm').submit();
-			
+
+			if(!chkSubmit($('#aname'),"이름을")){
+				return ;
+			} else if(!chkSubmit($('#aemail'),"이메일 주소를")){
+				return ;
+			} else if(!chkSubmit($('#authnum'),"인증번호를")){
+				return ;
+			} else{	
+				$('#pwFindForm').attr('action','pwFindsecond.do');
+				$('#pwFindForm').attr('method','POST');
+				$('#pwFindForm').submit();
+			}
 		})
 		
 		

@@ -83,6 +83,8 @@ public class MypageController {
 		// 회원 정보 수정
 		logger.info("memberUpdate() 진입");
 		
+		String result = "";
+		
 		// 이메일을 합쳐야한다.
 		String memail_a = request.getParameter("memail_a");
 		String memail_b = request.getParameter("memail_b");
@@ -104,7 +106,9 @@ public class MypageController {
 		}
 		else {
 			logger.info("회원 정보 수정 실패");
-			return "member/error";
+			result = "관리자에게 문의하세요";
+			model.addAttribute("result", result);
+			return "error/error";
 		}
 	}
 	
@@ -191,10 +195,60 @@ public class MypageController {
 	
 	// 탈퇴하기 버튼을 클릭하여 폼 이동후
 	// 현재 패스워드를 입력받아 처리할 것이다.
+	@RequestMapping(value="delMemberFormgo", method=RequestMethod.GET)
+	public String delMemberFormgo() {
+		// 탈퇴페이지로 단순 이동
+		logger.info("delMemberFormgo() 진입");
+		
+		return "mypage/delMemberForm";
+	}
 	
-	
-	
-	
-	
+	@RequestMapping(value="delMemberForm", method=RequestMethod.POST)
+	@ResponseBody
+	public String delMemberForm(Model model, MemberVO mvo, HttpServletRequest request) {
+		// 탈퇴하기 버튼 클릭시 진행하는 메소드
+		logger.info("(MypageController) delMemberForm() 진입");
+		
+		String result = "";
+		
+		HttpSession session = request.getSession();
+		String mid = (String)session.getAttribute("mid");
+		logger.info("회원 탈퇴하기 버튼을 누른 id >>> : " + mid);
+		
+		mvo.setMid(mid);
+		
+		// 입력받은 비밀번호 호출
+		String mpw_c = mvo.getMpw(); // mpw_current
+		logger.info("mpw_c >>> : " + mpw_c);
+		// 로그인 되어있는 id로 db검색후 얻어온 pw와 view페이지에서 입력받은 패스워드 비교
+		MemberVO _mvo = null;
+		_mvo = memberService.memberSelect(mvo);
+		
+		String mpw_db = _mvo.getMpw(); // mpw_database
+		logger.info("mpw_db >>> : " + mpw_db);
+		
+		boolean bool = PasswordEncoding.matches(mpw_c, mpw_db);
+		logger.info("bool >>> :" + bool);
+		// pw비교시 false가 나오면 회원이 진행하는 회원 탈퇴로 진행 할 수가 없다.
+		if(bool) {
+			
+			int nCnt = memberService.memberDelynUpdate(mvo);
+			logger.info("memberDelynUpdate nCnt >>> : " + nCnt);
+		
+			if(nCnt == 1) {
+				session.invalidate();
+				result = "1";
+			}else {
+				result = "0";
+			}
+			
+			return result;
+		}else {
+			// pw비교에 실패하면 2를 반환한다.
+			result = "2";
+			
+			return result;
+		}
+	}// end of ajax통신 탈퇴하기
 	
 }

@@ -52,23 +52,33 @@ public class MemberServiceImpl implements MemberService{
 		
 		return nCnt;
 	}
-
+	
 	@Override
-	public int memberDelete(MemberVO mvo) {
+	public int memberDelynUpdate(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		logger.info("(MemberServiceImpl) memberDelete() 진입");
+		logger.info("(MemberServiceImpl) memberDelynUpdate() 진입");
 		
-		int nCnt = memberDAO.memberDelete(mvo);
+		int nCnt = memberDAO.memberDelynUpdate(mvo);
 		
 		return nCnt;
 	}
-
+	
 	@Override
 	public int memberIdCheck(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("(MemberServiceImpl) memberIdCheck() 진입");
 		
 		int nCnt = memberDAO.memberIdCheck(mvo);
+		
+		return nCnt;
+	}
+	
+	@Override
+	public int memberEmailCheck(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		logger.info("(MemberServiceImpl) memberEmailCheck() 진입");
+		
+		int nCnt = memberDAO.memberEmailCheck(mvo);
 		
 		return nCnt;
 	}
@@ -135,6 +145,16 @@ public class MemberServiceImpl implements MemberService{
 		logger.info("(MemberServiceImpl) memberCount() 진입");
 		
 		int nCnt = memberDAO.memberCount();
+		
+		return nCnt;
+	}
+
+	@Override
+	public int memberDelete(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		logger.info("(MemberServiceImpl) memberDelete() 진입");
+		
+		int nCnt = memberDAO.memberDelete(mvo);
 		
 		return nCnt;
 	}
