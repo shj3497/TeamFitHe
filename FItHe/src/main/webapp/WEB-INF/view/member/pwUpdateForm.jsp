@@ -92,7 +92,7 @@
 		<div id="show" v-cloak>
 			<input type="hidden" id="mid" name="mid" value="${memberVO.mid}">
 			<div>
-				<label>네이버 아이디 : {{mid}}</label>
+				<label>FitHe 아이디 : {{mid}}</label>
 			</div>
 			<div>
 				<input type="password" id="mpw" name="mpw" placeholder="새 비밀번호" v-model="pw"><br>
