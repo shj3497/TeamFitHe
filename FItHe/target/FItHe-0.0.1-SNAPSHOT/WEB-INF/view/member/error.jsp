@@ -6,7 +6,14 @@
 <meta charset="UTF-8">
 <title>ERROR PAGE</title>
 </head>
+<script>
+	//String result = request.getAttribute("result");
+	//console.log("result >>> : " + result);
+	//alert(result);
+	
+	alert("잘못된 접근입니다.");
+	history.go(-1);
+</script>
 <body>
-	<h1>에러!!</h1>
 </body>
 </html>

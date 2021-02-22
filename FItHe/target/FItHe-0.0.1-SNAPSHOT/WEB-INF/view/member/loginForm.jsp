@@ -6,17 +6,31 @@
 <meta charset="UTF-8">
 <title>LOGIN</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
 		
+		// 패스워드 입력후 엔터 입력시 바로 로그인 버튼 선택
+		$(document).on("keypress","#mpw",function(e){
+			if(e.keyCode == '13'){
+				$('#loginChk').click();
+			}
+		})
+
 		// 로그인 버튼 선택
 		$('#loginChk').on('click',function(){
 			
-			$('#loginForm').attr('method','POST');
-			$('#loginForm').attr('action','memberLogin.do');
-			$('#loginForm').submit();
-			
+			if(!chkSubmit($('#mid'),'아이디를')){
+				return;
+			}else if(!chkSubmit($('#mpw'), '비밀번호를')){
+				return;
+			}else{
+				
+				$('#loginForm').attr('method','POST');
+				$('#loginForm').attr('action','memberLogin.do');
+				$('#loginForm').submit();
+			}
 		});
 		
 		// 회원가입 버튼 선택

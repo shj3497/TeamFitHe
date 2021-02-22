@@ -7,6 +7,7 @@
 <title>PW CHANGE</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -20,10 +21,21 @@
 				msg:""
 			},
 			watch:{
+				pw:function(pw){
+					if(this.pw.length < 8){
+						let msg = "8자리 이상 입력하세요";
+						this.msg = msg;
+					}else if(this.pw.length > 16){
+						this.pw = pw.substring(0,16);
+					}else {
+						let msg = " ";
+						this.msg = msg;
+					}
+				},
 				pw_r:function(pw_r){
 					
 					if(this.pw == this.pw_r){
-						var msg = "일치합니다.";
+						var msg = " ";
 						this.msg = msg;
 					}else{
 						var msg = "일치하지않습니다.";
@@ -34,39 +46,41 @@
 		}) // end of Vue()
 		
 		$('#pwUpdate').on('click',function(){
-			
-			//$('#pwUpdateForm').attr('method','POST');
-			//$('#pwUpdateForm').attr('action','pwUpdate.do');
-			//$('#pwUpdateForm').submit();
-			
-			let goURL="pwUpdate.do";
-			let method = "POST";
-			let params = {
-					mid:$('#mid').val(),
-					mpw:$('#mpw').val()
-			}
-			
-			$.ajax({
-				url:goURL,
-				type:method,
-				data:params,
-				success:whenSuccess,
-				error:whenError
-			})
-			
-			function whenSuccess(resData){
-				alert("패스워드가 변경 되었습니다.");
-				
-				if(resData == 1){
-					location.href="memberLoginForm.do"
-				}else if(resData == 0){
-					alert("패스워드 변경에 실패하였습니다. 관리자에게 문의하세요");
+
+			if(!chkSubmit($('#mpw'),"새 비밀번호를 ")){
+				return ;
+			}else if(!chkSubmit($('#mpw_r'),"새 비밀번호 확인을")){
+				return ;
+			}else{
+				let goURL="pwUpdate.do";
+				let method = "POST";
+				let params = {
+						mid:$('#mid').val(),
+						mpw:$('#mpw').val()
 				}
-			}
-			
-			function whenError(e){
-				alert("시스템 오류입니다. 관리자에게문의해주세요." + e);
-			}
+				
+				$.ajax({
+					url:goURL,
+					type:method,
+					data:params,
+					success:whenSuccess,
+					error:whenError
+				})
+				
+				function whenSuccess(resData){
+					alert("패스워드가 변경 되었습니다.");
+					
+					if(resData == 1){
+						location.href="memberLoginForm.do"
+					}else if(resData == 0){
+						alert("패스워드 변경에 실패하였습니다. 관리자에게 문의하세요");
+					}
+				}
+				
+				function whenError(e){
+					alert("시스템 오류입니다. 관리자에게문의해주세요." + e);
+				}
+			}// end of else{}
 		})	
 		
 	})
@@ -78,12 +92,12 @@
 		<div id="show" v-cloak>
 			<input type="hidden" id="mid" name="mid" value="${memberVO.mid}">
 			<div>
-				<label>네이버 아이디 : {{mid}}</label>
+				<label>FitHe 아이디 : {{mid}}</label>
 			</div>
 			<div>
 				<input type="password" id="mpw" name="mpw" placeholder="새 비밀번호" v-model="pw"><br>
 				<input type="password" id="mpw_r" placeholder="새 비밀번호 확인" v-model="pw_r">
-				<label>{{msg}}</label>
+				<h6><label>{{msg}}</label></h6>
 			</div>
 			<div>
 				<input type="button" id="pwUpdate" value="확인">
