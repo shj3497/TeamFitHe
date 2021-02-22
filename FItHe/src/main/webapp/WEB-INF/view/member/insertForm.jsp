@@ -181,9 +181,18 @@
 			}else if(!chkSubmit($('#memail_b'), "이메일을 ")){
 				return ;
 			}else{
-				$('#fit_writeForm').attr('method', 'POST');
-				$('#fit_writeForm').attr('action', 'memberInsert.do');
-				$('#fit_writeForm').submit();
+				// 중복체크를 실행했는지 확인
+				if($('#mid').prop('readonly')){
+					if($('#memail_a').prop('readonly')){
+						$('#fit_writeForm').attr('method', 'POST');
+						$('#fit_writeForm').attr('action', 'memberInsert.do');
+						$('#fit_writeForm').submit();
+					}else{
+						alert("이메일 중복체크를 해주세요");
+					}
+				}else{
+					alert("아이디 중복체크를 해주세요");
+				}
 			}
 		});
 	})

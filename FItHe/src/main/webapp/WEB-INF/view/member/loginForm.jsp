@@ -11,6 +11,13 @@
 
 	$(document).ready(function(){
 		
+		// 패스워드 입력후 엔터 입력시 바로 로그인 버튼 선택
+		$(document).on("keypress","#mpw",function(e){
+			if(e.keyCode == '13'){
+				$('#loginChk').click();
+			}
+		})
+
 		// 로그인 버튼 선택
 		$('#loginChk').on('click',function(){
 			
