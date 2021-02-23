@@ -4,10 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>회원가입 폼</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--common stylesheet-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/member_login/member/style.css">
+<!--style-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/member_login/member/member.css">
+<!--font-->
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<title>board</title>
+<script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
+<!--script-->
+<script src="${pageContext.request.contextPath}/include/member_login/member/main.js" defer></script>
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -227,71 +242,152 @@
 </script>
 </head>
 <body>
-	<form id="fit_writeForm">
-		<input type="hidden" id="chkid" value="N">
-		<div id="show">
-			<div>
-				<label>아이디</label>
-				<input type="text" id="mid" name="mid">
-				<input type="button" id="midChk" value="중복체크">
-			</div>
-			<div>
-				<label>비밀번호</label>
-				<input type="password" id="mpw" name="mpw" v-model="pw">
-			</div>
-			<div>
-				<label>비밀번호 확인</label>
-				<input type="password" id="mpw_r" name="mpw_r" v-model="pw_r">
-				<h6><label>{{msg}}</label></h6>
-			</div>
-			<div>
-				<label>이름</label>
-				<input type="text" id="mname" name="mname">
-			</div>
-			<div>
-				<label>성별</label>
-				<input type="radio" id="mgender" name="mgender" value="F">여성
-				<input type="radio" id="mgender" name="mgender" value="M">남성
-			</div>
-			<div>
-				<label>생년월일</label>
-				<input type="text" id="mbir" name="mbir" placeholder="주민등록번호 앞 6자리" v-model="bir">
-			</div>
-			<div>
-				<label>우편번호</label>
-				<input type="text" id="mzonecode" name="mzonecode">
-				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호찾기">
-			</div>
-			<div>
-				<label>주소</label>
-				<input type="text" id="maddress" name="maddress">
-			</div>
-			<div>
-				<label>상세주소</label>
-				<input type="text" id="maddress_detail" name="maddress_detail">
-			</div>
-			<div>
-				<label>핸드폰번호</label>
-				<input type="text" id="mph" name="mph" placeholder="ex)01012345678">
-			</div>
-			<div>
-				<label>이메일</label>
-				<input type="text" id="memail_a" name="memail_a">
-				<input type="text" id="memail_b" name="memail_b">
-				<select id="memail_c" name="memail_c">
-					<option value="" disabled selected>선택하세요</option>
-					<option value="gmail.com">gmail.com</option>
-					<option value="naver.com">naver.com</option>
-					<option value="hanmail.net">hanmail.net</option>
-					<option value="1">직접입력</option>
-				</select>
-				<input type="button" id="memailChk" value="중복체크"><!-- 이메일 중복체크 -->
-			</div>
-			<div>
-				<input type="button" id="insertForm" value="회원가입">
-				<input type="button" value="다시" onClick="window.location.reload()">
+	<!--navigator-->
+    <nav class="navbar">
+        <!--logo-->
+		<div class="navbar_logo">
+            <i class="fas fa-ice-cream"></i>
+            <a href="">FITHE</a>
+        </div>
+		<!--menu-->
+        <ul class="navbar_menu"><!--  unorder-list -->
+            <li><a href="#">기초체력측정</a></li>
+            <li><a href="#">헬스장 추천</a></li>
+            <li><a href="#">게시판</a></li>
+            <li><a href="#">마이페이지</a></li>
+        </ul>
+		<!--login icon-->
+        <ul class="navbar_icons">
+            <li><i class="fas fa-user-plus"></i></li>
+		</ul>
+        <!--@pad @phone-->
+		<a href="#" class="navbar_toggleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+    </nav><!--end of <nav class="navbar">-->
+    
+    <div class="fithe_wrap">
+    	<!-- board -->
+    	<div class="content_wrap">
+    		<!-- 회원가입 header -->
+    		<div>
+				<p class="member_head">회원 가입</p>
+				<div class="user_head">FIT &amp; HEALTH</div>
+				<div class="user_check">
+					
+					<!--<p>여러분을 환영합니다</p>
+						<p>다양한 FITHE 서비스를 즐겨보세요.
+						회원으로 가입하시면 FITHE 서비스를 보다 편리하게 이용할 수 있습니다.</p>
+						<p>여러분이 제공한 콘텐츠를 소중히 다룰 것입니다.
+						여러분의 개인정보를 소중히 보호합니다.</p>
+						타인의 권리를 존중해 주세요.-->
+					<div class="user_agreement">
+						<div>
+							<p>여러분을 환영합니다</p>
+							<p>다양한 FITHE 서비스를 즐겨보세요.
+							회원으로 가입하시면 FITHE 서비스를 보다 편리하게 이용할 수 있습니다.</p>
+							<p>여러분이 제공한 콘텐츠를 소중히 다룰 것입니다.
+							여러분의 개인정보를 소중히 보호합니다.</p>
+							타인의 권리를 존중해 주세요.
+						</div>
+						<input type="checkbox"/>
+						<label>이용약관</label>
+					</div>
+				</div>		
+    		</div>
+    		
+    		<div class="content_group">
+				<form id="fit_writeForm">
+					<input type="hidden" id="chkid" value="N">
+					<div id="show">
+						<div class="member_content_section">
+							<label>아이디</label>
+							<div class="member_content_t">
+								<input type="text" id="mid" name="mid" placeholder="아이디 입력" />
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="button" class="com_btn" id="midChk" value="중복체크">
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>비밀번호</label>
+							<div class="member_content_p">
+								<input type="password" id="mpw" name="mpw" v-model="pw" placeholder="비밀번호 입력" />
+							</div>
+							<div class="member_content_t">
+								<!-- <label>비밀번호 확인</label> -->
+								<input type="password"  id="mpw_r" name="mpw_r" v-model="pw_r" placeholder="비밀번호 재입력">
+								<p><label>{{msg}}</label></p>
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>이름</label>
+							<div class="member_content_t">
+								<input type="text" id="mname" name="mname" placeholder="이름을 입력해주세요">
+							</div>
+						</div>
+						<div class="member_content_g">
+							<label>성별</label>
+							<input type="radio" id="mgender" name="mgender" value="F">여성
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" id="mgender" name="mgender" value="M">남성
+						</div>
+						<div class="member_content_section">
+							<label>생년월일</label>
+							<div class="member_content_t">
+								<input type="text" id="mbir" name="mbir" placeholder="주민등록번호 앞 6자리" v-model="bir">
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>주소</label>
+							<div class="member_content_p">
+								<input type="text" id="mzonecode" name="mzonecode" placeholder="우편번호">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="button" class="com_btn" onclick="sample6_execDaumPostcode()" value="우편번호찾기">
+							</div >
+							<div class="member_content_p">
+								<input type="text" id="maddress" name="maddress" placeholder="주소">
+							</div>
+							<div class="member_content_t">
+								<input type="text" id="maddress_detail" name="maddress_detail" placeholder="상세주소">
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>핸드폰번호</label>
+							<div class="member_content_t">
+								<input type="text" id="mph" name="mph" placeholder="ex)01012345678">
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>이메일</label>
+								<input type="button" class="email_btn" id="memailChk" value="이메일 중복체크"><!-- 이메일 중복체크 -->
+							<div class="member_content_e">
+								<input type="text" id="memail_a" name="memail_a">
+								<input type="text" id="memail_b" name="memail_b">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<select class="sel_btn" id="memail_c" name="memail_c">
+									<option value="" disabled selected>선택하세요</option>
+									<option value="gmail.com">gmail.com</option>
+									<option value="naver.com">naver.com</option>
+									<option value="hanmail.net">hanmail.net</option>
+									<option value="1">직접입력</option>
+								</select>
+							</div>
+						</div>
+						<div>
+							<input type="button" id="insertForm" value="회원가입">
+							<input type="button" value="다시" onClick="window.location.reload()">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
-	</form>
+	</div>
+	
+	<!--footer-->
+	<footer> 
+		<p>TEAM : FITHE (핏해)</p>
+		<address>github</address>
+		<small>&copy unclepapa</small> 
+	</footer>
 </body>
 </html>
