@@ -1,3 +1,5 @@
 # Directories #
 /target/
+.target/
 *.properties
+rootContext.xml
