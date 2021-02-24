@@ -23,7 +23,7 @@ public class MemberDAOImpl implements MemberDAO{
 		// TODO Auto-generated method stub
 		System.out.println("(DAOImpl) memberSelect() 진입");
 		
-		return (MemberVO)sqlSession.selectOne("memberSelect", mvo);
+		return (MemberVO)sqlSession.selectList("memberSelect", mvo);
 	}
 
 	@Override

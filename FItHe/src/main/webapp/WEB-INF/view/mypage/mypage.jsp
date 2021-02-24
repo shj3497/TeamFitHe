@@ -4,7 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>회원정보</title>
+<!--common stylesheet-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/mypage/style.css">
+<!--style-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/mypage/mypage.css" charset="UTF-8">
+<!--font-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<title>board</title>
+<script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
+<script src="${pageContext.request.contextPath}/include/mypage/mypage/main.js" defer></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript">
@@ -36,34 +47,75 @@
 </script>
 </head>
 <body>
-<!-- 회원정보 보안정보 태그를 nav태그 밑에 위치시켜서 tab형태로 페이지를 바꿔서 보여주고 싶습니다. -->
-<!-- 캘린더와 사용자 정보는 반반으로 오른쪽 왼쪽 나누어서 보여주고 싶습니다. -->
-<!-- 단지 디자인적으로 생각만 하고있는거라 언제든지 변경 가능합니다. -->
-	<div id="show" v-cloak>
-		<div>
-			<!-- 이 div태그가 고정임 -->
-			<ul>
-				<!-- 회원 정보 Mypage 이동시 기본은 회원정보를 보여준다. -->
-				<li><a href="mypage.do">회원정보</a></li>
-				<!-- 보안 정보 -->
-				<li><a href="mySecpage.do">보안정보</a></li>
-			</ul>
-		</div>
-		<div>
-			<div>
-				<h3><label>캘린더</label></h3>
-				<input type="button" id="calendergo" value="조회하기">
+	<!--navigator-->
+    <nav class="navbar">
+        <!--logo-->
+        <div class="navbar_logo">
+            <i class="fas fa-ice-cream"></i>
+            <a href="#">FITHE</a>
+        </div>
+        <!--menu-->
+        <ul class="navbar_menu">
+            <!--unorder-list-->
+            <li><a href="#">기초체력측정</a></li>
+            <li><a href="#">헬스장 추천</a></li>
+            <li><a href="#">게시판</a></li>
+            <li><a href="mypage.do">마이페이지</a></li>
+        </ul>
+        <!--login icon-->
+        <ul class="navbar_icons">
+            <li><i class="fas fa-user-plus"></i></li>
+        </ul>
+        <!--@pad @phone-->
+        <a href="#" class="navbar_toggleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+    </nav>
+    <!--end of <nav class="navbar">-->
+    
+    
+	<div id="show" class="fithe_wrap" v-cloak>
+		<div class="content_wrap">
+			<div class="content_head">
+                <!---->
+                <ul class="my_menu">
+                    <li><a href="mypage.do">회원정보</a></li>
+					<li><a href="mySecpage.do">보안정보</a></li>
+                </ul>
+                <!--<Select onchange="window.location.href=this.value">                    
+                    <option value="#">회원정보</option>
+                    <option value="#">보안정보</option>                    
+                </Select>-->
+            </div>
+			<!--<div class="content_wrap">-->
+			<div class="content_group">
+				<div class="user_info">
+					<div class="font_mid">연락처 및 알림</div>
+				</div>
+				<div>
+					<span>이메일</span>&nbsp;&nbsp;&nbsp;
+					<input type="text" class="com_in_txt" :value="memail" disabled>
+					<br>
+	                <span>연락처</span>&nbsp;&nbsp;
+	                <input type="text" class="com_in_txt" v-bind:value="mph" disabled>
+	                <br>
+	                <input type="button" id="changeInfogo" class="com_btn" value="수정">
+	                <!-- 로그아웃버튼은 나중에 없앨거임 -->
+	            	<input type="button" id="logoutgo" class="com_btn" value="로그아웃">
+				</div>
 			</div>
-		</div>
-		<div>
-			<div>
-				<h3><label>연락처 및 알림</label></h3>
-				<label>이메일</label>&nbsp;&nbsp;<label>{{memail}}</label><br>			
-				<label>연락처</label>&nbsp;&nbsp;<label>{{mph}}</label><br>
-				<input type="button" id="changeInfogo" value="수정">
-				<input type="button" id="logoutgo" value="로그아웃">
-			</div>
-		</div>
-	</div>
+			<div class="user_calendar">
+				<div class="font_mid">캘린더</div>
+				<input type="button" id="calendergo" class="com_btn" value="조회하기">
+			</div><!--<div class="content_group">-->
+		</div><!--<div class="content_wrap">-->
+	</div><!--<div id="show" class="fithe_wrap" v-cloak>-->
+	
+	<!--footer-->
+	<footer> 
+		<p>TEAM : FITHE (핏해)</p>
+		<address>github</address>
+		<small>&copy unclepapa</small> 
+	</footer>
 </body>
 </html>

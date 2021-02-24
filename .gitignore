@@ -1,6 +1,6 @@
 # Directories #
-/target/
-.target/
+#/target/#
+#.target/#
 *.properties
 # rootContext.xml#
 # FItHe/src/main/webapp/WEB-INF/spring/rootContext.xml #

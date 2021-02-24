@@ -1,0 +1,79 @@
+@charset "utf-8";
+body{
+	color:var(--text-color);
+}
+
+/* login title */
+.board_head{
+	display: flex;
+	font-size: 18pt;
+	margin-top: 50px;
+	margin-left: 50px;
+	margin-bottom: 30px;
+}
+.check_head p:nth-of-type(2){
+	font-size: 13pt;
+	margin-left: 60px;	
+	margin-bottom: 65px;
+}
+
+/* login */
+.content_group{
+	width: 100%;
+	max-width: 910px;
+	margin: auto;
+	display:flex;
+	justify-content:center;
+}
+
+/* common box area */
+.login_content_t input{	
+  	height: 40px;
+	border-top: 1px solid #FCFCFF;
+	border-right: 1px solid #FCFCFF;
+	border-left: 1px solid #FCFCFF;
+	border-bottom: 2px solid medium;
+	margin-bottom: 40px;
+	margin-right:120px;
+}
+
+.login_content_section {}/*margin-right: 50px;*/
+/* textarea size */
+.login_content_section input[type="text"]{width: 300px;}
+.login_content_section input[type="password"]{width: 300px;}
+/*.member_content_t_i{width: 300px;}*/
+.login_content_section input:focus{
+	outline:none;border-bottom:2px solid var(--accent-color);
+}
+
+/* birth text */
+.login_content_section label{
+	font-size: 14pt;
+	margin-right: 60px;
+	Font-weight: 700;
+	Letter-spacing:2px;
+}
+/* login button */
+.login_btn{
+	height: 50px;
+	width: 310px;
+	margin:auto;
+	font-size: 16pt;
+	border-radius: 2px;
+	border: none;
+	background-color: whitesmoke;
+}
+.login_btn:hover{
+	background-color: var(--accent-color);
+	color: white;
+}
+
+
+
+
+/*-----------------------------------------*/
+/* mobile version */
+@media screen and (max-width: 360px){
+	.board_box{
+	}
+}

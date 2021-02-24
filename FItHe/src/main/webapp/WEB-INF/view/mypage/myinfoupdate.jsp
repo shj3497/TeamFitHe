@@ -4,7 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>내 정보 수정</title>
+<!--common stylesheet-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/myinfoupdate/style.css">
+<!--style-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/myinfoupdate/myinfoupdate.css">
+<!--font-->
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
+<!--script-->
+<script src="${pageContext.request.contextPath}/include/mypage/myinfoupdate/main.js" defer></script>
+    
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
@@ -153,59 +165,106 @@
 </script>
 </head>
 <body>
-	<form id="updateInfoForm">
-		<div id="show" v-cloak>
-			<input type="hidden" id="mid" name="mid" v-model="mid">
-			<div>
-				<h3>연락처 및 알림 설정</h3>
-				<label>{{mid}}님의 연락처 정보입니다.<br>
-				회원정보는 개인정보처리방침에 따라 안전하게 보호되며,<br> 
-				회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다.<br>
-				</label>
+	<!--navigator-->
+    <nav class="navbar">
+        <!--logo-->
+		<div class="navbar_logo">
+            <i class="fas fa-ice-cream"></i>
+            <a href="#">FITHE</a>
+        </div>
+		<!--menu-->
+        <ul class="navbar_menu"><!-- un order-list -->
+            <li><a href="#">기초체력측정</a></li>
+            <li><a href="#">헬스장 추천</a></li>
+            <li><a href="#">게시판</a></li>
+            <li><a href="mypage.do">마이페이지</a></li>
+        </ul>
+		<!--login icon-->
+        <ul class="navbar_icons">
+            <li><i class="fas fa-user-plus"></i></li>
+		</ul>
+        <!--@pad @phone-->
+		<a href="#" class="navbar_toggleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+    </nav><!--end of <nav class="navbar">-->
+    
+    <div class="fithe_wrap">
+    	<!--board box-->
+    	<div id="show" v-cloak class="content_wrap">
+    	<!-- 회원가입 header -->
+	    	<div class="check_head">
+				<p class="board_head">연락처 및 알림 설정</p>
+				<p>{{mid}}님의 연락처 정보입니다.</p>
+				<p>회원정보는 개인정보처리방침에 따라 안전하게 보호되며,</p>
+				<p>회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다.</p>
 			</div>
-			<br>
-			<div>
-				<label>사용자이름</label>
-				<input type="text" id="mname" name="mname" :value="mname">
-			</div>
-			<div>
-				<label>휴대전화</label>
-				<input type="text" id="mph" name="mph" :value="mph">
-			</div>
-			<div>
-				<label>이메일</label>
-				<input type="text" id="memail_a" name="memail_a" :value="memail_a">
-				<input type="text" id="memail_b" name="memail_b" :value="memail_b">
-				<select id="memail_c" name="memail_c">
-				<option value="" disabled selected>선택하세요</option>
-				<option value="gmail.com">gmail.com</option>
-				<option value="naver.com">naver.com</option>
-				<option value="hanmail.net">hanmail.net</option>
-				<option value="1">직접입력</option>
-			</select>
-			<input type="button" id="memailChk" value="중복체크"><!-- 이메일 중복체크 -->
-			</div>
-			<div>
-				<label>우편번호</label>
-				<input type="text" id="mzonecode" name="mzonecode" :value="mzonecode">
-				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호찾기">
-			</div>
-			<div>
-				<label>주소</label>
-				<input type="text" id="maddress" name="maddress" :value="maddress">
-			</div>
-			<div>
-				<label>상세주소</label>
-				<input type="text" id="maddress_detail" name="maddress_detail" :value="maddress_detail">
-			</div>
-			<div>
-				<label>비밀번호</label>
-				<input type="password" id="mpw" name="mpw">		
-			</div>
-			<div>
-				<input type="button" id="updateBtn" value="수정하기">
-			</div>
-		</div>
-	</form>
+			<div class="content_group">
+				<form id="updateInfoForm">
+					<div>
+						<input type="hidden" id="mid" name="mid" v-model="mid">
+						<div class="member_content_section">
+							<label>사용자이름</label>
+							<div class="member_content_t">
+								<input type="text" id="mname" name="mname" :value="mname">
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>핸드폰번호</label>
+							<div class="member_content_t">
+								<input type="text" id="mph" name="mph" :value="mph">
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>이메일</label>
+							<input type="button" class="email_btn" id="memailChk" value="이메일 중복체크"><!-- 이메일 중복체크 -->
+							<div class="member_content_e">
+								<input type="text" id="memail_a" name="memail_a" :value="memail_a">
+								<input type="text" id="memail_b" name="memail_b" :value="memail_b">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<select id="memail_c" name="memail_c" class="sel_btn">
+									<option value="" disabled selected>선택하세요</option>
+									<option value="gmail.com">gmail.com</option>
+									<option value="naver.com">naver.com</option>
+									<option value="hanmail.net">hanmail.net</option>
+									<option value="1">직접입력</option>
+								</select>
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>주소</label>
+							<div class="member_content_p">
+								<input type="text" id="mzonecode" name="mzonecode" :value="mzonecode" placeholder="우편번호">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="button" class="com_btn" onclick="sample6_execDaumPostcode()" value="우편번호찾기">
+							</div>
+							<div class="member_content_p">
+								<input type="text" id="maddress" name="maddress" :value="maddress" placeholder="주소">
+							</div>
+							<div class="member_content_t">
+								<input type="text" id="maddress_detail" name="maddress_detail" :value="maddress_detail" placeholder="상세주소">
+							</div>
+						</div>
+						<div class="member_content_section">
+							<label>비밀번호</label>
+							<div class="member_content_p">
+								<input type="password" id="mpw" name="mpw">
+							</div>		
+						</div>
+						<div>
+							<input type="button" id="updateBtn" class="login_btn" value="수정하기">
+						</div>
+					</div>
+				</form>
+			</div><!--end of <div class="member_content">-->
+		</div><!--end of <div class="member_box">-->
+	</div><!--end of <div class="layout_box">-->
+	
+	<!--footer-->
+	<footer> 
+		<p>TEAM : FITHE (핏해)</p>
+		<address>github</address>
+		<small>&copy unclepapa</small> 
+	</footer>
 </body>
 </html>

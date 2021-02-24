@@ -339,6 +339,31 @@ public class MemberController {
 	public String memberPwFindfirst(Model model, MemberVO mvo) {
 		// 입력받은 아이디에 해당하는 정보가 있는지 DB 검색
 		logger.info("memberPwFindFormfirst() 진입");
+
+		String result = "";
+		// ID가 존재하지 않으면 DB에러가 난다.. 그래서 catch로 에러가 나면 이동할 페이지를 넣어줌
+		try {
+			// 아이디 잘 넘어왔는지 확인 > check
+			logger.info("mid >>> : " + mvo.getMid());
+			
+			// 넘겨 받은 아이디로 FIT_MEMBER 테이블에 해당 id가 등록되어있는지 조회한다.
+			MemberVO _mvo = null;
+			_mvo = memberService.memberSelect(mvo);
+			
+			logger.info("_mvo.getMid() >>> : " + _mvo.getMid());
+			// 객체로 넘겨서 pwFindForm_2에서 히든태그로 mid를 가지고 이동할 것 
+			model.addAttribute("memberVO", _mvo);
+				
+			return "member/pwFindFormsecond";
+		}catch(NullPointerException e) {
+			// 넘겨받은 아이디가 FIT_MEMBER에 등록되어있지 않을때 에러페이지로 반환후 뒤로가기
+			result = "등록되지 않은 사용자입니다.";
+			model.addAttribute("result", result);
+			return "error/error";
+		}
+
+		/*
+		String result = "";
 		
 		// 아이디 잘 넘어왔는지 확인 > check
 		logger.info("mid >>> : " + mvo.getMid());
@@ -347,10 +372,20 @@ public class MemberController {
 		MemberVO _mvo = null;
 		_mvo = memberService.memberSelect(mvo);
 		
-		// 객체로 넘겨서 pwFindForm_2에서 히든태그로 mid를 가지고 이동할 것 
-		model.addAttribute("memberVO", _mvo);
+		logger.info("_mvo.getMid() >>> : " + _mvo.getMid());
 		
-		return "member/pwFindFormsecond";
+		if(_mvo.getMid() != null) {
+			// 객체로 넘겨서 pwFindForm_2에서 히든태그로 mid를 가지고 이동할 것 
+			model.addAttribute("memberVO", _mvo);
+			
+			return "member/pwFindFormsecond";
+		}else {
+			// 넘겨받은 아이디가 FIT_MEMBER에 등록되어있지 않을때 에러페이지로 반환후 뒤로가기
+			result = "등록되지 않은 사용자입니다.";
+			model.addAttribute("result", result);
+			return "error/error";
+		}
+		*/
 	}
 	
 	@RequestMapping(value="pwFindsecond", method=RequestMethod.POST)
