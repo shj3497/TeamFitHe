@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fithe.common.chaebun.dao.ChaebunDAO;
+import com.fithe.community.vo.CommunityVO;
 import com.fithe.member.vo.MemberVO;
+import com.fithe.notice.vo.NoticeVO;
 
 @Service
 @Transactional
@@ -40,6 +42,18 @@ public class ChaebunServiceImpl implements ChaebunService {
 		_mvo = chaebunDAO.getChaebun_a();
 
 		return _mvo;
+	}
+	
+	@Override
+	public NoticeVO getNoticeChaebun() {
+		// TODO Auto-generated method stub
+		return chaebunDAO.getNoticeChaebun();
+	}
+
+	@Override
+	public CommunityVO getCommunityChaebun() {
+		// TODO Auto-generated method stub
+		return chaebunDAO.getCommunityChaebun();
 	}
 
 }

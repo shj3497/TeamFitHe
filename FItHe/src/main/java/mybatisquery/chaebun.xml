@@ -7,6 +7,14 @@
 		<result column="ANUM" property="anum"/>
 	</resultMap>
 	
+	<resultMap type="com.fithe.notice.vo.NoticeVO" id="notice">
+		<result column="NNUM" property="nnum" />
+	</resultMap>
+	
+	<resultMap type="com.fithe.community.vo.CommunityVO" id="community">
+		<result column="CNUM" property="cnum" />
+	</resultMap>
+	
 	<!-- parameterType=값을 받아올 곳, resultMap=쿼리문의 결과를 저장할 곳 -->
 	<select id="getChaebun_m" parameterType="com.fithe.member.vo.MemberVO" resultMap="memberVO">
 		SELECT 	NVL(MAX(SUBSTR(M.MNUM, -4, 4)), 0) + 1 AS MNUM
@@ -16,5 +24,15 @@
 	<select id="getChaebun_a" parameterType="com.fithe.member.vo.MemberVO" resultMap="memberVO">
 		SELECT 	NVL(MAX(SUBSTR(A.ANUM, -4, 4)), 0) + 1 AS ANUM
 		FROM 	FIT_AUTH A
+	</select>
+	
+	<select id="getNoticeChaebun" resultMap="notice">
+		SELECT 	NVL(MAX(SUBSTR(NNUM, -4)), 0) + 1 NNUM 
+		FROM 	FIT_NOTICE
+	</select>
+	
+	<select id="getCommunityChaebun" resultMap="community">
+		SELECT 	NVL(MAX(SUBSTR(CNUM, -4)), 0) + 1 CNUM 
+		FROM 	FIT_COMMUNITY
 	</select>
 </mapper>

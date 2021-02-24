@@ -1,11 +1,12 @@
 package com.fithe.common.chaebun.dao;
 
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.fithe.community.vo.CommunityVO;
 import com.fithe.member.vo.MemberVO;
+import com.fithe.notice.vo.NoticeVO;
 
 @Repository
 public class ChaebunDAOImpl implements ChaebunDAO {
@@ -28,5 +29,16 @@ public class ChaebunDAOImpl implements ChaebunDAO {
 		
 		return sqlSession.selectOne("getChaebun_a");
 	}
+	
+	@Override
+	public NoticeVO getNoticeChaebun() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("getNoticeChabun");
+	}
 
+	@Override
+	public CommunityVO getCommunityChaebun() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("getCommunityChabun");
+	}
 }
