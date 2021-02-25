@@ -60,7 +60,7 @@
             <li><a href="#">기초체력측정</a></li>
             <li><a href="#">헬스장 추천</a></li>
             <li><a href="#">게시판</a></li>
-            <li><a href="#">마이페이지</a></li>
+            <li><a href="mypage.do">마이페이지</a></li>
         </ul>
         <!--login icon-->
         <ul class="navbar_icons">
@@ -76,12 +76,17 @@
     
 	<div id="show" class="fithe_wrap" v-cloak>
 		<div class="content_wrap">
-			<div>
-				<Select onchange="window.location.href=this.value">
-                	<option value="mypage.do">회원정보 <span>▼</span></option>
-               		<option value="mySecpage.do">보안정보 <span>▼</span></option>
-	        	</Select>
-	        </div>
+			<div class="content_head">
+                <!---->
+                <ul class="my_menu">
+                    <li><a href="mypage.do">회원정보</a></li>
+					<li><a href="mySecpage.do">보안정보</a></li>
+                </ul>
+                <!--<Select onchange="window.location.href=this.value">                    
+                    <option value="#">회원정보</option>
+                    <option value="#">보안정보</option>                    
+                </Select>-->
+            </div>
 			<!--<div class="content_wrap">-->
 			<div class="content_group">
 				<div class="user_info">

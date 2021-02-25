@@ -12,3 +12,16 @@ function chkSubmit(v_item, v_msg){
 		return true;
 	}
 }
+
+function chkBoardItem(v_item,v_msg) {
+		/* 앞 뒤 공백 제거 */
+		if( v_item.val().replace(/^\s+|\s+$/g,'')== '') {
+			alert(v_msg+" 확인해 주세요.");
+			v_item.val("");
+			v_item.focus();
+			
+			return false;
+		} else {
+			return true;
+		}
+	}

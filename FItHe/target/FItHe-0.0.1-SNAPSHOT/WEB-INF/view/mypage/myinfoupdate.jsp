@@ -177,7 +177,7 @@
             <li><a href="#">기초체력측정</a></li>
             <li><a href="#">헬스장 추천</a></li>
             <li><a href="#">게시판</a></li>
-            <li><a href="#">마이페이지</a></li>
+            <li><a href="mypage.do">마이페이지</a></li>
         </ul>
 		<!--login icon-->
         <ul class="navbar_icons">
@@ -217,7 +217,7 @@
 						</div>
 						<div class="member_content_section">
 							<label>이메일</label>
-							<input type="button" id="memailChk" value="중복체크"><!-- 이메일 중복체크 -->
+							<input type="button" class="email_btn" id="memailChk" value="이메일 중복체크"><!-- 이메일 중복체크 -->
 							<div class="member_content_e">
 								<input type="text" id="memail_a" name="memail_a" :value="memail_a">
 								<input type="text" id="memail_b" name="memail_b" :value="memail_b">
