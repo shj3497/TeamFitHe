@@ -9,15 +9,15 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
 <!--common stylesheet-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/include/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/admin/admin_memberList/css/style.css">
 <!---->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/include/css/manager.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/admin/admin_memberList/css/manager.css">
 <!--font-->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 <!--common script-->
-<script src="${pageContext.request.contextPath}/include/js/menu.js" defer></script>
+<script src="${pageContext.request.contextPath}/include/admin/admin_memberList/js/menu.js" defer></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -40,7 +40,7 @@
 				</div>
 				<!--manager info-->
 				<div class="thumb">
-					<img class="img-circle" width="68" height="68" alt="관리자 이미지" src="${pageContext.request.contextPath}/include/img/sports.jpg" />
+					<img class="img-circle" width="68" height="68" alt="관리자 이미지" src="${pageContext.request.contextPath}/include/admin/admin_memberList/img/sports.jpg" />
 					<div>관리자</div>
 					<div><a href="memberLogout.do">로그아웃</a></div>
 				</div>
@@ -56,7 +56,7 @@
 			<!--end of <div class="menu_align">-->
 			<!--animation : tablet version-->
 			<div class="gif_animation">
-				<iframe src="${pageContext.request.contextPath}/include/img/running.gif" width="100%" height="200" frameBorder="0" class="giphy-embed"
+				<iframe src="${pageContext.request.contextPath}/include/admin/admin_memberList/img/running.gif" width="100%" height="200" frameBorder="0" class="giphy-embed"
 					scrolling="no" allowFullScreen></iframe>
 			</div>
 			<!--(2) content-->

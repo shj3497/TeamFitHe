@@ -125,6 +125,10 @@
 				<div>
 					<a href="tempmain.do">임시 메인페이지</a>		
 				</div>
+				<div>
+					<jsp:include page="kakaoLogin.jsp"></jsp:include>
+					<jsp:include page="naverLogin.jsp"></jsp:include>
+				</div>
 			</form>
 		</div>
 		</div>

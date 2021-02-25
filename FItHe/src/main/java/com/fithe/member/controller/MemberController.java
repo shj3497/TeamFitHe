@@ -20,6 +20,8 @@ import com.fithe.common.commons.encryption.PasswordEncoding;
 import com.fithe.common.commons.mail.MailSend;
 import com.fithe.member.service.MemberService;
 import com.fithe.member.vo.MemberVO;
+import com.fithe.social.controller.KakaoController;
+import com.fithe.social.controller.NaverController;
 
 @Controller
 public class MemberController {
@@ -164,7 +166,15 @@ public class MemberController {
 //	#################### !로그인! ####################	
 	// 로그인 화면 이동
 	@RequestMapping(value="memberLoginForm", method=RequestMethod.GET)
-	public String memberLoginForm() {
+	public String memberLoginForm(Model model, HttpSession session) {
+		
+		String naverAuthUrl = NaverController.getAuthorizationUrl(session); 
+		logger.info("naverAuthUrl >>> : " + naverAuthUrl);
+		model.addAttribute("naver_url", naverAuthUrl);
+		
+		String kakaoUrl = KakaoController.getAuthorizationUrl(session);
+		logger.info("kakaoUrl >>> : " + kakaoUrl);
+		model.addAttribute("kakao_url", kakaoUrl);
 		
 		return "member/loginForm";
 	}

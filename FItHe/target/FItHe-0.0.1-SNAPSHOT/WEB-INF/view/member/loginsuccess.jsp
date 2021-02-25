@@ -56,12 +56,9 @@
 		<h1>{{msg}}</h1>
 		<h1>세션호출 : {{msg1}}</h1>
 	</div>
-	<h3>kemail : ${sessionScope.kemail }</h3>
-	<h3>kname : ${sessionScope.kname }</h3>
-	<h3>kgender : ${sessionScope.kgender }</h3>
-	<h3>kbirthday : ${sessionScope.kbirthday }</h3>
-	<h3>kage : ${sessionScope.kage }</h3>
-	
+	<h3>로그인 아이디 : ${sessionScope.mid }</h3>
+	<h3>네이버 이름 : ${sessionScope.mname }</h3>
+	<h3>카카오 이름 : ${sessionScope.mname }</h3>
 	<form id="loginSuccess">
 		<input type="button" id="logoutgo" value="로그아웃">
 		<input type="button" id="mypagego" value="내정보">

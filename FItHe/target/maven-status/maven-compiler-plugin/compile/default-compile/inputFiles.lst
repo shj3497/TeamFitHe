@@ -1,11 +1,13 @@
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\commons\encryption\TestPassword.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\notice\controller\NoticeController.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\member\service\MemberService.java
+C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\social\controller\KakaoController.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\commons\AuthcodeUtil.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\commons\mail\MailAuth.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\chaebun\service\ChaebunServiceImpl.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\page\PagingVO.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\notice\dao\NoticeDAO.java
+C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\social\controller\NaverController.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\member\service\MemberServiceImpl.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\community\controller\CommunityController.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\member\dao\MemberDAO.java
@@ -18,6 +20,7 @@ C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\FileUploadUtil
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\member\dao\MemberDAOImpl.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\page\Paging.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\commons\mail\MailSend.java
+C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\social\controller\NaverLoginApi.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\notice\service\NoticeService.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\notice\vo\NoticeVO.java
 C:\Users\shj34\git\TeamFitHe\FItHe\src\main\java\com\fithe\common\chaebun\dao\ChaebunDAOImpl.java

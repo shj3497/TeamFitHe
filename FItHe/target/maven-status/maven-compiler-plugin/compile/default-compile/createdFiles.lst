@@ -12,14 +12,17 @@ com\fithe\community\vo\CommunityVO.class
 com\fithe\member\dao\MemberDAO.class
 com\fithe\common\chaebun\DateFormatUtil.class
 com\fithe\common\commons\mail\MailSend.class
+com\fithe\social\controller\KakaoController.class
 com\fithe\notice\service\NoticeService.class
 com\fithe\common\CommonUtils.class
 com\fithe\community\service\CommunityService.class
+com\fithe\social\controller\NaverLoginApi$InstanceHolder.class
 com\fithe\common\chaebun\service\ChaebunService.class
 com\fithe\community\dao\CommunityDAO.class
 com\fithe\community\dao\CommunityDAOImpl.class
 com\fithe\common\commons\encryption\TestPassword.class
 com\fithe\common\page\PagingTag.class
+com\fithe\social\controller\NaverController.class
 com\fithe\common\page\Paging.class
 com\fithe\member\dao\MemberDAOImpl.class
 com\fithe\common\FileUploadUtil.class
@@ -35,6 +38,7 @@ com\fithe\common\commons\encryption\PasswordEncoding.class
 com\fithe\community\service\CommunityServiceImpl.class
 com\fithe\member\controller\MemberController.class
 com\fithe\member\controller\AdminController.class
+com\fithe\social\controller\NaverLoginApi.class
 com\fithe\member\vo\MemberVO.class
 com\fithe\TestController.class
 com\fithe\common\chaebun\dao\ChaebunDAOImpl.class
