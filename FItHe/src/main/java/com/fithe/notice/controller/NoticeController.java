@@ -210,7 +210,7 @@ public class NoticeController {
 			if (!presentFileName.equals(previousFileName)) {
 				// NA는 파일이 없음, NA가 아니면 파일이 있음
 				if (!previousFileName.equals("NA")) {
-					fu.imgfileDelete(previousFileName);
+					fu.imgfileDelete(req, previousFileName);
 				}
 			}
 		}
@@ -252,7 +252,7 @@ public class NoticeController {
 		// 게시글에 저장된 파일 있으면 삭제
 		if (!previousFileName.equals("NA")) {
 			FileUploadUtil fu = new FileUploadUtil();
-			fu.imgfileDelete(previousFileName);
+			fu.imgfileDelete(req, previousFileName);
 		}
 		
 		int result = noticeService.noticeDelete(nvo);
@@ -262,7 +262,7 @@ public class NoticeController {
 	
 	@ResponseBody 
 	@RequestMapping(value="noticeFileDelete", method=RequestMethod.POST, produces="application/text; charset=utf8")
-	public String noticeFileDelete(@ModelAttribute NoticeVO nvo) {
+	public String noticeFileDelete(@ModelAttribute NoticeVO nvo, HttpServletRequest req) {
 		logger.info("NoticeController noticeFileDelete");
 		
 		String fileName = noticeService.noticeFileCheck(nvo).getNfile();
@@ -271,7 +271,7 @@ public class NoticeController {
 		
 		if (fileName != null && fileName.length() > 0) {
 			FileUploadUtil fu = new FileUploadUtil();
-			delete = fu.imgfileDelete(fileName);
+			delete = fu.imgfileDelete(req, fileName);
 		}
 		
 		if (delete) {
