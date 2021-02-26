@@ -334,54 +334,6 @@ public class CommunityController {
 		return mav;
 	}
 	
-	@RequestMapping(value="kakaomap")
-	public String kakaomap() {
-		return "kakao/kakaomap";
-	}
-	
-	@RequestMapping(value="kakaomaplist")
-	public ModelAndView kakaomaplist(HttpServletRequest req) {
-		HttpSession session = req.getSession();
-		String mid = String.valueOf(session.getAttribute("mid"));
-		
-		MemberVO mvo = new MemberVO();
-		mvo.setMid(mid);
-		
-		// 시 구 동
-		String address = memberService.memberSelect(mvo).getMaddress();
-		
-		// 동만 추출
-		String[] userAddress = address.split(" ");
-		int addLength = userAddress.length;
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("kakao/kakaomaplist");
-		mav.addObject("userAddress", userAddress[addLength-2] 
-									+ userAddress[addLength-1]);
-		
-		return mav;
-	}
-	
-	@RequestMapping(value="kakaomapinformation")
-	public String kakaomapinformation() {
-		return "kakao/kakaomapinformation";
-	}
-	
-	@RequestMapping(value="kakaomaplocation")
-	public String kakaomaplocation() {
-		return "kakao/kakaomaplocation";
-	}
-	
-	@RequestMapping(value="kakaomapmarkertext")
-	public String kakaomapmarkertext() {
-		return "kakao/kakaomapmarkertext";
-	}
-	
-	@RequestMapping(value="kakaomapoverlay")
-	public String kakaomapoverlay() {
-		return "kakao/kakaomapoverlay";
-	}
-	
 	private boolean userMauthCheck(HttpSession session, String mid) {
 		
 		if("A".equals(session.getAttribute("mauth")) || 
