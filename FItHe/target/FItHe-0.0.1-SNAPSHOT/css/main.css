@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* img+bmi */
+.wrapper_bmi{
+	background-color: var(--background-color);
+	position: relative;
+}
+/* img */
+.bgimg{
+	/*width:90vw;*/
+	max-width: 984px;
+	height: 450px;
+	object-fit: cover;
+	position:absolute;
+	margin: 0px auto;
+}
+.bgimg img{width:100%; max-height: 600px;}
+
+/* bmi test */
+.bmi_form{
+	width: 252px;
+	height: 200px;
+	display: flex;
+	position:fixed;
+	margin: 35% 15% 0px 55%;
+	padding-top: 10px;
+	flex-flow: column nowrap;
+	text-align: center;
+	background-color: white;
+	opacity: 0.95;
+}
+.bmi_form p{font-weight: 900;}
+.bmi_in{width:90%; height:50px;}
+.bmi_in span{display: inline-block; width: 50px; height: 16px;}
+.bmi_in input{width: 120px; height: 16px;}
+
+/*information section*/
+.project_info{
+	margin: 90vh auto 0 auto;
+	position:relative;
+	text-align: center;
+}
+.project_info p{font-size: 18pt;}
+.project_info p:after{
+	content: "";
+	display: block;
+	width: 90px;
+	margin: 15px auto 0 auto;
+	border-bottom: 1px solid var(--accent-color);
+}
+
+

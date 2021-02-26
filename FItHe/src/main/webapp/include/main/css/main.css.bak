@@ -1,0 +1,43 @@
+/*basic setting*/
+ul, li, ol, dl{list-style:none;}
+img, video{border:0; vertical-align:middle;}
+
+
+/*-----------------------banner-----------------------*/
+.banner {position: relative; width: 100vw; max-width: 800px; height: 500px; top: 50px;  margin:0 auto; padding:0; overflow: hidden;}
+.banner ul {position: absolute; margin: 0px; padding:0;}
+.banner ul li {float: left; height: 500px; margin:0; padding:0;}
+.banner ul li img{width: 100vw; max-width: 800px;}
+
+
+
+/*-----------------------content-----------------------*/
+.content_info{width:80% ; margin: auto; background-color: white;}
+.content_info>div{width: 100%; margin-bottom: 70px;}
+.content_info>div:first-of-type{margin-top: 50px;}
+.content_info p{text-align: center; font-size: 18pt;}
+.content_info div>div{text-align: center; font-size: 15pt; margin-bottom: 10px; color: darkgray;}
+.rotate_txt{
+	width: 30px;
+	height: auto;
+	display: block;
+	margin: auto;
+	animation: rotate 5s linear infinite;
+	transform-origin: 50% 50%;	/*회전의 중심 위치 : 정중앙*/
+}
+@keyframes rotate{
+	100%{transform:rotate(360deg);}
+}
+
+
+
+
+/*################################################*/
+/*tablet size*/
+@media screen and (max-width: 768px){
+	.banner{height: 400px;}
+	.content_info>div:first-of-type{margin-top: 0;}
+}
+
+
+
