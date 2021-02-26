@@ -185,27 +185,31 @@ public class KakaoController {
 			
 			MemberVO mvo = new MemberVO();
 			mvo.setMid(mid);
+			System.out.println("mid >>> : " + mid);
 			
 			if (mid != null && mid != "null") { // 로그인이 되어있으면
-				address = memberService.memberSelect(mvo).getMaddress();
+				if (memberService.memberSelect(mvo) != null) { // vo가 null 일 때 get하면 nullpointException 에러
+					address = memberService.memberSelect(mvo).getMaddress();
+				}
+				System.out.println("address >>> : " + address);
 			}
 			// 시 구 동
 			
 			ModelAndView mav = new ModelAndView();
 			
-			if (address != null) {
+			if (address != null ) {
 				// 동만 추출
 				String[] userAddress = address.split(" ");
 				int addLength = userAddress.length;
 				
-				if (addLength >= 2) { // 주소가 한 단어 일 때
+				if (addLength >= 2) { 
 					mav.addObject("userAddress", userAddress[addLength-2] 
 							+ userAddress[addLength-1]);
 				} else {
 					mav.addObject("userAddress", address);
 				}
-			} else {
-				mav.addObject("userAddress", "noaddress");
+			} else { // 주소가 한 단어 일 때
+				mav.addObject("userAddress", address);
 			}
 			mav.setViewName("kakao/kakaomaplist");
 			return mav;

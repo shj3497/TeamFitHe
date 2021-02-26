@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -16,7 +17,7 @@ public class FileUploadUtil {
 	private MultipartRequest mr;;
 
 	public FileUploadUtil() {
-		this.imgfilePaths = CommonUtils.IMG_UPLOAD_PATH;; 
+		this.imgfilePaths = CommonUtils.IMG_UPLOAD_PATH;
 		this.imgfileSize = CommonUtils.IMG_FILE_SIZE;
 		this.encodeType = CommonUtils.EN_CODE;			
 	}
@@ -24,13 +25,15 @@ public class FileUploadUtil {
 	public boolean imgfileUpload(HttpServletRequest req) {	
 		System.out.println("imgfileUploadSize req >>> : " + req);
 		System.out.println("imgfileUploadSize imgfilePaths >>> : " + imgfilePaths);
-		boolean bool = imgfileUpload(req, imgfilePaths);
+		String root = req.getSession().getServletContext().getRealPath("/");
+		boolean bool = imgfileUpload(req, root + imgfilePaths);
 		
 		return bool;
 	}
 	
-	public boolean imgfileDelete(String fileName) {
-		boolean bool = imgfileDelete(imgfilePaths, fileName);
+	public boolean imgfileDelete(HttpServletRequest req, String fileName) {
+		String root = req.getSession().getServletContext().getRealPath("/");
+		boolean bool = imgfileDelete(root + imgfilePaths, fileName);
 		return bool;
 	}
 	public boolean imgfileUpload(HttpServletRequest req, String filePath) {
