@@ -105,10 +105,10 @@
 		<!-- menu -->
 		<ul class="navbar_menu">
 			<!-- un order-list -->
-			<li><a href="">기초체력측정</a></li>
-            <li><a href="">헬스장 추천</a></li>
-            <li><a href="">게시판</a></li>
-            <li><a href="">마이페이지</a></li>
+			<li><a href="#">기초체력측정</a></li>
+            <li><a href="#">헬스장 추천</a></li>
+            <li><a href="#">게시판</a></li>
+            <li><a href="#">마이페이지</a></li>
 		</ul>
 		<!-- login icon -->
 		<ul class="navbar_icons">

@@ -18,6 +18,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,12 +28,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fithe.member.service.MemberService;
+import com.fithe.member.vo.MemberVO;
 
 @Controller
 public class KakaoController {
 	
 		// https://thefif19wlsvy.tistory.com/62 참고
 		// 이미지 다운로드 https://developers.kakao.com/tool/resource/login
+	
+		@Autowired(required = false)
+		private MemberService memberService;
 		private Logger logger = Logger.getLogger(KakaoController.class);
 		
 		private final static String K_CLIENT_ID = "a8696ed73671985ffe695c01ef5ac010";
@@ -165,6 +171,47 @@ public class KakaoController {
 			// 메인페이지로 이동시키면 된다.
 			mav.setViewName("member/loginsuccess");
 			
+			return mav;
+		}
+		
+		@RequestMapping(value="kakaomaplist")
+		public ModelAndView kakaomaplist(HttpServletRequest req) {
+			logger.info("KakaoMapController kakaomaplist >>> : ");
+			
+			HttpSession session = req.getSession();
+			
+			String mid = String.valueOf(session.getAttribute("mid"));
+			String address = "";
+			
+			MemberVO mvo = new MemberVO();
+			mvo.setMid(mid);
+			System.out.println("mid >>> : " + mid);
+			
+			if (mid != null && mid != "null") { // 로그인이 되어있으면
+				if (memberService.memberSelect(mvo) != null) { // vo가 null 일 때 get하면 nullpointException 에러
+					address = memberService.memberSelect(mvo).getMaddress();
+				}
+				System.out.println("address >>> : " + address);
+			}
+			// 시 구 동
+			
+			ModelAndView mav = new ModelAndView();
+			
+			if (address != null ) {
+				// 동만 추출
+				String[] userAddress = address.split(" ");
+				int addLength = userAddress.length;
+				
+				if (addLength >= 2) { 
+					mav.addObject("userAddress", userAddress[addLength-2] 
+							+ userAddress[addLength-1]);
+				} else {
+					mav.addObject("userAddress", address);
+				}
+			} else { // 주소가 한 단어 일 때
+				mav.addObject("userAddress", address);
+			}
+			mav.setViewName("kakao/kakaomaplist");
 			return mav;
 		}
 }

@@ -215,7 +215,7 @@ public class CommunityController {
 			if (!presentFileName.equals(previousFileName)) {
 				// NA는 파일이 없음, NA가 아니면 파일이 있음
 				if (!previousFileName.equals("NA")) {
-					fu.imgfileDelete(previousFileName);
+					fu.imgfileDelete(req, previousFileName);
 				}
 			}
 		}
@@ -254,7 +254,7 @@ public class CommunityController {
 		// 게시글에 저장된 파일 있으면 삭제
 		if (!previousFileName.equals("NA")) {
 			FileUploadUtil fu = new FileUploadUtil();
-			fu.imgfileDelete(previousFileName);
+			fu.imgfileDelete(req, previousFileName);
 		}
 		
 		int result = communityService.communityDelete(cvo);
@@ -264,7 +264,7 @@ public class CommunityController {
 	
 	@ResponseBody 
 	@RequestMapping(value="communityFileDelete", method=RequestMethod.POST, produces="application/text; charset=utf8" )
-	public String communityFileDelete(@ModelAttribute CommunityVO cvo) {
+	public String communityFileDelete(@ModelAttribute CommunityVO cvo, HttpServletRequest req) {
 		logger.info("CommunityController communityFileDelete");
 		
 		String fileName = communityService.communityFileCheck(cvo).getCfile();
@@ -273,7 +273,7 @@ public class CommunityController {
 		
 		if (fileName != null && fileName.length() > 0) {
 			FileUploadUtil fu = new FileUploadUtil();
-			delete = fu.imgfileDelete(fileName);
+			delete = fu.imgfileDelete(req, fileName);
 		}
 		
 		if (delete) {
@@ -332,54 +332,6 @@ public class CommunityController {
 		mav.setViewName("community/communityManagement");
 		
 		return mav;
-	}
-	
-	@RequestMapping(value="kakaomap")
-	public String kakaomap() {
-		return "kakao/kakaomap";
-	}
-	
-	@RequestMapping(value="kakaomaplist")
-	public ModelAndView kakaomaplist(HttpServletRequest req) {
-		HttpSession session = req.getSession();
-		String mid = String.valueOf(session.getAttribute("mid"));
-		
-		MemberVO mvo = new MemberVO();
-		mvo.setMid(mid);
-		
-		// 시 구 동
-		String address = memberService.memberSelect(mvo).getMaddress();
-		
-		// 동만 추출
-		String[] userAddress = address.split(" ");
-		int addLength = userAddress.length;
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("kakao/kakaomaplist");
-		mav.addObject("userAddress", userAddress[addLength-2] 
-									+ userAddress[addLength-1]);
-		
-		return mav;
-	}
-	
-	@RequestMapping(value="kakaomapinformation")
-	public String kakaomapinformation() {
-		return "kakao/kakaomapinformation";
-	}
-	
-	@RequestMapping(value="kakaomaplocation")
-	public String kakaomaplocation() {
-		return "kakao/kakaomaplocation";
-	}
-	
-	@RequestMapping(value="kakaomapmarkertext")
-	public String kakaomapmarkertext() {
-		return "kakao/kakaomapmarkertext";
-	}
-	
-	@RequestMapping(value="kakaomapoverlay")
-	public String kakaomapoverlay() {
-		return "kakao/kakaomapoverlay";
 	}
 	
 	private boolean userMauthCheck(HttpSession session, String mid) {

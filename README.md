@@ -8,8 +8,13 @@
    
    WEB-INF/tld/custom_tag.tld >> 커스텀 태그를 만들어 주었다.
 
+### rootContext.xml에서 자기 db로 수정해서 해주기
+
 ### 2021-02-24
 + Common에서 Chabun -> Chaebun으로 수정해서 합쳐주기!
 
 ### 2021-02-25
 + context root에서 이미지 불러오기, 업로드 경로 수정 필요!
+
+### 2021-02-26
++ 지도 완료
