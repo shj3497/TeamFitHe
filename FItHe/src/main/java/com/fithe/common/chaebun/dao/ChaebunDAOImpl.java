@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import com.fithe.community.vo.CommunityVO;
 import com.fithe.member.vo.MemberVO;
 import com.fithe.notice.vo.NoticeVO;
+import com.fithe.reply.vo.ReplyVO;
+import com.fithe.survey.vo.SurveyVO;
 
 @Repository
 public class ChaebunDAOImpl implements ChaebunDAO {
@@ -41,4 +43,18 @@ public class ChaebunDAOImpl implements ChaebunDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("getCommunityChabun");
 	}
+
+	@Override
+	public ReplyVO getReplyChaebun() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("getReplyChaebun");
+	}
+	
+	@Override
+	public SurveyVO getSurveyChaebun() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("getSurveyChabun");
+	}
+
+	
 }

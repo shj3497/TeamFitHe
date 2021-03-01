@@ -76,12 +76,13 @@
 	    <version>1.4</version>
 	</dependency>
   	<!-- ojdbc 세팅 -->
+  	<!-- 
   	<dependency>
 		<groupId>com.oracle.ojdbc</groupId>
 		<artifactId>ojdbc6</artifactId>
 		<version>6.0</version>
 	</dependency>
-	
+	 -->
   	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
 	<dependency>
 	    <groupId>org.springframework.security</groupId>

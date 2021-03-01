@@ -150,7 +150,18 @@
 	                                    <img src="${pageContext.request.contextPath}/imgupload/${communityDetail.cfile}" />
 	                                </td>
 	                        </tr>
-                    	</c:if>
+	                   </c:if>
+	                        <tr>
+		                        <td>
+			                        
+				                        	<jsp:include page="/WEB-INF/view/reply/replyForm.jsp" flush="false">
+												<jsp:param name="cnum" value="${communityDetail.cnum}" />
+											</jsp:include>
+									
+								</td>
+							</tr>
+
+                    	
 					</table>
 					<div class="btn_group">
 	                    <div>
@@ -165,6 +176,7 @@
         	<!--end of <div class="content_wrap">-->
     	</div>
     	<!--end of <div class="fithe_wrap">-->
+
 	</form>
 </body>
 </html>

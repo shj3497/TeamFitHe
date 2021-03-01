@@ -14,7 +14,15 @@
 	<resultMap type="com.fithe.community.vo.CommunityVO" id="community">
 		<result column="CNUM" property="cnum" />
 	</resultMap>
+
+	<resultMap type="com.fithe.survey.vo.SurveyVO" id="surveyVO">
+		<result column="SNUM" 	property="snum"/>
+	</resultMap>
 	
+		<resultMap type="com.fithe.reply.vo.ReplyVO" id="replyVO">
+		<result column="RNUM" 	property="rnum"/>
+	</resultMap>
+	 	 
 	<!-- parameterType=값을 받아올 곳, resultMap=쿼리문의 결과를 저장할 곳 -->
 	<select id="getChaebun_m" parameterType="com.fithe.member.vo.MemberVO" resultMap="memberVO">
 		SELECT 	NVL(MAX(SUBSTR(M.MNUM, -4, 4)), 0) + 1 AS MNUM
@@ -35,4 +43,15 @@
 		SELECT 	NVL(MAX(SUBSTR(CNUM, -4)), 0) + 1 CNUM 
 		FROM 	FIT_COMMUNITY
 	</select>
+	
+	<select id="getSurveyChaebun" parameterType="com.fithe.survey.vo.SurveyVO" resultMap="surveyVO">
+		SELECT 	NVL(MAX(SUBSTR(SNUM, -4)), 0) + 1 AS SNUM
+		FROM 	FIT_SURVEY
+	</select>
+	
+	<select id="getReplyChaebun" parameterType="com.fithe.reply.vo.ReplyVO" resultMap="replyVO">
+		SELECT 	NVL(MAX(SUBSTR(RNUM, -4)), 0) + 1 AS RNUM
+		FROM 	FIT_REPLY
+	</select>
+	
 </mapper>

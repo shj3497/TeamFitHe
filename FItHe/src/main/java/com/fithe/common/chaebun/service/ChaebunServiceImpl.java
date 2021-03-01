@@ -9,6 +9,8 @@ import com.fithe.common.chaebun.dao.ChaebunDAO;
 import com.fithe.community.vo.CommunityVO;
 import com.fithe.member.vo.MemberVO;
 import com.fithe.notice.vo.NoticeVO;
+import com.fithe.reply.vo.ReplyVO;
+import com.fithe.survey.vo.SurveyVO;
 
 @Service
 @Transactional
@@ -56,4 +58,19 @@ public class ChaebunServiceImpl implements ChaebunService {
 		return chaebunDAO.getCommunityChaebun();
 	}
 
+	@Override
+	public ReplyVO getReplyChaebun() {
+		// TODO Auto-generated method stub
+		return chaebunDAO.getReplyChaebun();
+	}
+	
+	@Override
+	public SurveyVO getSurveyChaebun() {
+		// TODO Auto-generated method stub
+		return chaebunDAO.getSurveyChaebun();
+	}
+
+
+
+	
 }

@@ -7,6 +7,7 @@ public abstract class ChaebunUtil {
 	public static final String BIZ_GUBUN_C = "C"; // Community
 	public static final String BIZ_GUBUN_R = "R"; // Reply
 	public static final String BIZ_GUBUN_A = "A"; // Auth 인증번호 테이블
+	public static final String BIZ_GUBUN_S = "S"; // Survey
 	
 	// t : type >> DateFormatUtil에서의 구분문자이다.
 	// c : ChaebunDAOImpl에서 해당 테이블에서 가져온 채번번호의 숫자이다.
@@ -48,5 +49,15 @@ public abstract class ChaebunUtil {
 	public static String getCommunityChabun(String type, String ccum) {
 		
 		return BIZ_GUBUN_C.concat(ChaebunUtil.boardnumpad(type, ccum));
+	}
+	
+	public static String getReplyChaebun(String type, String ccum) {
+		
+		return BIZ_GUBUN_R.concat(ChaebunUtil.boardnumpad(type, ccum));
+	}
+	
+	public static String getSurveyChaebun(String type, String ccum) {
+		
+		return BIZ_GUBUN_S.concat(ChaebunUtil.boardnumpad(type, ccum));
 	}
 }
