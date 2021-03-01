@@ -252,7 +252,7 @@ public class MemberController {
 		// session.invalidate()는 세션을 모두 삭제한다.
 		session.invalidate();
 		
-		return "member/loginForm";
+		return "mainpage/mainpage";
 	}
 	
 	

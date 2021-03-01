@@ -92,7 +92,7 @@
             <a href="#">FITHE</a>
         </div>
 		<!--menu-->
-        <ul class="navbar_menu"><!—unorder-list—>
+        <ul class="navbar_menu"><!--  unorder-list -->
             <li><a href="#">기초체력측정</a></li>
             <li><a href="#">헬스장 추천</a></li>
             <li><a href="#">게시판</a></li>

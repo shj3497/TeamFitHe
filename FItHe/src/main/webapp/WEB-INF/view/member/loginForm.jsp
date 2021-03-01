@@ -21,6 +21,29 @@
 
 <script type="text/javascript">
 
+	
+	var sessionChk = "<%= (String)session.getAttribute("mid")%>";
+	console.log("sessionChk >>> : " + sessionChk);
+	
+	if(sessionChk !=='null' || sessionChk != 'null'){
+		alert("로그인이 되어있으십니다.")
+		console.log("sessionChk >>> : " + sessionChk);
+		location.href="mainpageForm.do";
+	}
+
+	// !==  >>> : 엄격동치 알고리즘 , 자료형이 일치하지 않으면 항상 false
+	// ex) x = 1
+	//	x == 1, x == '1'  >>> : True
+	//  x ===  1  >>> : True	, x !==  1  >>> : False
+	//  x === '1' >>> : False	, x !== '1' >>> : True
+	
+	//뒤로가기를 막아주는 함수
+	window.history.forward();
+	function noBack(){
+		console.log("뒤로가기는 안되요")
+		window.history.forward();
+	}
+
 	$(document).ready(function(){
 		
 		// 패스워드 입력후 엔터 입력시 바로 로그인 버튼 선택
@@ -65,7 +88,7 @@
 	
 </script>
 </head>
-<body>
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 	<!-- navigator -->
 	<nav class="navbar">
 		<!-- logo -->
@@ -133,7 +156,6 @@
 		</div>
 		</div>
 	</div>
-	
 	<!--footer-->
 	<footer> 
 		<p>TEAM : FITHE (핏해)</p>

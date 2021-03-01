@@ -17,5 +17,7 @@
 	<hr>
 	<a href="surveyForm.do">surveyForm</a><br>
 	<a href="surveyList.do">surveyList</a><br>
+	<hr>
+	<a href="mainpageForm.do">메인페이지로 이동</a>
 </body>
 </html>
