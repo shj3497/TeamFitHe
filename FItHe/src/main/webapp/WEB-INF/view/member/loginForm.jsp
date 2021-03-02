@@ -38,11 +38,12 @@
 	//  x === '1' >>> : False	, x !== '1' >>> : True
 	
 	//뒤로가기를 막아주는 함수
+	/*
 	window.history.forward();
 	function noBack(){
 		console.log("뒤로가기는 안되요")
 		window.history.forward();
-	}
+	}*/
 
 	$(document).ready(function(){
 		
@@ -88,7 +89,7 @@
 	
 </script>
 </head>
-<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
+<body>
 	<!-- navigator -->
 	<nav class="navbar">
 		<!-- logo -->
