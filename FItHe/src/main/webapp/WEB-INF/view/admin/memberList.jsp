@@ -242,7 +242,7 @@
 									<a href="javascript:setOrder('minsertdate');">가입일
 										<c:choose>
 											<c:when test="${data.order_by == 'minsertdate' and data.order_sc == 'ASC' }"><span class="shapes_sty">&#9650</span></c:when>
-											<c:when test="${data.order_by == 'minsertdate' and data.order_sc == 'DESC' }"><span class="shapes_sty">&#9660</c:when>
+											<c:when test="${data.order_by == 'minsertdate' and data.order_sc == 'DESC' }"><span class="shapes_sty">&#9660</span></c:when>
 											<c:otherwise><span class="shapes_sty">&#9650</span></c:otherwise>
 										</c:choose>
 									</a>
