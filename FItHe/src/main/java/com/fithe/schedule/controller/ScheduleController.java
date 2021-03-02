@@ -68,6 +68,11 @@ public class ScheduleController {
 		logger.info(mid);
 		
 		svo.setMid(mid); //아이디별로 캘린더에보여지는게 달라야하므로 설정
+		if(smemo1 == "" || smemo1 == null || smemo2 == "" || smemo2 == null 
+				|| smemo3 == "" || smemo3 == null || smemo4 == "" || smemo4 == null 
+				|| smemo5 == "" || smemo5 == null || sdate == "" || sdate == null) {
+			return "B";
+		}
 		int nCnt = scheduleService.scheduleInsert(svo);
 		logger.info(nCnt);
 		if(nCnt == 1) {
