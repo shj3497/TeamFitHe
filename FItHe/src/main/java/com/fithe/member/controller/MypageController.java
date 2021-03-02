@@ -30,7 +30,7 @@ public class MypageController {
 	
 //	#################### !MyPage! ####################
 	
-	@RequestMapping(value="mypage", method=RequestMethod.GET)
+	@RequestMapping(value="mypage", method= RequestMethod.GET)
 	public String mypage(Model model, MemberVO mvo, HttpServletRequest request) {
 		// 로그인 후 마이페이지 이동 버튼 클릭시 동작
 		logger.info("mypage() 진입");
