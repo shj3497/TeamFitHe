@@ -204,7 +204,7 @@ public class KakaoController {
 				
 				if (addLength >= 2) { 
 					mav.addObject("userAddress", userAddress[addLength-2] 
-							+ userAddress[addLength-1]);
+							+ userAddress[addLength-1] + " 주변 헬스장");
 				} else {
 					mav.addObject("userAddress", address);
 				}
