@@ -48,7 +48,8 @@
 </script>
 <title>Insert title here</title>
 </head>
-<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
+<body>
+<!-- <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload=""> -->
 <!-- 추후에 메인페이지로 이동해야한다. -->
 	<h1>로그인 성공!!</h1>
 	<h1>추후 메인페이지로 이동하게끔 결과를 이동시켜야한다.</h1>
