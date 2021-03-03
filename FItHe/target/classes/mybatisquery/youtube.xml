@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fithe.youtube.dao.YoutubeDAO">
-	<resultMap type="com.fithe.youtube.vo.YoutubeVO" id="YoutubeVO">
+	<resultMap type="com.fithe.youtube.vo.YoutubeVO" id="youtubeVO">
 		<result property="ylink" column="YLINK"/>
 		<result property="yid" column="YID"/>
 		<result property="ynum" column="YNUM"/>
@@ -22,7 +22,7 @@
 		)
 	</insert>
 	
-	<select id="youtubeSelect" parameterType="com.fithe.youtube.vo.YoutubeVO" resultMap="YoutubeVO">
+	<select id="youtubeSelect" parameterType="com.fithe.youtube.vo.YoutubeVO" resultMap="youtubeVO">
 		SELECT 	YNUM, YLINK
 		FROM 	FIT_YOUTUBE
 		WHERE 	YID 	= #{yid, jdbcType=VARCHAR}

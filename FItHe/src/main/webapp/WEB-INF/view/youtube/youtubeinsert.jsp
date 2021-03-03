@@ -20,7 +20,7 @@
         input[type=button]:hover{background-color: var(--accent-color); color: white; font-weight: 900;}
     </style>
     <!--javascript-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
         function click_insert() {
 

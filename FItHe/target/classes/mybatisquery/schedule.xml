@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fithe.schedule.dao.ScheduleDAO">
+
+	<resultMap type="com.fithe.schedule.vo.ScheduleVO" id="scheduleVO">
+		<result property="sdate" column="SDATE"/>
+		<result property="smemo1" column="SMEMO1"/>
+		<result property="smemo2" column="SMEMO2"/>
+		<result property="smemo3" column="SMEMO3"/>
+		<result property="smemo4" column="SMEMO4"/>
+		<result property="smemo5" column="SMEMO5"/>
+		<result property="mid" 	  column="MID"/>
+	</resultMap>
+	<insert id="scheduleInsert" parameterType="com.fithe.schedule.vo.ScheduleVO">
+		INSERT INTO FIT_SCHEDULE
+			(
+				SDATE,
+				SMEMO1,
+				SMEMO2,
+				SMEMO3,
+				SMEMO4,
+				SMEMO5,
+				MID
+			)
+		VALUES(
+				#{sdate, jdbcType=VARCHAR},
+				#{smemo1, jdbcType=VARCHAR},
+				#{smemo2, jdbcType=VARCHAR},
+				#{smemo3, jdbcType=VARCHAR},
+				#{smemo4, jdbcType=VARCHAR},
+				#{smemo5, jdbcType=VARCHAR},
+				#{mid, jdbcType=VARCHAR}
+			)
+	</insert>
+	
+	<select id="scheduleSelect" parameterType="com.fithe.schedule.vo.ScheduleVO" resultType="com.fithe.schedule.vo.ScheduleVO"> 
+		SELECT * 
+		FROM FIT_SCHEDULE 
+		WHERE MID = #{mid, jdbcType=VARCHAR}
+	</select>
+</mapper>

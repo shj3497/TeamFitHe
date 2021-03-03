@@ -16,7 +16,7 @@
 <title>board</title>
 <script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 <script src="${pageContext.request.contextPath}/include/mypage/mypage/main.js" defer></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript">
 
@@ -45,6 +45,18 @@
 	})
 
 </script>
+<style> 
+		body {
+				margin: 40px 10px; 
+				padding: 0; 
+				font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif; 
+				font-size: 14px; } 
+		#calendar { 
+			max-width: 500px;
+			margin: 0 auto; 
+		}	
+</style>
+
 </head>
 <body>
 	<!--navigator-->
@@ -81,6 +93,7 @@
                 <ul class="my_menu">
                     <li><a href="mypage.do">회원정보</a></li>
 					<li><a href="mySecpage.do">보안정보</a></li>
+					<li><a href="calendar.do">캘린더</a></li>
                 </ul>
                 <!--<Select onchange="window.location.href=this.value">                    
                     <option value="#">회원정보</option>
@@ -104,10 +117,6 @@
 	            	<input type="button" id="logoutgo" class="com_btn" value="로그아웃">
 				</div>
 			</div>
-			<div class="user_calendar">
-				<div class="font_mid">캘린더</div>
-				<input type="button" id="calendergo" class="com_btn" value="조회하기">
-			</div><!--<div class="content_group">-->
 		</div><!--<div class="content_wrap">-->
 	</div><!--<div id="show" class="fithe_wrap" v-cloak>-->
 	
