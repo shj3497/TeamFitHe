@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -14,7 +13,7 @@ public class FileUploadUtil {
 	private String imgfilePaths;
 	private int imgfileSize; 
 	private String encodeType;	
-	private MultipartRequest mr;;
+	private MultipartRequest mr;
 
 	public FileUploadUtil() {
 		this.imgfilePaths = CommonUtils.IMG_UPLOAD_PATH;

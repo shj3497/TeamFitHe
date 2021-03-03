@@ -117,7 +117,7 @@
 	            <a href="">FITHE</a>
 	        </div>
 			<!--menu-->
-	        <ul class="navbar_menu"><!—unorder-list—>
+	        <ul class="navbar_menu">
 	            <li><a href="">기초체력측정</a></li>
 	            <li><a href="">헬스장 추천</a></li>
 	            <li><a href="">게시판</a></li>
@@ -168,7 +168,7 @@
 							<option value="keysubject" id="keysubject">제목</option>
 							<option value="keymid" id="keymid">작성자</option>
 						</select> &nbsp;&nbsp;
-						<input type="search" id="keyword" name="keyword" placeholder="검색어를 입력" value="${paging.keyword}"/>
+						<input type="search" id="keyword" name="keyword" placeholder="무엇을 찾고 계세요?" value="${paging.keyword}"/>
 						<input type="button" id="searchBtn" value="검색">
 					</div>
 					<!-- ========== 검색창  끝   ========== -->
@@ -206,17 +206,16 @@
 							<c:if test="${paging.nowPage == 1}"> <%-- 페이지 1일때만 표시 --%>
 								<%-- 공지 숨기기 체크 박스 unchecked 되면 --%>
 								<c:forEach items="${noticeExposureList}" var="notice">
-									<tr class="notice_tr"  
-										style="color: red;" data-num="${notice.nnum}">				 
-										<td align="center">
+									<tr class="notice_tr" data-num="${notice.nnum}">				 
+										<td>
 											<span class="notice__alarm">공지</span>
 											<span class="noticeDetail">
-												<a href=# style="color: red">${notice.nsubject}</a> 
+												<a href=#>${notice.nsubject}</a> 
 											</span>
 										</td>
-										<td align="center">${notice.mid}</td>
-										<td align="center">${notice.ninsertdate}</td>
-										<td align="center">${notice.nhit}</td>
+										<td>${notice.mid}</td>
+										<td>${notice.ninsertdate}</td>
+										<td>${notice.nhit}</td>
 									</tr>
 								</c:forEach>
 							</c:if>

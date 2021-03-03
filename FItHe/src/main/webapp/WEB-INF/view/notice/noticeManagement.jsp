@@ -13,16 +13,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>공지사항 게시글 관리 페이지</title>
 	<!--common stylesheet-->
-	<link rel="stylesheet" href="${ctx}/css/style.css">
+	<link rel="stylesheet" href="./css/style.css">
 	<!---->
-	<link rel="stylesheet" href="${ctx}/css/manager.css">
-	<link rel="stylesheet" href="${ctx}/css/manager_board.css">
+	<link rel="stylesheet" href="./css/board.css">
+	<link rel="stylesheet" href="./css/manager.css">
+	<link rel="stylesheet" href="./css/manager_board.css">
 	<!--font-->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 	<!--common script-->
-	<script src="${ctx}/js/menu.js" defer></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<!--javascript-->
 	<script type="text/javascript">
@@ -231,15 +231,15 @@
 						<!-- ========== 테이블 시작 ========== -->
 						<table>
 							<colgroup>
-								<col width="15%" />
+								<col width="20%" />
 								<!--전체선택-->
 								<col width="40%" />
 								<!--제목-->
-								<col width="15%" />
-								<!--작성자-->
 								<col width="10%" />
-								<!--작성일-->
+								<!--작성자-->
 								<col width="20%" />
+								<!--작성일-->
+								<col width="15%" />
 								<!--조회수-->
 							</colgroup>
 							<thead class="list_head">
@@ -275,7 +275,9 @@
 														<input type="checkbox" name="rowCheck" value="${notice.nnum}">
 													</td>													
 													<td>
-														<span class="noticeDetail"><a href=#>${notice.nsubject}</a>
+														<span class="notice__alarm">공지</span>
+														<span class="noticeDetail">
+															<a href=# style="color: red">${notice.nsubject}</a>
 														</span>
 													</td>
 													<td>${notice.mid}</td>
