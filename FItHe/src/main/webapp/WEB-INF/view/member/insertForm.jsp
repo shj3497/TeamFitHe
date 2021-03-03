@@ -174,14 +174,13 @@
 		$('#insertForm').on('click',function(){
 			console.log("회원가입 버튼 선택");
 			
+			
 			// 널값 체크
 			if(!chkSubmit($('#mid'),"아이디를 ")){
 				return ;
 			}else if(!chkSubmit($('#mpw'),"비밀번호를 ")){
 				return ;
 			}else if(!chkSubmit($('#mname'),"이름을 ")){
-				return ;
-			}else if(!chkSubmit($('#mgender'),"성별을 ")){
 				return ;
 			}else if(!chkSubmit($('#mbir'),"생일을 ")){
 				return ;
@@ -299,7 +298,7 @@
     		<div class="content_group">
 				<form id="fit_writeForm">
 					<input type="hidden" id="chkid" value="N">
-					<div id="show">
+					<div id="show" v-cloak>
 						<div class="member_content_section">
 							<label>아이디</label>
 							<div class="member_content_t">
@@ -327,9 +326,9 @@
 						</div>
 						<div class="member_content_g">
 							<label>성별</label>
-							<input type="radio" id="mgender" name="mgender" value="F">여성
+							<input type="radio" name="mgender" value="F" checked>여성
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" id="mgender" name="mgender" value="M">남성
+							<input type="radio" name="mgender" value="M">남성
 						</div>
 						<div class="member_content_section">
 							<label>생년월일</label>

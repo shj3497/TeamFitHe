@@ -20,6 +20,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!--javaScript-->
 <script src="${pageContext.request.contextPath}/include/main/js/main.js" defer></script>
+
 </head>
 <body>
 <!-- 
@@ -38,9 +39,11 @@
 	
 	<hr>
 	<a href="kakaomaplist.do">카카오맵 리스트 </a> <br>
- -->	
+ -->
+
 	<!--navigator-->
-	<nav class="navbar">
+	<%--
+	<nav id="navshow" class="navbar">
 		<!--logo-->
 		<div class="navbar_logo">
 			<i class="fas fa-anchor"></i>
@@ -51,18 +54,27 @@
 				<li><a href="#">기초체력측정</a></li>
 				<li><a href="kakaomaplist.do">헬스장 추천</a></li>
 				<li><a href="#">게시판</a></li>
-				<li><a href="#">마이페이지</a></li>
 		</ul>
 		<!--login icon-->
-		<ul class="navbar_icons">
+		<ul v-if="session_chk==='null'" class="navbar_icons">
 			<li><a href="memberLoginForm.do">로그인<i class="fas fa-user-plus"></i></a></li>
+			<!-- <li><a href="mypage.do">mypage<i class="fas fa-user-plus"></i></a></li> -->
 		</ul>
+		<ul v-else class="navbar_icons">
+			<li>{{session_mid}}</li>
+			<li><a href="mypage.do">내정보</a></li>
+			<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
+			<li><a href="memberLogout.do">로그아웃</a></li>
+		</ul>
+		
 		<!--@pad @phone-->
 		<a href="#" class="navbar_toggleBtn">
 			<i class="fas fa-bars"></i>
 		</a>
 	</nav>
-
+ 	--%>
+ 	<jsp:include page="../common/nav.jsp"></jsp:include>
+ 	
 	<!--content-->
 	<div class="fithe_wrap">
 		<div class="content_wrap">
