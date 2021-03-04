@@ -38,4 +38,23 @@
 		FROM FIT_SCHEDULE 
 		WHERE MID = #{mid, jdbcType=VARCHAR}
 	</select>
+	
+	<select id="scheduleCheck" parameterType="com.fithe.schedule.vo.ScheduleVO" resultType="int">
+		SELECT COUNT(MID)
+		FROM FIT_SCHEDULE
+		WHERE MID = #{mid, jdbcType=VARCHAR}
+		AND	  SDATE = #{sdate, jdbcType=VARCHAR}
+	</select>
+	
+	<update id="scheduleUpdate" parameterType="com.fithe.schedule.vo.ScheduleVO">
+		UPDATE FIT_SCHEDULE
+		SET SMEMO1 = #{smemo1, jdbcType=VARCHAR},
+			SMEMO2 = #{smemo2, jdbcType=VARCHAR},
+			SMEMO3 = #{smemo3, jdbcType=VARCHAR},
+			SMEMO4 = #{smemo4, jdbcType=VARCHAR},
+			SMEMO5 = #{smemo5, jdbcType=VARCHAR}
+		WHERE MID =  #{mid, jdbcType=VARCHAR}
+		AND	  SDATE = #{sdate, jdbcType=VARCHAR}
+	</update>
+	
 </mapper>

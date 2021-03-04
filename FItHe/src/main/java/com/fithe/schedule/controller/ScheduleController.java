@@ -51,7 +51,10 @@ public class ScheduleController {
 	@RequestMapping(value="scheduleinsert", method=RequestMethod.POST)
 	public String scheduleInsert(HttpServletRequest request, ScheduleVO svo) {
 		HttpSession session = request.getSession();
+		
 		String mid = (String)session.getAttribute("mid");
+		int valueCheck = 0;
+		
 		logger.info("Controller scheduleInsert 함수 진입");
 		String sdate = request.getParameter("sdate");
 		String smemo1 = request.getParameter("smemo1");
@@ -73,12 +76,33 @@ public class ScheduleController {
 				|| smemo5 == "" || smemo5 == null || sdate == "" || sdate == null) {
 			return "B";
 		}
-		int nCnt = scheduleService.scheduleInsert(svo);
-		logger.info(nCnt);
-		if(nCnt == 1) {
-			return "G";
-		}else {
-			return "B";
-		}		
+		
+		// insert 하기전에 이미 값이 있는 확인
+		valueCheck = scheduleService.scheduleCheck(svo);
+		System.out.println("valueCheck >>> : " + valueCheck);
+
+		int nCnt = 0;
+		// 기존에 값이 없을 때 insert
+		if (valueCheck == 0) {
+			 nCnt = scheduleService.scheduleInsert(svo);
+			 logger.info("nCnt >>> : " + nCnt);
+			
+			if(nCnt == 1) {
+				return "G";
+			} else {
+				return "B";
+			}	
+		} else { // 값이 있으면 기존 값을 update로 덮어주기
+			nCnt = scheduleService.scheduleUpdate(svo);
+			logger.info("nCnt >>> : " + nCnt);
+			
+			if(nCnt == 1) {
+				return "G";
+			} else {
+				return "B";
+			}
+		}
+		
+			
 	}
 }

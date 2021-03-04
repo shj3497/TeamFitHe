@@ -194,7 +194,6 @@ public class KakaoController {
 				System.out.println("address >>> : " + address);
 			}
 			// 시 구 동
-			
 			System.out.println("address >>> : " + address);
 			
 			ModelAndView mav = new ModelAndView();
