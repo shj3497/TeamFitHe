@@ -1,0 +1,100 @@
+@charset "utf-8";
+body{
+	color:var(--text-color);
+}
+
+/* title */
+.board_head{
+	display: flex;
+	font-size: 18pt;
+	margin-top: 50px;
+	margin-left: 50px;
+	margin-bottom: 30px;
+}
+.check_head p:nth-of-type(2){
+	font-size: 13pt;
+	margin-left: 60px;	
+}
+.check_head p:nth-of-type(3){
+	font-size: 13pt;
+	margin-left: 60px;
+}
+.check_head p:nth-of-type(4){
+	font-size: 13pt;
+	margin-left: 60px;
+	margin-bottom: 70px;
+}
+
+/*member*/
+.content_group{
+	width: 100%;
+	max-width: 910px;
+	margin: auto;
+	display:flex;
+	justify-content:center;
+	/*align-items:baseline;*/
+}
+
+/* common box area */
+.member_content_t input{	
+  	height: 40px;
+	border-top: 1px solid #FCFCFF;
+	border-right: 1px solid #FCFCFF;
+	border-left: 1px solid #FCFCFF;
+	border-bottom: 2px solid medium;
+	margin-bottom: 40px;
+}
+
+/* password box area */
+.member_content_p input{
+	height: 40px;
+	border-top: 1px solid #FCFCFF;
+	border-right: 1px solid #FCFCFF;
+	border-left: 1px solid #FCFCFF;
+	border-bottom: 2px solid medium;
+	margin-bottom: 10px;
+}
+
+.member_content_t p {
+	position: relative;
+	bottom: 30px;
+	font-size: 10pt;
+	margin-bottom: 20px;
+}
+
+/* textarea size */
+.member_content_section input[type="text"]{width: 300px;}
+.member_content_section input[type="password"]{width: 300px;}
+/*.member_content_t_i{width: 300px;}*/
+.member_content_section input:focus{
+	outline:none;border-bottom:2px solid var(--accent-color);
+}
+
+/* text */
+.member_content_section label{
+	font-size: 14pt;
+	margin-right: 60px;
+	Font-weight: 700;
+	Letter-spacing:2px;
+}
+
+/* result button */
+.result_btn{
+	height: 40px;
+	width: 150px;
+	border-radius: 2px;
+	border: none;
+	background-color: whitesmoke;
+	margin-bottom: 40px;
+}
+
+.result_btn:hover{
+	background-color: var(--accent-color);
+	color: white;
+}
+/*-----------------------------------------*/
+/* mobile version */
+@media screen and (max-width: 360px){
+	.board_box{
+	}
+}

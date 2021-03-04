@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+/* board content list select & search */
+.board_content_bar{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 10px;
+}
+.board_content_bar div{width: 49%;}
+/* search*/
+.board_search{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	height: 30px;
+}
+
+
+/*############################################ HERE*/
+/* table list */
+.board_list{width:100%}
+.board_list_table{
+	/*table 줄 바꿈 제한*/
+	width: 100%;
+	word-break:nowrap;
+	background-color: white;
+}
+/*############################################ END*/
+
+
+
+/*except notice*/
+.board_list_head_tr{
+	background-color: whitesmoke;
+	font-size: 10pt;
+}
+.board_list_table tr{
+	height: 30px;
+}
+.board_list_table td{
+	border-bottom: 1px solid darkgray;
+	text-align: center;
+}
+
+
+/*############################################ HERE*/
+/*글번호 안보이게*/
+/*글번호 없으면 tr의 첫번째 td가 제목*/
+.board_list_table td:nth-of-type(1){
+	text-align: left;
+	padding-left: 15px;
+	word-spacing: 2pt;
+}
+/*title*/
+.communityDetail, .noticeDetail{
+	display: inline-block;
+	width: 400px; /*해당 크기 이상일 경우 ellipsis(...) 사용*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.communityDetail a, .noticeDetail a:visited{
+	text-decoration:none; color: var(--text-color);
+}
+
+/*notice*/
+.notice__alarm{
+	display: inline-block;
+	width:40px;	
+	background-color: var(--accent-color);
+	color:white;	
+	border-radius: 10%;
+	font-size: 8pt;
+	text-align: center;
+}
+.noticeDetail{font-weight: 600;}
+/*############################################ END*/
+
+/*추천 또는 댓글 수?*/
+.ref_num{color:var(--accent-color); border: 1px gray;}
+/* write button */
+.board_write{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	padding-top: 10px;
+}
+/*페이징*/
+.board_list_paging{
+	display: block;
+	text-align: center;
+	font-size: 10pt;
+}
+
+/*-----------------------------------------*/
+/* mobile version */
+@media screen and (max-width: 768px){
+	/*board content list select & search*/
+	.board_content_bar{
+		flex-direction: column-reverse; 
+		justify-content:flex-start;
+	}
+	.board_content_bar div{ 
+		width: 95%;
+		padding: 10px; 
+		background-color: darkorange;
+	}
+	/*############################################ HERE*/
+	/*scrollbar design*/
+	.board_list{width:100%;	overflow-x:auto; white-space: nowrap;}
+	.board_list_table{width: auto; margin-bottom: 5px;}
+	.board_list::-webkit-scrollbar{width: 5px;}
+	.board_list::-webkit-scrollbar-thumb{
+		background-color: whitesmoke;
+		border-radius: 10px;
+		background-clip: padding-box;
+		border: 3px solid transparent;
+	}
+	.board_list::-webkit-scrollbar-thumb:hover{background-color: lightgray;}
+	.board_list::-webkit-scrollbar-track{
+		background-color:transparent;
+		border-radius: 10px;
+		box-shadow: inset 0px 0px 5px rgb(230, 230, 230);
+	}
+}
