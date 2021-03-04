@@ -37,4 +37,18 @@ public class ScheduleServiceImpl implements ScheduleService {
 		return scheduleDAO.scheduleSelect(mid);
 	}
 
+	@Override
+	public int scheduleCheck(ScheduleVO svo) {
+		// TODO Auto-generated method stub
+		logger.info("ScheduleServiceImpl scheduleCheck함수");
+		return scheduleDAO.scheduleCheck(svo);
+	}
+
+	@Override
+	public int scheduleUpdate(ScheduleVO svo) {
+		// TODO Auto-generated method stub
+		logger.info("ScheduleServiceImpl scheduleUpdate함수");
+		return scheduleDAO.scheduleUpdate(svo);
+	}
+
 }

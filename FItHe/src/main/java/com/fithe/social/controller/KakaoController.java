@@ -194,19 +194,20 @@ public class KakaoController {
 				System.out.println("address >>> : " + address);
 			}
 			// 시 구 동
+			System.out.println("address >>> : " + address);
 			
 			ModelAndView mav = new ModelAndView();
 			
-			if (address != null ) {
+			if (address != null && address.length() > 0) {
 				// 동만 추출
 				String[] userAddress = address.split(" ");
 				int addLength = userAddress.length;
 				
 				if (addLength >= 2) { 
 					mav.addObject("userAddress", userAddress[addLength-2] 
-							+ userAddress[addLength-1]);
+							+ userAddress[addLength-1] + " 주변 헬스장");
 				} else {
-					mav.addObject("userAddress", address);
+					mav.addObject("userAddress", address + " 주변 헬스장");
 				}
 			} else { // 주소가 한 단어 일 때
 				mav.addObject("userAddress", address);
