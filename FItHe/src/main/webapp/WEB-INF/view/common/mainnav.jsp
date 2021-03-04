@@ -36,6 +36,11 @@
 	})
 
 </script>
+<style type="text/css">
+[v-cloak]{
+	display:none;
+}
+</style>
 </head>
 <body>
 	<nav id="navshow" class="navbar" v-cloak>
@@ -46,16 +51,17 @@
 		</div>
 		<!--menu-->
 		<ul class="navbar_menu">
-				<li><a href="#">기초체력측정</a></li>
-				<li><a href="kakaomaplist.do">헬스장 추천</a></li>
-				<li><a href="#">게시판</a></li>
+			<li><a href="#">기초체력측정</a></li>
+			<li><a href="kakaomaplist.do" target="_blank">헬스장 추천</a></li>
+			<li><a href="communityList.do">게시판</a></li>
+			<li><a href="youtube.do">운동영상</a></li>
 		</ul>
 		<!--login icon-->
-		<ul v-if="session_chk==='null'" class="navbar_icons">
+		<ul v-if="session_chk==='null'" class="navbar_icons" v-cloak>
 			<li><a href="memberLoginForm.do">로그인<i class="fas fa-user-plus"></i></a></li>
 			<!-- <li><a href="mypage.do">mypage<i class="fas fa-user-plus"></i></a></li> -->
 		</ul>
-		<ul v-else class="navbar_icons">
+		<ul v-else class="navbar_icons" v-cloak>
 			<li>{{session_mid}}</li>
 			<li><a href="mypage.do">내정보</a></li>
 			<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>

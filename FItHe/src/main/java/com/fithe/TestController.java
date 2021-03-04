@@ -14,6 +14,6 @@ public class TestController {
 	
 	@RequestMapping(value="navForm")
 	public String navForm() {
-		return "common/nav";
+		return "common/mainnav";
 	}
 }

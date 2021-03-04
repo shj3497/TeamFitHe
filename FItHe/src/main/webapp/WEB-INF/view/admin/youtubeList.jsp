@@ -211,7 +211,7 @@
                         <option value="none">=== 선택 ===</option>
                         <option value="memberList.do">회원관리</option>
                         <option value="#">게시판 관리</option>
-                        <option value="#">공지 게시판 관리</option>
+                        <option value="#">공지사항 관리</option>
                         <option value="youtubeList.do" selected>동영상 관리</option>
                     </select>
                 </div>

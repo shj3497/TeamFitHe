@@ -73,7 +73,7 @@
 		</a>
 	</nav>
  	--%>
- 	<jsp:include page="../common/nav.jsp"></jsp:include>
+ 	<jsp:include page="../common/mainnav.jsp"></jsp:include>
  	
 	<!--content-->
 	<div class="fithe_wrap">
@@ -165,6 +165,5 @@
 		</div>
 	</div>
 	<!--=========================// END footer //=========================-->
-	<a href="memberLogout.do">로그아웃</a>
 </body>
 </html>

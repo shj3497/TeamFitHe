@@ -60,6 +60,8 @@
 </head>
 <body>
 	<!--navigator-->
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+	<%--
     <nav class="navbar">
         <!--logo-->
         <div class="navbar_logo">
@@ -84,7 +86,7 @@
         </a>
     </nav>
     <!--end of <nav class="navbar">-->
-    
+    --%>
     
 	<div id="show" class="fithe_wrap" v-cloak>
 		<div class="content_wrap">
