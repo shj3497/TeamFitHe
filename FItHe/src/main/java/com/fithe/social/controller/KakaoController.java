@@ -195,9 +195,11 @@ public class KakaoController {
 			}
 			// 시 구 동
 			
+			System.out.println("address >>> : " + address);
+			
 			ModelAndView mav = new ModelAndView();
 			
-			if (address != null ) {
+			if (address != null && address.length() > 0) {
 				// 동만 추출
 				String[] userAddress = address.split(" ");
 				int addLength = userAddress.length;

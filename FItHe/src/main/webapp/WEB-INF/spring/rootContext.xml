@@ -15,7 +15,7 @@
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value="java:comp/env/jdbc/Oracle11g_orclcy00"></property>
 	</bean>
-
+	
 	<!-- 
 		마이바티스 쿼리문 찾아서 연결하기
 		ref="dataSource" >> 18행의 dataSource id값과 동일
