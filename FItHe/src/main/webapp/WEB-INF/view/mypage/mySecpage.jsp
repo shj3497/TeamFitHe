@@ -42,6 +42,8 @@
 </head>
 <body>
 	<!--navigator-->
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+	<%--
     <nav class="navbar">
         <!--logo-->
         <div class="navbar_logo">
@@ -66,13 +68,14 @@
         </a>
     </nav>
     <!--end of <nav class="navbar">-->
-	
+	--%>
 	<div id="show" class="fithe_wrap"><!-- mypage.jsp와는 다르게 mySecpage에서는 Vue.js 안씀 -->
 		<div class="content_wrap">
 			<div class="content_head">
 				<ul class="my_menu">
 					<li><a href="mypage.do">회원정보</a></li>
 					<li><a href="mySecpage.do">보안정보</a></li>
+					<li><a href="calendar.do">캘린더</a></li>
 				</ul>
 			</div>
 			<!--<div class="content_wrap">-->

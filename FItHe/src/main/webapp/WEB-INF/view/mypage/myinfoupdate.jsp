@@ -166,6 +166,8 @@
 </head>
 <body>
 	<!--navigator-->
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+	<%--
     <nav class="navbar">
         <!--logo-->
 		<div class="navbar_logo">
@@ -188,7 +190,7 @@
             <i class="fas fa-bars"></i>
         </a>
     </nav><!--end of <nav class="navbar">-->
-    
+    --%>
     <div class="fithe_wrap">
     	<!--board box-->
     	<div id="show" v-cloak class="content_wrap">

@@ -50,7 +50,7 @@
 						<li><a href="memberList.do">회원 관리</a></li>
 						<li><a href="#">게시판 관리</a></li>
 						<li><a href="#">공지사항 관리</a></li>
-						<li><a href="youtubeList.do">동영상 게시판 관리</a></li>
+						<li><a href="youtubeList.do">동영상 관리</a></li>
 					</ul>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 						<option value="memberList.do" selected>회원 관리</option>
 						<option value="#">게시판 관리</option>
 						<option value="#">공지사항 관리</option>
-						<option value="youtubeList.do">동영상게시판 관리</option>
+						<option value="youtubeList.do">동영상 관리</option>
 					</select>
 				</div>
 			</div>

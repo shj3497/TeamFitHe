@@ -21,6 +21,6 @@
 	<hr>
 	<a href="mainpageForm.do">메인페이지로 이동</a>
 	<hr>
-	<a href="navForm.do">nav.jsp 로 이동</a>
+	<a href="navForm.do">mainnav.jsp 로 이동</a>
 </body>
 </html>
