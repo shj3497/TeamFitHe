@@ -52,7 +52,7 @@
 		<!--menu-->
 		<ul class="navbar_menu">
 			<li><a href="#">기초체력측정</a></li>
-			<li><a href="kakaomaplist.do">헬스장 추천</a></li>
+			<li><a href="kakaomaplist.do" target="_blank">헬스장 추천</a></li>
 			<li><a href="communityList.do">게시판</a></li>
 			<li><a href="youtube.do">운동영상</a></li>
 		</ul>
