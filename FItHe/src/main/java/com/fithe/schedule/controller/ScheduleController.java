@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,7 +42,8 @@ public class ScheduleController {
 	}
 	
 	@RequestMapping(value="schedulePopup", method=RequestMethod.GET)
-	public String popup() {
+	public String popup(@ModelAttribute ScheduleVO svo, Model model) {
+		model.addAttribute("svo", svo);
 		return "/schedule/schedulePopup";
 	}
 	
@@ -57,23 +59,23 @@ public class ScheduleController {
 		
 		logger.info("Controller scheduleInsert 함수 진입");
 		String sdate = request.getParameter("sdate");
-		String smemo1 = request.getParameter("smemo1");
-		String smemo2 = request.getParameter("smemo2");
-		String smemo3 = request.getParameter("smemo3");
-		String smemo4 = request.getParameter("smemo4");
-		String smemo5 = request.getParameter("smemo5");
+		String situp = request.getParameter("situp");
+		String bend = request.getParameter("bend");
+		String jump = request.getParameter("jump");
+		String around = request.getParameter("around");
+		String race = request.getParameter("race");
 		logger.info(sdate);
-		logger.info(smemo1);
-		logger.info(smemo2);
-		logger.info(smemo3);
-		logger.info(smemo4);
-		logger.info(smemo5);
+		logger.info(situp);
+		logger.info(bend);
+		logger.info(jump);
+		logger.info(around);
+		logger.info(race);
 		logger.info(mid);
 		
 		svo.setMid(mid); //아이디별로 캘린더에보여지는게 달라야하므로 설정
-		if(smemo1 == "" || smemo1 == null || smemo2 == "" || smemo2 == null 
-				|| smemo3 == "" || smemo3 == null || smemo4 == "" || smemo4 == null 
-				|| smemo5 == "" || smemo5 == null || sdate == "" || sdate == null) {
+		if(situp == "" || situp == null || bend == "" || bend == null 
+				|| jump == "" || jump == null || around == "" || around == null 
+				|| race == "" || race == null || sdate == "" || sdate == null) {
 			return "B";
 		}
 		

@@ -38,11 +38,11 @@
 					type : "POST",
 					data : {
 						sdate :$("#startDate").val(),
-						smemo1 : $("#memo1").val(),
-						smemo2 : $("#memo2").val(),
-						smemo3 : $("#memo3").val(),
-						smemo4 : $("#memo4").val(),
-						smemo5 : $("#memo5").val(),
+						situp : $("#situp").val(),
+						bend : $("#bend").val(),
+						jump : $("#jump").val(),
+						around : $("#around").val(),
+						race : $("#race").val(),
 					},
 					success : function(data){
 						if(data == "G"){
@@ -71,11 +71,17 @@
 			</tr>
 			<tr>
 				<h3>메모</h3>
-				<td><input type="text" id="memo1" name="memo1" placeholder="입력"/></td>
-				<td><input type="text" id="memo2" name="memo2" placeholder="입력"/></td>
-				<td><input type="text" id="memo3" name="memo3" placeholder="입력"/></td>
-				<td><input type="text" id="memo4" name="memo4" placeholder="입력"/></td>
-				<td><input type="text" id="memo5" name="memo5" placeholder="입력"/></td>
+				<td>10미터 왕복 달리기 : </td>
+				<td><input type="text" id="around" name="around" placeholder="입력" value="${svo.around}"/><br></td>
+				<td>오래 달리기 : </td>
+				<td><input type="text" id="race" name="race" placeholder="입력" value="${svo.race}"/><br></td>
+				<td>윗몸구부리기 : </td>
+				<td><input type="text" id="bend" name="bend" placeholder="입력" value="${svo.bend}"/><br></td>
+				<td>윗몸일으키기 : </td>
+				<td><input type="text" id="situp" name="situp" placeholder="입력" value="${svo.situp}"/><br></td>
+				<td>제자리  멀리뛰기 :</td>
+				<td><input type="text" id="jump" name="jump" placeholder="입력" value="${svo.jump}"/><br></td>
+				
 			</tr>
 			<tr>
 				<td><button type="button" onclick="click_ok()">확인</button></td>

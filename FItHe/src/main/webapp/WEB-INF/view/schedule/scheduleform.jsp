@@ -50,27 +50,27 @@
 			    		   		ScheduleVO svo = (ScheduleVO)lists.get(i);
 			    		   %>
 			    		   		{
-			    		   			title : '근지구력 : ' + '<%=svo.getSmemo1() %>',
+			    		   			title : '윗몸일으키기 : ' + '<%=svo.getSitup() %>',
 			    		   			start : '<%=svo.getSdate()%>'
 			    		   		},
 			    		   		
 			    		   		{
-			    		   			title : '유연성 : ' + '<%=svo.getSmemo2() %>',
+			    		   			title : '윗몸구부리기 : ' + '<%=svo.getBend() %>',
 			    		   			start : '<%=svo.getSdate()%>'
 			    		   		},
 			    		   		
 			    		   		{
-			    		   			title : '순발력 : ' + '<%=svo.getSmemo3() %>',
+			    		   			title : '제자리 멀리뛰기 : ' + '<%=svo.getJump() %>',
 			    		   			start : '<%=svo.getSdate()%>'
 			    		   		},
 			    		   		
 			    		   		{
-			    		   			title : '민첩성 : ' + '<%=svo.getSmemo4() %>',
+			    		   			title : '10미터 왕복 달리기 : ' + '<%=svo.getAround() %>',
 			    		   			start : '<%=svo.getSdate()%>'
 			    		   		},
 			    		   		
 			    		   		{
-			    		   			title : '심폐지구력 : ' + '<%=svo.getSmemo5() %>',
+			    		   			title : '오래 달리기 : ' + '<%=svo.getRace() %>',
 			    		   			start : '<%=svo.getSdate()%>'
 			    		   		},
 

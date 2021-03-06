@@ -4,36 +4,36 @@
 
 	<resultMap type="com.fithe.schedule.vo.ScheduleVO" id="scheduleVO">
 		<result property="sdate" column="SDATE"/>
-		<result property="smemo1" column="SMEMO1"/>
-		<result property="smemo2" column="SMEMO2"/>
-		<result property="smemo3" column="SMEMO3"/>
-		<result property="smemo4" column="SMEMO4"/>
-		<result property="smemo5" column="SMEMO5"/>
+		<result property="situp" column="SITUP"/>
+		<result property="bend" column="BEND"/>
+		<result property="jump" column="JUMP"/>
+		<result property="around" column="AROUND"/>
+		<result property="race" column="RACE"/>
 		<result property="mid" 	  column="MID"/>
 	</resultMap>
 	<insert id="scheduleInsert" parameterType="com.fithe.schedule.vo.ScheduleVO">
 		INSERT INTO FIT_SCHEDULE
 			(
 				SDATE,
-				SMEMO1,
-				SMEMO2,
-				SMEMO3,
-				SMEMO4,
-				SMEMO5,
+				SITUP,
+				BEND,
+				JUMP,
+				AROUND,
+				RACE,
 				MID
 			)
 		VALUES(
 				#{sdate, jdbcType=VARCHAR},
-				#{smemo1, jdbcType=VARCHAR},
-				#{smemo2, jdbcType=VARCHAR},
-				#{smemo3, jdbcType=VARCHAR},
-				#{smemo4, jdbcType=VARCHAR},
-				#{smemo5, jdbcType=VARCHAR},
+				#{situp, jdbcType=VARCHAR},
+				#{bend, jdbcType=VARCHAR},
+				#{jump, jdbcType=VARCHAR},
+				#{around, jdbcType=VARCHAR},
+				#{race, jdbcType=VARCHAR},
 				#{mid, jdbcType=VARCHAR}
 			)
 	</insert>
 	
-	<select id="scheduleSelect" parameterType="com.fithe.schedule.vo.ScheduleVO" resultType="com.fithe.schedule.vo.ScheduleVO"> 
+	<select id="scheduleSelect" parameterType="com.fithe.schedule.vo.ScheduleVO" resultMap="scheduleVO"> 
 		SELECT * 
 		FROM FIT_SCHEDULE 
 		WHERE MID = #{mid, jdbcType=VARCHAR}
@@ -48,11 +48,11 @@
 	
 	<update id="scheduleUpdate" parameterType="com.fithe.schedule.vo.ScheduleVO">
 		UPDATE FIT_SCHEDULE
-		SET SMEMO1 = #{smemo1, jdbcType=VARCHAR},
-			SMEMO2 = #{smemo2, jdbcType=VARCHAR},
-			SMEMO3 = #{smemo3, jdbcType=VARCHAR},
-			SMEMO4 = #{smemo4, jdbcType=VARCHAR},
-			SMEMO5 = #{smemo5, jdbcType=VARCHAR}
+		SET SITUP = #{situp, jdbcType=VARCHAR},
+			BEND = #{bend, jdbcType=VARCHAR},
+			JUMP = #{jump, jdbcType=VARCHAR},
+			AROUND = #{around, jdbcType=VARCHAR},
+			RACE = #{race, jdbcType=VARCHAR}
 		WHERE MID =  #{mid, jdbcType=VARCHAR}
 		AND	  SDATE = #{sdate, jdbcType=VARCHAR}
 	</update>

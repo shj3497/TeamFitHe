@@ -2,25 +2,24 @@ package com.fithe.schedule.vo;
 
 public class ScheduleVO {
 	private String sdate;
-	private String smemo1;
-	private String smemo2;
-	private String smemo3;
-	private String smemo4;
-	private String smemo5;
+	private String situp;
+	private String bend;
+	private String jump;
+	private String around;
+	private String race;
 	private String mid;
 	
 	public ScheduleVO() {
 		
 	}
 	
-	public ScheduleVO(String sdate, String smemo1, String smemo2, String smemo3, String smemo4, String smemo5,
-			String mid) {
+	public ScheduleVO(String sdate, String situp, String bend, String jump, String around, String race, String mid) {
 		this.sdate = sdate;
-		this.smemo1 = smemo1;
-		this.smemo2 = smemo2;
-		this.smemo3 = smemo3;
-		this.smemo4 = smemo4;
-		this.smemo5 = smemo5;
+		this.situp = situp;
+		this.bend = bend;
+		this.jump = jump;
+		this.around = around;
+		this.race = race;
 		this.mid = mid;
 	}
 
@@ -32,44 +31,44 @@ public class ScheduleVO {
 		this.sdate = sdate;
 	}
 
-	public String getSmemo1() {
-		return smemo1;
+	public String getSitup() {
+		return situp;
 	}
 
-	public void setSmemo1(String smemo1) {
-		this.smemo1 = smemo1;
+	public void setSitup(String situp) {
+		this.situp = situp;
 	}
 
-	public String getSmemo2() {
-		return smemo2;
+	public String getBend() {
+		return bend;
 	}
 
-	public void setSmemo2(String smemo2) {
-		this.smemo2 = smemo2;
+	public void setBend(String bend) {
+		this.bend = bend;
 	}
 
-	public String getSmemo3() {
-		return smemo3;
+	public String getJump() {
+		return jump;
 	}
 
-	public void setSmemo3(String smemo3) {
-		this.smemo3 = smemo3;
+	public void setJump(String jump) {
+		this.jump = jump;
 	}
 
-	public String getSmemo4() {
-		return smemo4;
+	public String getAround() {
+		return around;
 	}
 
-	public void setSmemo4(String smemo4) {
-		this.smemo4 = smemo4;
+	public void setAround(String around) {
+		this.around = around;
 	}
 
-	public String getSmemo5() {
-		return smemo5;
+	public String getRace() {
+		return race;
 	}
 
-	public void setSmemo5(String smemo5) {
-		this.smemo5 = smemo5;
+	public void setRace(String race) {
+		this.race = race;
 	}
 
 	public String getMid() {
@@ -79,5 +78,7 @@ public class ScheduleVO {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
+	
+	
 	
 }
