@@ -140,7 +140,7 @@
 /*title eclipse event*/
 .communityDetail, .noticeDetail{
 	display: inline-block;
-	width: 400px; /*해당 크기 이상일 경우 ellipsis(...) 사용*/
+	width: 200px; /*해당 크기 이상일 경우 ellipsis(...) 사용*/
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;

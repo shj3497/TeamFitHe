@@ -57,11 +57,11 @@ body{
 	width: 300px;
 	border-radius: 2px;
 	border: none;
-	background-color: whitesmoke;
+	background-color: white;
 	margin-bottom: 40px;
 }
 .middle_btn:hover{
-	color: var(--accent-color);
+	color: red;
 }
 
 /* result button */
@@ -70,12 +70,11 @@ body{
 	width: 300px;
 	border-radius: 2px;
 	border: none;
-	background-color: whitesmoke;
+	background-color: white;
 	margin-bottom: 40px;
 }
 .result_btn:hover{
-	background-color: var(--accent-color);
-	color: white;
+	color: red;
 }
 /*-----------------------------------------*/
 /* mobile version */

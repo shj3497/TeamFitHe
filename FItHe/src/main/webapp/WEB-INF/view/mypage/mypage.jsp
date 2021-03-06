@@ -114,9 +114,7 @@
 	                <span>연락처</span>&nbsp;&nbsp;
 	                <input type="text" class="com_in_txt" v-bind:value="mph" disabled>
 	                <br>
-	                <input type="button" id="changeInfogo" class="com_btn" value="수정">
-	                <!-- 로그아웃버튼은 나중에 없앨거임 -->
-	            	<input type="button" id="logoutgo" class="com_btn" value="로그아웃">
+	                <input type="button" id="changeInfogo" class="re_btn" value="수정">
 				</div>
 			</div>
 		</div><!--<div class="content_wrap">-->

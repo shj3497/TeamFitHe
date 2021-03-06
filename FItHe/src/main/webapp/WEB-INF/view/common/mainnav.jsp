@@ -31,6 +31,14 @@
 				session_chk:"<%=(String)session.getAttribute("mid") %>",
 				session_mid:"${sessionScope.mid}"+"님"
 				
+			},
+			methods:{
+				my_info_true:function(){
+					$('#login_info_tab').attr('style','visibility:visible')
+				},
+				my_info_false:function(){
+					$('#login_info_tab').attr('style','visibility:hidden')
+				}
 			}
 		})
 	})
@@ -59,19 +67,50 @@
 		<!--login icon-->
 		<ul v-if="session_chk==='null'" class="navbar_icons" v-cloak>
 			<li><a href="memberLoginForm.do">로그인<i class="fas fa-user-plus"></i></a></li>
-			<!-- <li><a href="mypage.do">mypage<i class="fas fa-user-plus"></i></a></li> -->
 		</ul>
-		<ul v-else class="navbar_icons" v-cloak>
+		<!-- 
+		<div v-else class="login_member" v-cloak v-on:mouseover="testtest" v-on:mouseout="testtesttest">
+			<span>{{session_mid}}</span>
+			<div id="login_info_tab" style="visibility:hidden;">
+				<ul class="navbar_icons2">
+					<li><a href="mypage.do">내정보</a></li>
+					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
+					<li><a href="memberLogout.do">로그아웃</a></li>
+				</ul>
+			</div>
+		</div>
+		 -->
+		<!-- 
+		<ul v-else class="login_member" v-on:mouseover="my_info_true" v-on:mouseout="my_info_false">
 			<li>{{session_mid}}</li>
-			<li><a href="mypage.do">내정보</a></li>
-			<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
-			<li><a href="memberLogout.do">로그아웃</a></li>
+			<li id="login_info_tab" class="navbar_icons2" style="visibility:hidden;">
+				<ul>
+					<li><a href="mypage.do">내정보</a></li>
+					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
+					<li><a href="memberLogout.do">로그아웃</a></li>
+				</ul>
+			</li>
 		</ul>
+		 -->
+		<div v-else class= "login_member" v-on:mouseover="my_info_true" v-on:mouseout="my_info_false">
+			<span>{{session_mid}}</span>
+			<div id="login_info_tab" class="navbar_icons2" style="visibility:hidden;">
+				<ul>
+					<li><a href="mypage.do">내정보</a></li>
+					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
+					<li><a href="memberLogout.do">로그아웃</a></li>
+				</ul>
+			</div>
+		</div>
 		
 		<!--@pad @phone-->
 		<a href="#" class="navbar_toggleBtn">
 			<i class="fas fa-bars"></i>
 		</a>
 	</nav>
+	
+	<div style="height:50px">
+		&nbsp;
+	</div>
 </body>
 </html>

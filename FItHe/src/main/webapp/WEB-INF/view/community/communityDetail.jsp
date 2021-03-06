@@ -136,12 +136,12 @@
                    		</tr>
 						<tr class="user_content_info">
 	                        <td>
-	                            <div><i class="far fa-laugh-wink"></i></div>
 	                            <div>
-	                                ${communityDetail.mid}                            
-	                                <div class="content_info">
+	                            	<i class="far fa-laugh-wink"></i>
+	                            	<span>${communityDetail.mid}    </span>
+	                            </div>
+	                            <div class="content_info">
 	                                    ${communityDetail.cinsertdate} 조회수 : ${communityDetail.chit}
-	                                </div>
 	                            </div>
 	                        </td>
                     	</tr>

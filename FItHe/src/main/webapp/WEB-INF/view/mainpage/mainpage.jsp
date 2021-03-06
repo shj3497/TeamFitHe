@@ -7,7 +7,7 @@
 <meta name="main" content="width=device-width, initial-scale=1.0">
 <title>FitHe</title>
 <!--common stylesheet-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/include/main/css/style.css">
+<!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/include/main/css/style.css"> -->
 <!--style-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/include/main/css/main.css">
 <!--font-->

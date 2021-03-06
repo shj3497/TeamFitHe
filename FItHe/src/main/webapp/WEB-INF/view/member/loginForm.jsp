@@ -138,23 +138,24 @@
 						<input type="password" id="mpw" name="mpw" placeholder="비밀번호 입력">
 					</div>
 				</div>
+				
 				<div>
 					<input type="button" class="login_btn" id="loginChk" value="로그인">
-					<input type="button" class="mem_btn"
-					id="memberInsert" value="회원가입">
+				</div>
+				<div class="sns_btn">
+					<div>
+						<jsp:include page="kakaoLogin.jsp"></jsp:include>
+					</div>
+					<div class="naver_position">
+						<jsp:include page="naverLogin.jsp"></jsp:include>
+					</div>
 				</div>
 				<br>
 				<div>
 					<input type="button" class="find_btn" id="findID" value="ID찾기">|
 					<input type="button" class="find_btn" id="findPW" value="PW찾기">
-				</div>
-				<!-- 추후에 지울 태그 -->
-				<div>
-					<a href="tempmain.do">임시 메인페이지</a>		
-				</div>
-				<div>
-					<jsp:include page="kakaoLogin.jsp"></jsp:include>
-					<jsp:include page="naverLogin.jsp"></jsp:include>
+					<input type="button" class="mem_btn"
+					id="memberInsert" value="회원가입">
 				</div>
 			</form>
 		</div>

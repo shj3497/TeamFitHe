@@ -82,22 +82,22 @@
 			<div class="content_group">
             	<div class="user_info">
             	    <div class="font_mid">비밀번호</div>
-						<label>FitHe 로그인 시 사용하는 비밀번호를 변경할 수 있습니다.<br> 
-						주기적인 비밀번호 변경을 통해 개인정보를 안전하게 보호하세요.</label>
+						<div>FitHe 로그인 시 사용하는 비밀번호를 변경할 수 있습니다.<br> 
+						주기적인 비밀번호 변경을 통해 개인정보를 안전하게 보호하세요.</div>
                     <div class="button_small">
-                        <input type="button" id="changePwFormgo" class="com_btn" value="변경하기">
+                        <input type="button" id="changePwFormgo" class="sec_btn" value="변경하기">
                     </div>
                 </div>
 				<div class="user_info">
                     <div class="font_mid">회원탈퇴</div>
                     <div class="button_small">
-                        <input type="button" id="delMemberFormgo" class="com_btn" value="탈퇴하기">
+                        <input type="button" id="delMemberFormgo" class="sec_btn" value="탈퇴하기">
                     </div>
                 </div>
                 <div class="user_info_d">
                     <div class="font_mid">내가 작성한 글 목록</div>
                     <div class="button_small">
-                        <input type="button" id="" class="com_btn" value="확인하기">
+                        <input type="button" id="" class="sec_btn" value="확인하기">
                     </div>
                 </div>
             </div><!--<div class="content_group">-->

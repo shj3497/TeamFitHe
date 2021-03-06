@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>패스워드 변경</title>
 <!--common stylesheet-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/changePwForm/style.css">
+<!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/changePwForm/style.css"> -->
 <!--style-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/changePwForm/changePwForm.css">
 <!--font-->
