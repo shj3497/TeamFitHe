@@ -33,7 +33,6 @@ hr{display: none;}
 .com_btn{
 	border-radius: 2px;
 	border: none;
-	background-color: whitesmoke;
 }
 .com_btn:hover{
 	background-color: var(--accent-color);
@@ -49,6 +48,7 @@ hr{display: none;}
 .com_in_txt{
     width: 300px;
     height: 40px;
+    margin-top: 10px;
     border: 1px solid #FCFCFF;
     border-bottom: 2px solid medium;
 }

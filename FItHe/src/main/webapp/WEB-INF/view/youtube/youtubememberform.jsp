@@ -13,7 +13,7 @@
 	<meta charset="UTF-8">
 	<title>YOUTUBE FORM</title>
 	<!--common stylesheet-->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/include/youtube/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/include/main/css/style.css"><!-- /include/youtube/style.css -->
 	<!--style-->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/include/youtube/youtube.css">
 	<!--font-->
@@ -248,27 +248,8 @@
 	</div>
 	<!--end of <div class="fithe_wrap">-->
 
-	<!--=========================// START footer //=========================-->
-	<div class="footer_group">
-		<!--kosmo info-->
-		<div>
-			<div>
-				<ul>
-					<li><a href="#">이용약관 ㅣ </a></li>
-					<li><a href="#">개인정보처리방침</a></li>
-				</ul>
-				<p>(153-759) 서울시 금천구 가산동 426-5 월드메르디앙 2차 404호</p>
-				<p>Copyright (C) 2021 KOSMO FITHE. All rights reserved.</p>
-				<ul class="sns">
-					<li><a href="#"><img src="${pageContext.request.contextPath}/include/youtube/img/facebook_logo.png"></a></li>
-					<li><a href="https://www.instagram.com/fithe_2021/"><img src="${pageContext.request.contextPath}/include/youtube/img/instagram_circle.png"></a></li>
-					<li><a href="https://www.notion.so/springiscoming/2021-FITHE-8f4a814cfc5040bbbb92897833f7676a">
-							<img src="${pageContext.request.contextPath}/include/youtube/img/blog_logo.png"></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!--=========================// END footer //=========================-->
+	<!-- footer -->
+	<jsp:include page="../common/mainfooter.jsp"></jsp:include>
 </body>
 
 </html>

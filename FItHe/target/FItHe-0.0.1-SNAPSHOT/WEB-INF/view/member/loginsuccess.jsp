@@ -22,6 +22,13 @@
 	
 </script>
 <script type="text/javascript">
+	//뒤로가기를 막아주는 함수
+	window.history.forward();
+	
+	function noBack(){
+		console.log("뒤로가기는 안되요")
+		window.history.forward();
+	}
 	
 	$(document).ready(function(){
 		
@@ -42,6 +49,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload=""> -->
 <!-- 추후에 메인페이지로 이동해야한다. -->
 	<h1>로그인 성공!!</h1>
 	<h1>추후 메인페이지로 이동하게끔 결과를 이동시켜야한다.</h1>

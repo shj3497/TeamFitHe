@@ -11,6 +11,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<style>
+			.calendar_section{width: 85%; positoin: absolute; margin: auto; padding: 200px 0 30px;}
+		</style>
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<!-- fullcalendar cdn -->
 		<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css" rel="stylesheet">
@@ -39,7 +42,7 @@
 			    			click: function(){
 			    				var url = "schedulePopup.do";
 			    				var name = "schedulePopup";
-			    				var option = "width=600, height = 600, left=100, top=50, location=no ";
+			    				var option = "width=600, height = 900, left=100, top=50, location=no ";
 			    				window.open(url,name,option)
 			    			}
 			    		}
@@ -84,6 +87,13 @@
 		</script>
 	</head>
 	<body>
-		<div id='calendar'></div>
+		<!--navigator-->
+		<jsp:include page="../common/mainnav.jsp"></jsp:include>
+		
+		<div class="calendar_section">
+			<div id='calendar'></div>
+		</div>
+		<!-- footer -->
+		<jsp:include page="../common/mainfooter.jsp"></jsp:include>
 	</body>
 </html>

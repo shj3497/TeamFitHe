@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.kakao_url{
+	height: 50px;
+	width: 150px;
+	margin:auto;
+	font-size: 16pt;
+	border-radius: 2px;
+	border: none;
+	background-color: whitesmoke;
+}

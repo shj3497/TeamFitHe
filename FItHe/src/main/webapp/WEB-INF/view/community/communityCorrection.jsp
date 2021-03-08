@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자유게시판 수정페이지</title>
     <!--common stylesheet-->
-    <link rel="stylesheet" href="${ctx}/css/style.css">
+    <link rel="stylesheet" href="${ctx}/include/main/css/style.css"><!-- ${ctx}/css/style.css -->
     <!--style-->
     <link rel="stylesheet" href="${ctx}/css/board_form.css">
     <!--font-->
@@ -145,6 +145,8 @@
 	</nav>
  	--%>
  	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+ 	
+ 	
 	<form name="communityForm" id="communityForm">
 		<input type="hidden" name="cnum" id="cnum" value='${communityDetail.cnum}' />
 		<input type="hidden" name="mid" id="mid" value='${communityDetail.mid}' />
@@ -212,5 +214,6 @@
 		</div>
     	<!--end of <div class="fithe_wrap">-->
     </form>
+    
 </body>
 </html>

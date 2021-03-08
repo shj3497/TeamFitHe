@@ -90,18 +90,19 @@
 <!-- PW찾기 시 이름과 이메일을 입력받아 인증번호를 전송한다. -->
 <!-- 인증번호가 확인된다면 해당하는 pw변경하는 페이지로 이동한다. -->
 	<!--navigator-->
-    <nav class="navbar">
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+    <%-- <nav class="navbar">
         <!--logo-->
 		<div class="navbar_logo">
             <i class="fas fa-ice-cream"></i>
             <a href="#">FITHE</a>
         </div>
 		<!--menu-->
-        <ul class="navbar_menu"><!-- unorder-list -->
+        <ul class="navbar_menu"><!—unorder-list—>
             <li><a href="#">기초체력측정</a></li>
             <li><a href="#">헬스장 추천</a></li>
             <li><a href="#">게시판</a></li>
-            <li><a href="#">마이페이지</a></li>
+            <li><a href="mypage.do">마이페이지</a></li>
         </ul>
 		<!--login icon-->
         <ul class="navbar_icons">
@@ -112,6 +113,7 @@
             <i class="fas fa-bars"></i>
         </a>
     </nav><!--end of <nav class="navbar">-->
+    --%>
     
     <div class="fithe_wrap">
     	<!--board box-->

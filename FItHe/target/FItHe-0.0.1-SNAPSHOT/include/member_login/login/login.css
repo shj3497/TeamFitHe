@@ -67,8 +67,7 @@ body{
 /* member button */
 .mem_btn{
 	position: relative;
-	top: 54px;
-	right: 73px;
+	left: 120px;
 	border: 1px solid #FCFCFF;
 	background-color: #FCFCFF;
 }
@@ -98,6 +97,17 @@ body{
 .result_btn:hover{
 	background-color: var(--accent-color);
 	color: white;
+}
+
+.sns_btn{
+	position: relative;
+	display: flex;
+	flex-direction:low;
+	margin-top: 10px;
+}
+
+.naver_position{
+	margin-left : 10px;
 }
 
 /*-----------------------------------------*/

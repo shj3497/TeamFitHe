@@ -69,8 +69,10 @@
     </nav>
     <!--end of <nav class="navbar">-->
 	--%>
+	
 	<div id="show" class="fithe_wrap"><!-- mypage.jsp와는 다르게 mySecpage에서는 Vue.js 안씀 -->
 		<div class="content_wrap">
+		
 			<div class="content_head">
 				<ul class="my_menu">
 					<li><a href="mypage.do">회원정보</a></li>
@@ -78,7 +80,8 @@
 					<li><a href="calendar.do">캘린더</a></li>
 				</ul>
 			</div>
-			<!--<div class="content_wrap">-->
+			<!--<div class="content_head">-->
+			
 			<div class="content_group">
             	<div class="user_info">
             	    <div class="font_mid">비밀번호</div>
@@ -103,5 +106,8 @@
             </div><!--<div class="content_group">-->
 		</div><!--<div class="content_wrap">-->
 	</div>
+	
+	<!-- footer -->
+	<jsp:include page="../common/mainfooter.jsp"></jsp:include>
 </body>
 </html>

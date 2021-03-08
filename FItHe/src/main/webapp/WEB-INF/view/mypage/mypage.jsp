@@ -120,11 +120,7 @@
 		</div><!--<div class="content_wrap">-->
 	</div><!--<div id="show" class="fithe_wrap" v-cloak>-->
 	
-	<!--footer-->
-	<footer> 
-		<p>TEAM : FITHE (핏해)</p>
-		<address>github</address>
-		<small>&copy unclepapa</small> 
-	</footer>
+	<!-- footer -->
+	<jsp:include page="../common/mainfooter.jsp"></jsp:include>
 </body>
 </html>

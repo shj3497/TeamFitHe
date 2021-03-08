@@ -95,7 +95,7 @@ body{
 /* email box area */
 .member_content_e input[type="text"]{
 	height: 40px;
-	width: 150px;
+	width: 135px;
 	border-top: 1px solid #FCFCFF;
 	border-right: 1px solid #FCFCFF;
 	border-left: 1px solid #FCFCFF;
@@ -106,8 +106,10 @@ body{
 /* email re_btn */
 .email_btn{
 	position: relative;
-	left: 70px;
-	height: 30px;
+	width: 100px;
+	left: 210px;
+	top: 50px;
+	height: 40px;
 	border-radius: 2px;
 	border: none;
 	background-color: whitesmoke;
@@ -115,6 +117,14 @@ body{
 .email_btn:hover{
 	background-color: var(--accent-color);
 	color: white;
+}
+.sel_btn{
+	height: 40px;
+	width: 20px;
+	margin-right:30px;
+	border-radius: 2px;
+	border: none;
+	background-color: whitesmoke;
 }
 
 /* find button */

@@ -142,6 +142,16 @@ a{
     padding-left: 0;
     padding-right: 20px;
 }
+.navbar_icons2>ul{
+	list-style: none;
+    margin:0px; padding:0px;
+	}
+.navbar_icons2>ul>li{
+	display: block;
+	left:30px;
+	
+}
+	
 .navbar_icons li{
     padding: 8px 12px;
 }
@@ -250,6 +260,7 @@ a{
 
     /*------------------------------------------------*/
     /*menu*/
+    
     .navbar{
         flex-direction: column;
         align-items: flex-start;
@@ -275,11 +286,28 @@ a{
         display: block;
         padding-right: 40px;
     }
-    /**/
+    
     .navbar_menu.active,
     .navbar_icons.active{
         display: flex;
     }
     /*------------------------------------------------*/
 
+	.login_member{
+		margin-right : 55px;
+	}
+	
+	.navbar_icons2{
+		display: flex;
+  	  	flex-direction: column;
+   	 	position: fixed;
+  	  	right: 10px;
+  	  	margin-top: 180px;
+	}
+	/*.navbar_icons2 li, */
+	.navbar_icons2 ul li a {
+	    display: none;
+	    width: 100px;
+	    background-color: whitesmoke;
+	}
 }

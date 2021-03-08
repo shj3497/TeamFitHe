@@ -83,36 +83,44 @@
 </script>
 </head>
 <body>
+
+<%--
+	<nav id="navshow" class="navbar">
+		<!--logo-->
+		<div class="navbar_logo">
+			<i class="fas fa-anchor"></i>
+			<a href="#">FITHE</a>
+		</div>
+		<!--menu-->
+		<ul class="navbar_menu">
+				<li><a href="#">기초체력측정</a></li>
+				<li><a href="kakaomaplist.do">헬스장 추천</a></li>
+				<li><a href="#">게시판</a></li>
+		</ul>
+		<!--login icon-->
+		<ul v-if="session_chk==='null'" class="navbar_icons">
+			<li><a href="memberLoginForm.do">로그인<i class="fas fa-user-plus"></i></a></li>
+			<!-- <li><a href="mypage.do">mypage<i class="fas fa-user-plus"></i></a></li> -->
+		</ul>
+		<ul v-else class="navbar_icons">
+			<li>{{session_mid}}</li>
+			<li><a href="mypage.do">내정보</a></li>
+			<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
+			<li><a href="memberLogout.do">로그아웃</a></li>
+		</ul>
+		
+		<!--@pad @phone-->
+		<a href="#" class="navbar_toggleBtn">
+			<i class="fas fa-bars"></i>
+		</a>
+	</nav>
+ 	--%>
+ 	<jsp:include page="../common/mainnav.jsp"></jsp:include>
 	<form id="communityForm" name="communityForm" >
 		<input type="hidden" id="cnum" name="cnum" value="${communityDetail.cnum}">
 		<input type="hidden" id="mid" name="mid" value="${communityDetail.mid}">
 		<input type="hidden" id="boardtype" name="boardtype" value="${boardtype}">
 		
-		<!--navigator-->
-	    <nav class="navbar">
-	        <!--logo-->
-	        <div class="navbar_logo">
-	            <i class="fas fa-ice-cream"></i>
-	            <a href="">FITHE</a>
-	        </div>
-	        <!--menu-->
-	        <ul class="navbar_menu">
-	            <!—unorder-list—>
-	                <li><a href="">기초체력측정</a></li>
-	                <li><a href="">헬스장 추천</a></li>
-	                <li><a href="">게시판</a></li>
-	                <li><a href="">마이페이지</a></li>
-	        </ul>
-	        <!--login icon-->
-	        <ul class="navbar_icons">
-	            <li><i class="fas fa-user-plus"></i></li>
-	        </ul>
-	        <!--@pad @phone-->
-	        <a href="#" class="navbar_toggleBtn">
-	            <i class="fas fa-bars"></i>
-	        </a>
-	    </nav>
-	    <!--end of <nav class="navbar">-->
 	    <div class="fithe_wrap">
         	<div class="content_wrap">
         		<div class="content_group">
@@ -128,12 +136,12 @@
                    		</tr>
 						<tr class="user_content_info">
 	                        <td>
-	                            <div><i class="far fa-laugh-wink"></i></div>
 	                            <div>
-	                                ${communityDetail.mid}                            
-	                                <div class="content_info">
+	                            	<i class="far fa-laugh-wink"></i>
+	                            	<span>${communityDetail.mid}    </span>
+	                            </div>
+	                            <div class="content_info">
 	                                    ${communityDetail.cinsertdate} 조회수 : ${communityDetail.chit}
-	                                </div>
 	                            </div>
 	                        </td>
                     	</tr>

@@ -12,8 +12,50 @@
 <head>
 	<meta charset="UTF-8">
     <title>REPLY BOARD</title>
+    
+    <!-- stylesheet -->
+    <style>
+    	/*form*/
+		.rboard_form{margin: auto; width:100%;}
+		fieldset{border: none;}
+		/*reply_user*/
+		.rboard_user{
+		    margin: 10px 0px; 
+		    width: 95%; max-width: 800px;
+		    display: flex; 
+		    flex-direction: row; 
+		    justify-content: space-between;
+		}
+		/*reply_content*/
+		.rboard_txt{width: 95%;}
+		textarea{
+		    resize: none; 
+		    width: 100%;
+		    padding: 10px;
+		    box-sizing: border-box;
+		    border: 0.5px solid lightgray;
+		    border-radius: 5px;
+		}
+		.rboard_txt div{
+		    display: flex; 
+		    justify-content: 
+		    flex-end; 
+		    margin-right: 5px;
+		    color: darkgray;
+		    font-size: 10pt;	    
+		}
+		
+		/*delete btn*/
+		.deleteBtn{
+			margin-left: 3px;
+			background-color: white;
+			border: 1px solid gray;
+			border-radius: 4px;
+		}		
+    </style>
+    
+    <!-- script -->
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-
     <script type="text/javascript" defer>
     	$(document).ready(function(){
  	
@@ -286,32 +328,27 @@
 </head>
 <body>
 
-    
-    <div class="fithe_wrap">
-        <div class="content_wrap">
-            <!--id="rbwriterdiv"-->
-            <form name="rboardForm" id="rboardForm" class="rboard_form" method="POST">
-                <input type="hidden" name="cnum" id="cnum" value="${communityDetail.cnum}">
-                <fieldset>
-                    <legend>댓글 작성</legend>
-                    <div class="rboard_user">
-                        <span id="mid">${mid}</span>
-                        <button class="com_btn" id="insert" >저장하기</button>
-                    </div>
-                    
-                    <div class="rboard_txt">
-                        <textarea name="rcontent" id="rcontent" rows="3" cols="30"
-                            placeholder="건전한 토론문화와 양질의 댓글 문화를 위해, 타인에게 불쾌감을 주는 욕설 또는 특정 계층/민족, 종교 등을 비하하는 단어들은 자제하여 주시길 바랍니다."></textarea>
-                        <div><span class="bytes">0</span>/90</div>
-                    </div>
-                </fieldset>
+	 <!--id="rbwriterdiv"-->
+	 <form name="rboardForm" id="rboardForm" class="rboard_form" method="POST">
+	     <input type="hidden" name="cnum" id="cnum" value="${communityDetail.cnum}">
+	     <fieldset>
+	         <legend>댓글 작성</legend>
+	         <div class="rboard_user">
+	             <span id="mid">${mid}</span>
+	             <button class="com_btn" id="insert" >저장하기</button>
+	         </div>
+	         
+	         <div class="rboard_txt">
+	             <textarea name="rcontent" id="rcontent" rows="3" cols="30"
+	                 placeholder="건전한 토론문화와 양질의 댓글 문화를 위해, 타인에게 불쾌감을 주는 욕설 또는 특정 계층/민족, 종교 등을 비하하는 단어들은 자제하여 주시길 바랍니다."></textarea>
+	             <div><span class="bytes">0</span>/90</div>
+	         </div>
+	     </fieldset>
+	
+	     <ul name="rboardlist" id="rboardlist">
+	         <!-- 여기에 동적 생성 요소가 들어온다. -->
+	     </ul>
+	 </form>
 
-                <ul name="rboardlist" id="rboardlist">
-                    <!-- 여기에 동적 생성 요소가 들어온다. -->
-                </ul>
-            </form>
-        </div>
-    </div>
-    <!--end of <div class="fithe_wrap">-->
 </body>
 </html>

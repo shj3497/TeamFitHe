@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>글 상세페이지</title>
     <!--common stylesheet-->
-    <link rel="stylesheet" href="${ctx}/css/style.css">
+    <link rel="stylesheet" href="${ctx}/include/main/css/style.css"><!-- ${ctx}/css/style.css -->
     <!--style-->
     <link rel="stylesheet" href="${ctx}/css/board_detail.css">
     <!--font-->
@@ -116,6 +116,8 @@
 	</nav>
  	--%>
  	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+ 	
+ 	
 	<form id="communityForm" name="communityForm" >
 		<input type="hidden" id="cnum" name="cnum" value="${communityDetail.cnum}">
 		<input type="hidden" id="mid" name="mid" value="${communityDetail.mid}">
@@ -160,23 +162,20 @@
 	                        </tr>
 	                   </c:if>
 	                        <tr>
-		                        <td>
-			                        
-				                        	<jsp:include page="/WEB-INF/view/reply/replyForm.jsp" flush="false">
-												<jsp:param name="cnum" value="${communityDetail.cnum}" />
-											</jsp:include>
-									
+		                        <td>			                        
+		                        	<jsp:include page="/WEB-INF/view/reply/replyForm.jsp" flush="false">
+										<jsp:param name="cnum" value="${communityDetail.cnum}" />
+									</jsp:include>									
 								</td>
-							</tr>
-
-                    	
+							</tr>                    	
 					</table>
+					
 					<div class="btn_group">
 	                    <div>
 	                        <input type="button" value="수정" name="communityUpdatebtn" id="communityUpdatebtn" class="userBtn">
 	                        <input type="button" value="삭제" name="communityDeletebtn" id="communityDeletebtn" class="userBtn">
 	                    </div>
-	                    	<input type="button" value="자유게시판 글 더보기 " name="communityListbtn" id="communityListbtn">
+	                    <input type="button" value="자유게시판 글 더보기 " name="communityListbtn" id="communityListbtn">
 			        </div>
 				</div>
             	<!--<div class="content_group">-->
@@ -184,7 +183,9 @@
         	<!--end of <div class="content_wrap">-->
     	</div>
     	<!--end of <div class="fithe_wrap">-->
-
 	</form>
+	
+	<!-- footer -->
+	<jsp:include page="../common/mainfooter.jsp"></jsp:include>
 </body>
 </html>

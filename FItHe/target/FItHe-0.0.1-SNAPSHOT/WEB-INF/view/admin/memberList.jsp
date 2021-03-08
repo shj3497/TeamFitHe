@@ -152,6 +152,7 @@
 						<li><a href="memberList.do">회원관리</a></li>
 						<li><a href="#">게시판 관리</a></li>
 						<li><a href="#">공지사항 관리</a></li>
+						<li><a href="youtubeList.do">동영상 관리</a></li>
 					</ul>
 				</div>
 			</div>
@@ -171,7 +172,8 @@
 						<option value="none">=== 선택 ===</option>
 						<option value="memberList.do" selected>회원관리</option>
 						<option value="#">게시판 관리</option>
-						<option value="#">회원관리</option>
+						<option value="#">공지사항 관리</option>
+						<option value="youtubeList.do">동영상 관리</option>
 					</select>
 				</div>
 			</div>
@@ -240,7 +242,7 @@
 									<a href="javascript:setOrder('minsertdate');">가입일
 										<c:choose>
 											<c:when test="${data.order_by == 'minsertdate' and data.order_sc == 'ASC' }"><span class="shapes_sty">&#9650</span></c:when>
-											<c:when test="${data.order_by == 'minsertdate' and data.order_sc == 'DESC' }"><span class="shapes_sty">&#9660</c:when>
+											<c:when test="${data.order_by == 'minsertdate' and data.order_sc == 'DESC' }"><span class="shapes_sty">&#9660</span></c:when>
 											<c:otherwise><span class="shapes_sty">&#9650</span></c:otherwise>
 										</c:choose>
 									</a>

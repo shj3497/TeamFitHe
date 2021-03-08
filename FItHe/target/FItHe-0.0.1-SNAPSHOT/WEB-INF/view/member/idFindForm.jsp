@@ -95,30 +95,31 @@
 <body>
 <!-- ID찾기 시 이름과 이메일을 입력받아 인증번호를 전송한다. -->
 <!-- 인증번호가 확인된다면 해당하는 id를 반환한다. -->
-	<!-- navigator -->
-	<nav class="navbar">
-		<!-- logo -->
+	<!--navigator-->
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+    <%-- <nav class="navbar">
+        <!--logo-->
 		<div class="navbar_logo">
-			<i class="fas fa-ice-cream"></i>
-			<a href="#">FITHE</a>
-		</div>
-		<!-- menu -->
-		<ul class="navbar_menu">
-			<!-- un order-list -->
-			<li><a href="#">기초체력측정</a></li>
+            <i class="fas fa-ice-cream"></i>
+            <a href="#">FITHE</a>
+        </div>
+		<!--menu-->
+        <ul class="navbar_menu"><!—unorder-list—>
+            <li><a href="#">기초체력측정</a></li>
             <li><a href="#">헬스장 추천</a></li>
             <li><a href="#">게시판</a></li>
-            <li><a href="#">마이페이지</a></li>
+            <li><a href="mypage.do">마이페이지</a></li>
+        </ul>
+		<!--login icon-->
+        <ul class="navbar_icons">
+            <li><i class="fas fa-user-plus"></i></li>
 		</ul>
-		<!-- login icon -->
-		<ul class="navbar_icons">
-			<li><i class="fas fa-user-plus"></i></li>
-		</ul>
-		<!--@pad @phone-->
+        <!--@pad @phone-->
 		<a href="#" class="navbar_toggleBtn">
             <i class="fas fa-bars"></i>
         </a>
-	</nav>
+    </nav><!--end of <nav class="navbar">-->
+    --%>
 	
 	<div class="fithe_wrap">
 		<!-- board box -->

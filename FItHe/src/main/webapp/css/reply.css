@@ -28,10 +28,3 @@ textarea{
     color: darkgray;
     font-size: 10pt;
 }
-
-/*-----------------------------------------*/
-/* mobile version */
-@media screen and (max-width: 768px){
-	
-	}
-}

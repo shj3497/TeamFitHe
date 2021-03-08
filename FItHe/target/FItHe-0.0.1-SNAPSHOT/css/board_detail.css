@@ -13,6 +13,7 @@ table{
 }
 .user_content_info td>div:nth-of-type(2){
     display: flex;
+    width: 300px;
     flex-direction: column;
 }
 .content_info{
@@ -28,9 +29,8 @@ table{
 }
 /*Article_content*/
 table tr:nth-of-type(3){
-    margin: 10px auto;
+    margin: 10px auto 20px;
     text-align:justify;
-    background-color: rgb(158, 250, 219);
 }
 table tr:nth-of-type(3):after{
     content: "";

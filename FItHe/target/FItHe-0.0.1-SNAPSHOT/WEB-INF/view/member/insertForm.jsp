@@ -174,14 +174,13 @@
 		$('#insertForm').on('click',function(){
 			console.log("회원가입 버튼 선택");
 			
+			
 			// 널값 체크
 			if(!chkSubmit($('#mid'),"아이디를 ")){
 				return ;
 			}else if(!chkSubmit($('#mpw'),"비밀번호를 ")){
 				return ;
 			}else if(!chkSubmit($('#mname'),"이름을 ")){
-				return ;
-			}else if(!chkSubmit($('#mgender'),"성별을 ")){
 				return ;
 			}else if(!chkSubmit($('#mbir'),"생일을 ")){
 				return ;
@@ -243,18 +242,19 @@
 </head>
 <body>
 	<!--navigator-->
-    <nav class="navbar">
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+    <%-- <nav class="navbar">
         <!--logo-->
 		<div class="navbar_logo">
             <i class="fas fa-ice-cream"></i>
-            <a href="">FITHE</a>
+            <a href="#">FITHE</a>
         </div>
 		<!--menu-->
-        <ul class="navbar_menu"><!--  unorder-list -->
+        <ul class="navbar_menu"><!—unorder-list—>
             <li><a href="#">기초체력측정</a></li>
             <li><a href="#">헬스장 추천</a></li>
             <li><a href="#">게시판</a></li>
-            <li><a href="#">마이페이지</a></li>
+            <li><a href="mypage.do">마이페이지</a></li>
         </ul>
 		<!--login icon-->
         <ul class="navbar_icons">
@@ -265,6 +265,7 @@
             <i class="fas fa-bars"></i>
         </a>
     </nav><!--end of <nav class="navbar">-->
+    --%>
     
     <div class="fithe_wrap">
     	<!-- board -->
@@ -273,33 +274,11 @@
     		<div>
 				<p class="member_head">회원 가입</p>
 				<div class="user_head">FIT &amp; HEALTH</div>
-				<div class="user_check">
-					
-					<!--<p>여러분을 환영합니다</p>
-						<p>다양한 FITHE 서비스를 즐겨보세요.
-						회원으로 가입하시면 FITHE 서비스를 보다 편리하게 이용할 수 있습니다.</p>
-						<p>여러분이 제공한 콘텐츠를 소중히 다룰 것입니다.
-						여러분의 개인정보를 소중히 보호합니다.</p>
-						타인의 권리를 존중해 주세요.-->
-					<div class="user_agreement">
-						<div>
-							<p>여러분을 환영합니다</p>
-							<p>다양한 FITHE 서비스를 즐겨보세요.
-							회원으로 가입하시면 FITHE 서비스를 보다 편리하게 이용할 수 있습니다.</p>
-							<p>여러분이 제공한 콘텐츠를 소중히 다룰 것입니다.
-							여러분의 개인정보를 소중히 보호합니다.</p>
-							타인의 권리를 존중해 주세요.
-						</div>
-						<input type="checkbox"/>
-						<label>이용약관</label>
-					</div>
-				</div>		
     		</div>
-    		
     		<div class="content_group">
 				<form id="fit_writeForm">
 					<input type="hidden" id="chkid" value="N">
-					<div id="show">
+					<div id="show" v-cloak>
 						<div class="member_content_section">
 							<label>아이디</label>
 							<div class="member_content_t">
@@ -316,7 +295,7 @@
 							<div class="member_content_t">
 								<!-- <label>비밀번호 확인</label> -->
 								<input type="password"  id="mpw_r" name="mpw_r" v-model="pw_r" placeholder="비밀번호 재입력">
-								<p><label>{{msg}}</label></p>
+								<p>{{msg}}</p>
 							</div>
 						</div>
 						<div class="member_content_section">
@@ -327,9 +306,9 @@
 						</div>
 						<div class="member_content_g">
 							<label>성별</label>
-							<input type="radio" id="mgender" name="mgender" value="F">여성
+							<input type="radio" name="mgender" value="F" checked>여성
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" id="mgender" name="mgender" value="M">남성
+							<input type="radio" name="mgender" value="M">남성
 						</div>
 						<div class="member_content_section">
 							<label>생년월일</label>
@@ -359,13 +338,12 @@
 						</div>
 						<div class="member_content_section">
 							<label>이메일</label>
-								<input type="button" class="email_btn" id="memailChk" value="이메일 중복체크"><!-- 이메일 중복체크 -->
+								<input type="button" class="email_btn" id="memailChk" value="중복체크"><!-- 이메일 중복체크 -->
 							<div class="member_content_e">
 								<input type="text" id="memail_a" name="memail_a">
 								<input type="text" id="memail_b" name="memail_b">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<select class="sel_btn" id="memail_c" name="memail_c">
-									<option value="" disabled selected>선택하세요</option>
+									<option value="" disabled selected>선택</option>
 									<option value="gmail.com">gmail.com</option>
 									<option value="naver.com">naver.com</option>
 									<option value="hanmail.net">hanmail.net</option>
@@ -374,8 +352,9 @@
 							</div>
 						</div>
 						<div>
-							<input type="button" id="insertForm" value="회원가입">
-							<input type="button" value="다시" onClick="window.location.reload()">
+							<input type="button" class="result_btn" id="insertForm" value="회원가입">
+							<br>
+							<input type="button" class="result_btn" value="다시" onClick="window.location.reload()">
 						</div>
 					</div>
 				</form>
