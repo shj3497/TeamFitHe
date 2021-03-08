@@ -14,18 +14,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
-<<<<<<< HEAD
-<!--common script-->
-<script src="${pageContext.request.contextPath}/include/main/js/menu.js" defer></script>
-<script src="//code.jquery.com/jquery-latest.min.js"></script>
-=======
 <!--common script
 <script src="${pageContext.request.contextPath}/include/main/js/menu.js" defer></script>-->
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
->>>>>>> bc12386
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
 <!--javaScript-->
 <script src="${pageContext.request.contextPath}/include/main/js/main.js" defer></script>
-
 </head>
 <body>
 <!-- 
