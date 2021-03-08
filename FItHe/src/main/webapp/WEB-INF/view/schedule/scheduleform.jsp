@@ -93,6 +93,7 @@
 		<div class="calendar_section">
 			<div id='calendar'></div>
 		</div>
+		
 		<!-- footer -->
 		<jsp:include page="../common/mainfooter.jsp"></jsp:include>
 	</body>

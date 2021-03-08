@@ -51,48 +51,65 @@
 </style>
 </head>
 <body>
+
+<!--navigator-->
+    <nav id="navshow" class="navbar">
+        <!--logo-->
+        <div class="navbar_logo">
+            <i class="fas fa-anchor"></i>
+            <a href="#">FITHE</a>
+        </div>
+        <!--menu-->
+        <ul class="navbar_menu">
+            <li><a href="#">기초체력측정</a></li>
+            <li><a href="kakaomaplist.do">헬스장 추천</a></li>
+            <li><a href="#">커뮤니티</a></li>
+            <li class="member_field">
+                <span>내정보</span>
+                <span>로그아웃</span>
+            </li>
+        </ul>
+        <!--login icon-->
+        <ul v-if="session_chk==='null'" class="navbar_icons">
+
+            <li><a href="memberLoginForm.do">로그인<i class="fas fa-user-plus"></i></a></li>
+
+        </ul>
+        <!--@pad @phone-->
+        <a href="#" class="navbar_toggleBtn" onclick="gogo();">
+            <i class="fas fa-bars"></i>
+        </a>
+
+        <!--login 후 member field-->
+        <div class="login_member">
+            <span id="userid">{{session_mid}}</span>
+        </div>
+        <ul v-else class="navbar_icons" class="user_info">
+            <!--<li>{{session_mid}}</li>-->
+            <li><a href="mypage.do">내정보</a></li>
+            <li><a href="testshj3497@gmail.com">고객지원</a></li>
+            <li><a href="memberLogout.do">로그아웃</a></li>
+        </ul>
+
+    </nav>
+<!--  
 	<nav id="navshow" class="navbar" v-cloak>
-		<!--logo-->
+		
 		<div class="navbar_logo">
 			<i class="fas fa-anchor"></i>
 			<a href="mainpageForm.do">FITHE</a>
 		</div>
-		<!--menu-->
+		
 		<ul class="navbar_menu">
 			<li><a href="#">기초체력 태스트</a></li>
 			<li><a href="kakaomaplist.do" target="_blank">헬스장 찾기</a></li>
 			<li><a href="youtube.do">운동시작히기</a></li>
 			<li><a href="communityList.do">커뮤니티</a></li>				
 		</ul>
-		<!--login icon-->
+	
 		<ul v-if="session_chk==='null'" class="navbar_icons" v-cloak>
 			<li><a href="memberLoginForm.do">로그인<i class="fas fa-user-plus"></i></a></li>
 		</ul>
-		
-		<!-- 
-		<div v-else class="login_member" v-cloak v-on:mouseover="testtest" v-on:mouseout="testtesttest">
-			<span>{{session_mid}}</span>
-			<div id="login_info_tab" style="visibility:hidden;">
-				<ul class="navbar_icons2">
-					<li><a href="mypage.do">내정보</a></li>
-					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
-					<li><a href="memberLogout.do">로그아웃</a></li>
-				</ul>
-			</div>
-		</div>
-		 -->
-		<!-- 
-		<ul v-else class="login_member" v-on:mouseover="my_info_true" v-on:mouseout="my_info_false">
-			<li>{{session_mid}}</li>
-			<li id="login_info_tab" class="navbar_icons2" style="visibility:hidden;">
-				<ul>
-					<li><a href="mypage.do">내정보</a></li>
-					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
-					<li><a href="memberLogout.do">로그아웃</a></li>
-				</ul>
-			</li>
-		</ul>
-		 -->
 		
 		<div v-else class= "login_member" v-on:mouseover="my_info_true" v-on:mouseout="my_info_false">
 			<span><i class="fas fa-user-circle"></i></span>&nbsp;&nbsp;
@@ -102,22 +119,18 @@
 					<li><a href="mypage.do">내정보</a></li>
 					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
 					<li><button class="logout_btn" onclick="logoutM()">로그아웃</button></li>
-					<!-- <li><a href="memberLogout.do">로그아웃</a></li> -->
+					
 				</ul>
 			</div>
 		</div>
 		
-		<!--@pad @phone-->
 		<a href="#" class="navbar_toggleBtn">
 			<i class="fas fa-bars"></i>
 		</a>
 	</nav>
-	<!-- 
-	<div style="height:50px">
-		&nbsp;
-	</div>
-	 -->
-	 
+-->
+
+
 <!-- --------------------------------------------------------------------------------- -->
 <script>
 	// 로그아웃 alert 후, logout 실행
@@ -129,6 +142,28 @@
 	}
 </script>
 <!-- --------------------------------------------------------------------------------- -->
+
+<script>
+function gogo(){
+	var toggleBtn = document.querySelector('.navbar_toggleBtn');
+	var menu = document.querySelector('.navbar_menu');
+	var icons = document.querySelector('.navbar_icons');
+	var userid = document.querySelector('.userid');
+	var navbar_icons = document.getElementById("user_info");
+
+	// 햄버거 btn 클릭시 메뉴/아이콘 펼침
+	toggleBtn.addEventListener('click', function() {
+	    //active속성 활용하여 토글 이벤트 적용
+	    menu.classList.toggle('active');
+	    icons.classList.toggle('active');
+	});
+
+	userid.addEventListener('click', function() {
+	    alert("hello");
+
+	});	
+}
+</script>
 
 </body>
 </html>
