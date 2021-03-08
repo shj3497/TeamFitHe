@@ -62,9 +62,10 @@
 					},
 					success : function(data){
 						if(data == "G"){
-							alert("일정 추가");
-							opener.parent.location.reload(); //일정추가시 새로고침하여 바로추가되는것이 보이도록
+							alert("일정 추가가 완료되었습니다");
 							window.close();
+							opener.parent.location.reload(); //일정추가시 새로고침하여 바로추가되는것이 보이도록
+							
 						}else{
 							alert("다시입력해주세요");
 						}
