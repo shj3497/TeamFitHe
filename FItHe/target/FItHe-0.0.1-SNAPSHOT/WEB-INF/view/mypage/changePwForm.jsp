@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>패스워드 변경</title>
 <!--common stylesheet-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/changePwForm/style.css">
+<!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/changePwForm/style.css"> -->
 <!--style-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/include/mypage/changePwForm/changePwForm.css">
 <!--font-->
@@ -127,7 +127,8 @@
 </head>
 <body>
 	<!--navigator-->
-    <nav class="navbar">
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+    <%-- <nav class="navbar">
         <!--logo-->
 		<div class="navbar_logo">
             <i class="fas fa-ice-cream"></i>
@@ -149,6 +150,8 @@
             <i class="fas fa-bars"></i>
         </a>
     </nav><!--end of <nav class="navbar">-->
+    --%>
+    
     
     <div class="fithe_wrap">
     	<!--board box-->

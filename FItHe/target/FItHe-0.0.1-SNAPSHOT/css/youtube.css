@@ -1,0 +1,52 @@
+@charset "utf-8";
+.fitness_img{width: 30px; height: 30px; border-radius: 50%; border: 3px solid whitesmoke; margin-right: 10px;}
+.content_head{margin-bottom: 30px;}
+.content_head_explain{color: #333;}
+hr{border: 1px solid whitesmoke; margin: 20px 0; text-align: center;}
+
+/*youtube form*/
+.youtubeform table{width: 100%; min-width: 400px;}
+
+/*youtube head*/
+.youtubeform thead tr{width: 600px;}
+.youtubeform thead tr td input{width: 100px; height: 40px; background-color: whitesmoke; color: gray; border: none; border-radius: 20px; margin: 0 10px 10px 0;}
+.youtubeform thead tr td input:hover{background-color: white; border: 3px solid var(--accent-color); font-weight: 800; color: var(--accent-color);}
+/*tool-tip*/
+[data-tooltip-text]:hover {position: relative;}
+[data-tooltip-text]:hover:after {
+	background-color: #333;
+	-webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+	-moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+	box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	font-size: 8pt;
+	content: attr(data-tooltip-text);
+    margin-bottom: 10px;
+	top: 100%;
+	left: 50px;
+	padding: 7px 12px;
+	position: absolute;
+	width: auto;
+	min-width: 50px;
+	max-width: 300px;
+	word-wrap: break-word;
+	z-index: 9999;
+}
+
+/*youtube content*/
+.youtubeform tbody tr{width: 100%; height: 40vh; margin: auto; text-align: center; background-color: gainsboro;}
+
+/*------------------------------------------------------------*/
+.thumb{margin-top: 0px;}
+.in_up_btn{background-color: wheat;}
+
+
+
+/*################################################*/
+/*tablet size*/
+@media screen and (max-width: 768px){
+
+}

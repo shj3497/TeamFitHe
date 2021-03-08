@@ -1,35 +1,118 @@
 @charset "UTF-8";
 
-/* 커스텀 오버레이 */
-.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+/* ● 커스텀 오버레이 */
+/*---------------wrap : 정보창-1레이아웃---------------*/
+.wrap {
+	position: absolute;
+	left: 0;
+	bottom: 40px;
+	width: 400px;
+	height: 132px;
+	margin-left: -144px;
+	text-align: left;
+	overflow: hidden;
+	font-size: 12px;
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	line-height: 1.5;
+}
 .wrap * {padding: 0;margin: 0;}
-.wrap .info_overlay {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+/*-----------info_overlay : 정보창-2레이아웃-----------*/
+.wrap .info_overlay {width: 400px; height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+/*-----------title-----------*/
 .wrap .info_overlay:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
 .info_overlay .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
 .info_overlay .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
 .info_overlay .close:hover {cursor: pointer;}
+/*-----------body-----------*/
 .info_overlay .body {position: relative;overflow: hidden;}
+/*desc : 상세보기 부분 class*/
 .info_overlay .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
-.desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.desc .ellipsis {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
 .info_overlay .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
 .info_overlay:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
 .info_overlay .link {color: #5085BB;}
 
-/* 리스트 관련 css */
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-.map_wrap {position:relative;width:100%;height:500px;}
-#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+/* ● 리스트 관련 css */
+.map_wrap, .map_wrap * {
+		margin:0;
+		padding:0;
+		font-family:'Malgun Gothic',dotum,'돋움',sans-serif;
+		font-size:14px;		
+	}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000; text-decoration: none;}
+.map_wrap {position:relative;width:100%; height:600px; margin-top:150px;}
+#menu_wrap {	/*검색 aside*/
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	width:350px;
+	margin:10px 0 30px 10px;
+	padding:5px;
+	overflow-y:auto;
+	background:rgba(255, 255, 255, 0.7);
+	z-index: 1;
+	font-size:12px;
+	border-radius: 10px;
+}
 .bg_white {background:#fff;}
-#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap hr {display: block; height: 1px; border: 0; border-top: 2px solid #5F5F5F; margin:3px 0;}
 #menu_wrap .option{text-align: center;}
-#menu_wrap .option p {margin:10px 0;}  
-#menu_wrap .option button {margin-left:5px;}
+#menu_wrap .option p {margin:10px 0;}
+.keyword_serach{	/*검색 section*/
+	padding-top: 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	line-height: 30px;
+}
+.keyword_serach>div{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.keyword_serach>div>span{
+	padding-right: 10px;
+}
+#keyword{	/*검색어 입력*/
+	width: 190px;
+	height: 30px;
+	padding-left: 2px;
+}
+#menu_wrap .option button { /*검색하기 버튼*/	
+	margin-left:5px;
+	width: 70px;
+	height: 30px;
+	padding: 2px;
+	background-color:white;
+	border: 1px solid gray;
+	border-radius: 4px;
+}
+.option button:hover{
+	border: 1px solid #4bcacc;
+	color: #4bcacc;
+	cursor: pointer;
+}
+#arroundbtn{ /*내 위치 주변 버튼*/
+	width:100%; 
+	height: 30px;
+	display: block; 
+	background-color: #4bcacc; 
+	color: white;
+	border: 1px solid #4bcacc;
+	border-radius: 4px;
+	margin: 15px auto 30px;
+}
+#arroundbtn:hover{
+	font-weight: 800;
+	cursor: pointer;
+}
 #placesList li {list-style: none;}
-#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item {position:relative; border-bottom:1px solid #888; overflow: hidden; cursor: pointer; min-height: 65px;}
 #placesList .item span {display: block;margin-top:4px;}
-#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 #placesList .item .info{padding:10px 0 10px 55px;}
 #placesList .info .gray {color:#8a8a8a;}
 #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
@@ -53,3 +136,40 @@
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
+
+
+
+
+
+/*################################################*/
+/*tablet size*/
+@media screen and (max-width: 768px){
+	/* ● 리스트 관련 css */
+	map_wrap, .map_wrap * {font-size:12px; x-overflow: auto;}
+	/*검색 aside*/
+	#menu_wrap {width:200px;}
+	/*검색 section*/
+	.keyword_serach{	/*검색 section*/
+	padding-top: 20px;
+	width: 95%;
+	display: flex;
+	flex-direction: column;	
+	}
+	.keyword_serach>div{
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+	.keyword_serach>div>span{
+		padding-right: 10px;
+		font-weight: 800;
+	}
+	#keyword{	/*검색어 입력*/
+		width: 100%;
+		height: 30px;
+	}
+	#menu_wrap .option button { /*검색하기 버튼*/	
+		width: 100%;	
+		margin: 10px 0 0;		
+	}
+}

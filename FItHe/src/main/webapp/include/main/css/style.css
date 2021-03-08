@@ -6,7 +6,7 @@
 	/*var(--background-color)*/
     --background-color: #FCFCFF;
     /*var(--accent-color)*/
-	--accent-color: #03CFCF; /*#EA5200*/
+	--accent-color: #03CFCF;
 	/*var(--text-color)*/
 	--text-color: #484848;
 }
@@ -23,6 +23,9 @@ a{
     color: var(--text-color);   /*지정 색상 편하게 사용*/
 }
 
+ul, li{
+	list-style: none;
+}
 
 
 /*------------------------------------------------*/
@@ -32,14 +35,14 @@ a{
 	max-width: 984px;
 	min-width: 276px;
     min-height: 100%;
-	margin: 0 auto 200px;
+	margin: 0 auto 300px;
 	padding-top: 75px;
     overflow:hidden;  
 }
 .content_wrap{
 	width:100%;
 	margin: auto;
-    margin-top: 30px;
+    margin-top:150px;
 }
 
 
@@ -67,7 +70,10 @@ a{
 
 /*------------------------------------------------*/
 /*content title : 꼭 고칠 것임*/
-.content_head{display: flex; font-size: 18pt;}
+.content_head{
+	display: flex;
+	font-size: 18pt;
+}
 .content_head select{
     /*default*/
     -moz-appearance: none;
@@ -87,6 +93,8 @@ a{
 }
 .content_head select:hover{border-color: var(--accent-color);}
 .content_head select:focus{outline: none;}
+
+
 /*content content*/
 .content_group{
 	width: 100%;
@@ -99,23 +107,29 @@ a{
 /*navigator*/
 .navbar{
 	position: fixed;
-	width:95vw;
-	padding: 8px 12px;
-	display: flex;
-    justify-content: space-between;
-    align-items: center;
+	width:100%;
+	padding: 15px 12px;	
+	display: flex;					/*flexbox 정렬 적용*/
+    justify-content: space-between;	/*시작 ~ 끝 items 위치를 기준으로 동일한 간격으로 정렬*/
+    align-items: flex-start;		/*menu items 시작점에 맞춰서 정렬*/
 	z-index: 1;
     background-color: white;
+    
 }
+
+
+/*main icon+text*/
 .navbar_logo{
     font-size: 24px;
     color: var(--text-color);
+    padding-top: 20px;
     padding-left: 20px;
 }
 .navbar_logo i {
     color: var(--accent-color);
     padding-right: 10px;
 }
+
 
 /*menu*/
 .navbar_menu{
@@ -134,6 +148,7 @@ a{
     transform: scale(1.1);
 }
 
+
 /*login*/
 .navbar_icons{
     list-style: none;
@@ -142,20 +157,59 @@ a{
     padding-left: 0;
     padding-right: 20px;
 }
+
+
+/*login > member information*/
+.login_member{
+	width: 100px;
+	padding-top: 25px;
+	margin-right: 30px;
+	/*text*/
+	line-height: 10px;	
+	text-align: center;
+	font-size: 12pt;
+	font-weight: 800;
+	color: gray;	
+} 
+.login_member span:first-of-type{
+	color: var(--accent-color);
+}
+.login_member span{
+	letter-spacing: 3px;	/*글자사이 간격 조정*/
+}
 .navbar_icons2>ul{
 	list-style: none;
-    margin:0px; padding:0px;
-	}
-.navbar_icons2>ul>li{
-	display: block;
-	left:30px;
-	
+    margin: 0px; 
+    padding: 0px;    
+    line-height: 40px;
 }
-	
-.navbar_icons li{
-    padding: 8px 12px;
+.navbar_icons2>ul li:first-of-type{	
+	margin-top: 10px;		
 }
-.navbar_icons>a>li>i{margin-left: 5px;}
+.navbar_icons2>ul li:nth-of-type(-n+2):hover{
+	/*1~2번째 li hover 효과 적용*/
+	background-color: whitesmoke;	
+}
+.navbar_icons2>ul li a{
+	font-weight:400;
+	color: light-gray;	
+}
+.navbar_icons2>ul li a:hover{
+	font-weight:800;
+	color: gray;
+}
+.logout_btn{
+	background-color:white;
+	border: 1px solid var(--accent-color);
+	color: var(--accent-color);
+}
+.logout_btn:hover{	
+	border: 1px solid #F68686;
+	color: #F68686;
+	cursor: pointer;
+}
+
+
 /*hamburger menu*/
 .navbar_toggleBtn{
     display: none;
@@ -169,9 +223,11 @@ a{
 /*------------------------------------------------*/
 /*common font*/
 .font_mid{font-size: 15pt;}
+
 /*common 특수기호*/
 .shapes_sty{font-size: 10pt; padding: 1px; color: gray;}
 .shapes_sty:hover{color: var(--accent-color);}
+
 /*common button*/
 .com_btn{
 	border-radius: 2px;
@@ -188,6 +244,7 @@ a{
 	background-color: whitesmoke;
 }
 .com_btn_2:hover{color: white; background-color: var(--accent-color);}
+
 /*common button animation*/
 .com_btn_mv_1{
     width: 100px;
@@ -284,17 +341,18 @@ a{
     }
     .navbar_toggleBtn{
         display: block;
-        padding-right: 40px;
+        padding: 20px 40px 0 0;
     }
     
     .navbar_menu.active,
     .navbar_icons.active{
         display: flex;
     }
-    /*------------------------------------------------*/
-
+    
+	/*login > member information*/
 	.login_member{
 		margin-right : 55px;
+		display: none;
 	}
 	
 	.navbar_icons2{
@@ -309,5 +367,5 @@ a{
 	    display: none;
 	    width: 100px;
 	    background-color: whitesmoke;
-	}
+	}	
 }

@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--common stylesheet-->
-    <link rel="stylesheet" href="${ctx}/css/style.css">
+    <link rel="stylesheet" href="${ctx}/include/main/css/style.css"><!-- ${ctx}/css/style.css -->
 	<!--style-->
 	<link rel="stylesheet" href="${ctx}/css/board.css">
     <!--font-->
@@ -22,8 +22,13 @@
     <script src="https://kit.fontawesome.com/8af2116aa4.js" 
             crossorigin="anonymous"></script>
 	<!--common script-->
+<<<<<<< HEAD
    	<script src="${ctx}/include/js/main.js" defer></script>
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
+=======
+   	<script src="${ctx}/include/js/menu.js" defer></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+>>>>>>> bc12386
 	<script type="text/javascript">
 	
 	$(document).ready(function(){
@@ -104,42 +109,22 @@
 	</script>
 </head>
 <body>
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+	
 	<form name="noticeForm" id="noticeForm">
 		<input type="hidden" name="nnum" id="nnum">
 		<input type="hidden" name="boardtype" id="boardtype" value="common" />
 		<input type="hidden" name="order_by" id="order_by" value="${paging.order_by}"/>
  		<input type="hidden" name="order_sc" id="order_sc" value="${paging.order_sc}"/>
-		<!--navigator-->
-	    <nav class="navbar">
-	    	<!--logo-->
-			<div class="navbar_logo">
-	            <i class="fas fa-ice-cream"></i>
-	            <a href="">FITHE</a>
-	        </div>
-			<!--menu-->
-	        <ul class="navbar_menu">
-	            <li><a href="">기초체력측정</a></li>
-	            <li><a href="">헬스장 추천</a></li>
-	            <li><a href="">게시판</a></li>
-	            <li><a href="">마이페이지</a></li>
-	        </ul>
-			<!--login icon-->
-	        <ul class="navbar_icons">
-	            <li><i class="fas fa-user-plus"></i></li>
-			</ul>
-	        <!--@pad @phone-->
-			<a href="#" class="navbar_toggleBtn">
-	            <i class="fas fa-bars"></i>
-	        </a>
-	    </nav><!--end of <nav class="navbar">-->
-	    
+		    
 	    <div class="fithe_wrap" id="communityContainer">
 			<!--board box-->
 			<div class="content_wrap" id="outter">
 			
 			<!-- community board head -->
 			<div class="content_head">
-				<p>공지 게시판</p>
+				<p><a href="communityList.do" style="padding-right: 20px;color: lightgray;">자유 게시판</a></p>
+				<p><a href="noticeList.do">공지 게시판</a></p>
 			</div>
 	
 			<div class="content_group">
@@ -148,7 +133,7 @@
 				<div class="board_content_bar">
 					<!-- ========== 옵션선택 시작  ==========-->
 					<div>
-						<input type="checkbox" id="noticeDisplayChk" name="noticeDisplayChk" /> 공지글 숨기기
+						<input type="checkbox" id="noticeDisplayChk" name="noticeDisplayChk" /> 공지글 숨기기&nbsp;&nbsp;
 						<select id="cntPerPage" name="sel" onchange="selChange()">
 							<option value="5"
 								<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
@@ -161,6 +146,7 @@
 						</select>
 					</div>
 					<!-- ========== 옵션선택 끝  ========== -->
+					
 					<!-- ========== 검색창  시작 ========== -->
 					<div class="board_search">
 						<select id="keyfilter" name="keyfilter">
@@ -168,11 +154,12 @@
 							<option value="keysubject" id="keysubject">제목</option>
 							<option value="keymid" id="keymid">작성자</option>
 						</select> &nbsp;&nbsp;
-						<input type="search" id="keyword" name="keyword" placeholder="무엇을 찾고 계세요?" value="${paging.keyword}"/>
-						<input type="button" id="searchBtn" value="검색">
+						<input type="search" id="keyword" name="keyword" placeholder="무엇을 찾고 계세요?" value="${paging.keyword}"/> &nbsp;
+						<input type="button" id="searchBtn" class="com_btn" value="검색">
 					</div>
 					<!-- ========== 검색창  끝   ========== -->
 				</div> <!-- end of <div class="board_content_bar">-->
+				
 			<!-- ========== 테이블 시작 ========== -->
 				<!-- board table -->
 				<div class="board_list">
@@ -220,9 +207,10 @@
 								</c:forEach>
 							</c:if>
 							<!-- ============================= 공지사항 표시 끝    =========================== -->
+							
 							<c:if test="${empty noticeList}">
 								<tr>
-									<td colspan="5" align="center">등록된 게시글이 없습니다.</td>
+									<td colspan="4" align="center">등록된 게시글이 없습니다.</td>
 								</tr>
 							</c:if>
 						</thead>
@@ -248,11 +236,12 @@
 					</table>
 					<!-- ========== 테이블 끝 ========== -->
 				</div><!--end of <div class="board_list">-->
+				
 				<!-- 글쓰기 버튼 -->
 				<div class="board_write">
-					<input type="button" id="nformbtn" name="nformbtn" class="com_btn" value="작성" />
-					<br>
+					<input type="button" id="nformbtn" name="nformbtn" class="write_btn" value="작성" />
 				</div>
+				
 				<!-- ========== 페이지 목록 시작 ========== -->
 				<div class="board_list_paging">	
 					<c:if test="${paging.startPage != 1 }">
@@ -273,9 +262,14 @@
 					</c:if>
 				</div>
 				<!-- ========== 페이지 목록 끝 ========== -->
+				
 			</div><!-- end of <div class="content_group"> -->
 			</div><!--end of <div class="content_wrap">-->
 		</div><!--end of <div class="fithe_wrap">-->
 	</form>
+	
+	<!-- footer -->
+	<jsp:include page="../common/mainfooter.jsp"></jsp:include>
+
 </body>
 </html>

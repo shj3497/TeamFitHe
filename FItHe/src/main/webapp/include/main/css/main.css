@@ -29,6 +29,42 @@ img, video{border:0; vertical-align:middle;}
 	100%{transform:rotate(360deg);}
 }
 
+/*------------------ content : explain ------------------*/
+.problem_section{
+	margin: auto;	
+	text-align: center;
+	padding-top: 50px;
+}
+.problem_section div:nth-of-type(2){
+	width: 70%;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.problem_section span{
+	display: inline-block;
+	height: 30px;
+	padding: 10px 15px;	
+	background-color: var(--accent-color);
+	text-align: center;
+}
+.problem_section span, .problem_section span a{color: white;}
+.problem_section>a{display: block; padding-top: 30px;}
+.problem_section>a:hover{color: var(--accent-color)}
+
+
+.suggest_section{
+	width: 70%;
+	text-align: center;
+	padding-top: 100px;	
+}
+.suggest_section ul{
+	width: 70%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: whitesmoke;	
+}
 
 
 

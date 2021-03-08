@@ -42,6 +42,21 @@
     color: var(--accent-color);
 }
 
+.re_btn{
+	width : 100px;
+	height : 40px;
+	margin-left: 260px;
+	margin-top:20px;
+	border-radius: 2px;
+	border: none;
+	background-color:white;
+}
+
+.re_btn:hover{
+		background-color: var(--accent-color);
+	color: white;
+}
+
 /*-----------------------------------------*/
 /*태블릿 이하 사이즈*/
 @media screen and (max-width: 768px){

@@ -11,6 +11,7 @@ hr{border: 1px solid whitesmoke; margin: 20px 0; text-align: center;}
 .youtubeform thead tr{width: 600px;}
 .youtubeform thead tr td input{width: 100px; height: 40px; background-color: whitesmoke; color: gray; border: none; border-radius: 20px; margin: 0 10px 10px 0;}
 .youtubeform thead tr td input:hover{background-color: white; border: 3px solid var(--accent-color); font-weight: 800; color: var(--accent-color);}
+
 /*tool-tip*/
 [data-tooltip-text]:hover {position: relative;}
 [data-tooltip-text]:hover:after {
@@ -37,7 +38,18 @@ hr{border: 1px solid whitesmoke; margin: 20px 0; text-align: center;}
 }
 
 /*youtube content*/
-.youtubeform tbody tr{width: 100%; height: 40vh; margin: auto; text-align: center; background-color: gainsboro;}
+.youtubeform tbody tr{
+	width: 100%; 
+	height: 400px;
+	margin: auto; 
+	text-align: center;
+}
+
+iframe{
+	width: 80%;
+	height: 200px;
+}
+
 
 /*------------------------------------------------------------*/
 .thumb{margin-top: 0px;}

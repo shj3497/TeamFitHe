@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <title>공지글 작성페이지</title>
     <!--common stylesheet-->
-    <link rel="stylesheet" href="${ctx}/css/style.css">
+	<link rel="stylesheet" href="${ctx}/include/main/css/style.css"><!-- /css/style.css -->
     <!--style-->
     <link rel="stylesheet" href="${ctx}/css/board_form.css">
     <!--font-->
@@ -80,31 +80,10 @@
 <body>
 	<form name="noticeForm" id="noticeForm" >
 		<input type="hidden" name="boardtype" id="boardtype" value="${boardtype}"/>
+		
 		<!--navigator-->
-	    <nav class="navbar">
-	        <!--logo-->
-	        <div class="navbar_logo">
-	            <i class="fas fa-ice-cream"></i>
-	            <a href="">FITHE</a>
-	        </div>
-	        <!--menu-->
-	        <ul class="navbar_menu">
-	            <!—unorder-list—>
-	                <li><a href="">기초체력측정</a></li>
-	                <li><a href="">헬스장 추천</a></li>
-	                <li><a href="">게시판</a></li>
-	                <li><a href="">마이페이지</a></li>
-	        </ul>
-	        <!--login icon-->
-	        <ul class="navbar_icons">
-	            <li><i class="fas fa-user-plus"></i></li>
-	        </ul>
-	        <!--@pad @phone-->
-	        <a href="#" class="navbar_toggleBtn">
-	            <i class="fas fa-bars"></i>
-	        </a>
-	    </nav>
-    	<!--end of <nav class="navbar">-->
+	    <jsp:include page="../common/mainnav.jsp"></jsp:include>
+    	
 		<div class="fithe_wrap">
 	        <div class="content_wrap">
                 <!--content_head-->
@@ -155,5 +134,8 @@
 	    </div>
 	    <!--end of <div class="fithe_wrap">-->
 	</form>
+	
+	<!-- footer -->
+	<jsp:include page="../common/mainfooter.jsp"></jsp:include>
 </body>
 </html>

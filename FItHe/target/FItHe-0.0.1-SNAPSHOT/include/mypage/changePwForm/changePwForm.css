@@ -84,13 +84,12 @@ body{
 	width: 150px;
 	border-radius: 2px;
 	border: none;
-	background-color: whitesmoke;
+	background-color: white;
 	margin-bottom: 40px;
 }
 
 .result_btn:hover{
-	background-color: var(--accent-color);
-	color: white;
+	color: red;
 }
 /*-----------------------------------------*/
 /* mobile version */

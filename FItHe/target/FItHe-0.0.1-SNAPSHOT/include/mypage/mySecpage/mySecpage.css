@@ -16,6 +16,7 @@
     border-bottom: 1px solid lightgray;
     margin: 20px 0;
 }
+
 /* small button */
 .button_small{margin-top:30px;}
 
@@ -42,6 +43,19 @@
 }
 .my_menu>li:hover{
     color: var(--accent-color);
+}
+
+.sec_btn{
+	width:100px;
+	height : 40px;
+	border-radius: 2px;
+	border: none;
+	background-color: white;
+	
+}
+
+.sec_btn:hover{
+	color: red;
 }
 
 /*-----------------------------------------*/

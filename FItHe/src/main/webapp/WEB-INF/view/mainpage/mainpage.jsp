@@ -7,17 +7,22 @@
 <meta name="main" content="width=device-width, initial-scale=1.0">
 <title>FitHe</title>
 <!--common stylesheet-->
-<!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/include/main/css/style.css"> -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/main/css/style.css">
 <!--style-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/include/main/css/main.css">
 <!--font-->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-<title>main</title>
 <script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
 <!--common script-->
 <script src="${pageContext.request.contextPath}/include/main/js/menu.js" defer></script>
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
+=======
+<!--common script
+<script src="${pageContext.request.contextPath}/include/main/js/menu.js" defer></script>-->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+>>>>>>> bc12386
 <!--javaScript-->
 <script src="${pageContext.request.contextPath}/include/main/js/main.js" defer></script>
 
@@ -97,15 +102,26 @@
 					<p>FIT YOUR HEALTHY LIFE WITH US</p>
 				</div>
 				
-				<div>
+				<div class="problem_section">
 					<div>PROBLEM</div>
-					코로나 19로 인해 체육시설 이용에 제한이 생기면서 체중과 체력 관리에 어려움을 겪고 있는 소위 확진자가 증가하고 있다.<br>
-					이들은 건강에 위기를 느끼면서 운동을 시도해야 한다고 생각하지만, 온라인 상의 많은 정보로 인해 자신에게 적합한 운동(건강관리) 방법을 알 수 없어 효과적인 건강 관리에 어려움을 겪고 있다. 
+					<div>
+						<span><a href="http://ncov.mohw.go.kr/">코로나 19</a></span>
+						<span><a href="http://ncov.mohw.go.kr/tcmBoardView.do?brdId=&brdGubun=&dataGubun=&ncvContSeq=362950&contSeq=362950&board_id=140&gubun=BDJ">체육시설 이용에 제한</a></span>
+						<span><a href="https://info.incruit.com/pr/report_view.asp?newsno=4438375">확찐자 증가</a></span>
+					</div>
+					<a href="https://www.khealth.or.kr/kps/publish/view?menuId=MENU00891&page_no=B2017004&pageNum=1&siteId=&srch_text=&srch_cate=&srch_type=&str_clft_cd_list=&str_clft_cd_type_list=&board_idx=10374">
+						적합한 운동(건강관리) 방법을 알 수 없어 효과적인 건강 관리에 어려움
+					</a> 
 				</div>
-				<div>
+				<div class="suggest_section">
 					<div>SUGGEST</div>
-					자신의 몸 상태(기초체력)에 맞는 운동방법을 알고자 하는 고객을 대상으로 간단한 체력 수치를 기준 데이터(빅데이터)와 비교하여 현재 고객의 체력 상태 및 위치를 파악하고 그 결과를 시각화하여 결과 레포트를 제공하고자 한다.<br>
-					또한 현 체력 상태에서 부족한 체력 항목에 해당하는 운동 방법을 제안하고자 한다.
+					<span>자신의 몸 상태(기초체력)에 맞는 운동방법을 알고자 하는 고객 대상</span>
+					<ul>
+						<li>간단한 체력 수치를 기준 데이터(빅데이터)와 비교</li>
+						<li>현재 고객의 체력 상태 및 위치를 파악</li>
+						<li>결과를 시각화하여 결과 레포트를 제공</li>
+						<li>현 체력 상태에서 부족한 체력 항목에 해당하는 운동 방법을 제안</li>
+					</ul>
 				</div>
 				<!--
 				<div>
@@ -133,9 +149,6 @@
 				</div>
 				-->
 			</div>
-		
-		
-		
 		</div>
 		<!--end of <div class="content_wrap">-->
 	</div>

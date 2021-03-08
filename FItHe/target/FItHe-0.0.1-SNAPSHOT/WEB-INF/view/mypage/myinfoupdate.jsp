@@ -166,6 +166,8 @@
 </head>
 <body>
 	<!--navigator-->
+	<jsp:include page="../common/mainnav.jsp"></jsp:include>
+	<%--
     <nav class="navbar">
         <!--logo-->
 		<div class="navbar_logo">
@@ -188,7 +190,7 @@
             <i class="fas fa-bars"></i>
         </a>
     </nav><!--end of <nav class="navbar">-->
-    
+    --%>
     <div class="fithe_wrap">
     	<!--board box-->
     	<div id="show" v-cloak class="content_wrap">
@@ -217,11 +219,10 @@
 						</div>
 						<div class="member_content_section">
 							<label>이메일</label>
-							<input type="button" class="email_btn" id="memailChk" value="이메일 중복체크"><!-- 이메일 중복체크 -->
+							<input type="button" class="email_btn" id="memailChk" value="중복체크"><!-- 이메일 중복체크 -->
 							<div class="member_content_e">
 								<input type="text" id="memail_a" name="memail_a" :value="memail_a">
 								<input type="text" id="memail_b" name="memail_b" :value="memail_b">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<select id="memail_c" name="memail_c" class="sel_btn">
 									<option value="" disabled selected>선택하세요</option>
 									<option value="gmail.com">gmail.com</option>

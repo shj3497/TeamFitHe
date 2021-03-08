@@ -5,11 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/include/member_login/login/kakao.css" charset="UTF-8">
 </head>
 <body>
-<div id="naver_id_login" style="text-align: center"> 
+<div id="naver_id_login" class="kakao_url"> 
 	<a href="${naver_url}">
-		<img height="50px" width="155px" src="${pageContext.request.contextPath}/include/naver/naver_login.PNG" />
+		<img height="50px" width="150px" src="${pageContext.request.contextPath}/include/naver/naver_login.png" />
 	</a> 
 </div>
 </body>

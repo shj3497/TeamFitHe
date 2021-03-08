@@ -14,8 +14,13 @@
 	<hr>
 	<a href="noticeList.do">공지사항 게시판 리스트</a> <br>
 	<a href="communityList.do">커뮤니티 게시판 리스트</a> <br>
+	<a href="youtube.do">동영상 게시판 리스트</a>
 	<hr>
 	<a href="surveyForm.do">surveyForm</a><br>
 	<a href="surveyList.do">surveyList</a><br>
+	<hr>
+	<a href="mainpageForm.do">메인페이지로 이동</a>
+	<hr>
+	<a href="navForm.do">mainnav.jsp 로 이동</a>
 </body>
 </html>

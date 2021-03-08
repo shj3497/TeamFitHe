@@ -139,7 +139,6 @@
 </head>
 
 <body>
-	<script src="./js/menu.js" defer></script>
     <form name="communityForm" id="communityForm">
     	<input type="hidden" name="cnum" id="cnum" />
         <input type="hidden" name="boardtype" id="boardtype" value="manage"/>
@@ -229,16 +228,16 @@
                         <!-- ========== 테이블 시작 ========== -->
                         <table>
                             <colgroup>
-                                <col width="15%" />
-                                <!--전체선택-->
-                                <col width="40%" />
-                                <!--제목-->
-                                <col width="15%" />
-                                <!--작성자-->
-                                <col width="10%" />
-                                <!--작성일-->
                                 <col width="20%" />
-                                <!--조회수-->
+								<!--전체선택-->
+								<col width="40%" />
+								<!--제목-->
+								<col width="10%" />
+								<!--작성자-->
+								<col width="20%" />
+								<!--작성일-->
+								<col width="15%" />
+								<!--조회수-->
                             </colgroup>
                             <thead class="list_head">
                                 <tr>

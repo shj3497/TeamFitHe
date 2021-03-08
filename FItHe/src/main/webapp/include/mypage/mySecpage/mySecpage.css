@@ -6,15 +6,15 @@
 	padding-bottom: 30px;}
 
 /* user infomation */
-.user_info{padding: 10px;}
+.user_info{padding: 10px; margin: 20px auto;}
 .user_info div input{background-color: transparent;}
 .user_info div input:nth-of-type(2){margin-bottom: 20px;}
-.user_info::after{
+.user_info::after,.user_info_d::after{
     content:""; 
-    width:90%; 
+    width: 70%; 
     display:block; 
-    border-bottom: 1px solid lightgray;
-    margin: 20px 0;
+    border-bottom: 1px solid #e6e6e6;
+    margin: 30px auto 50px;
 }
 
 /* small button */
@@ -41,7 +41,7 @@
     color:gray;
     padding-right: 20px;
 }
-.my_menu>li:hover{
+.my_menu a:hover{
     color: var(--accent-color);
 }
 
@@ -57,6 +57,7 @@
 .sec_btn:hover{
 	color: red;
 }
+
 
 /*-----------------------------------------*/
 /*태블릿 이하 사이즈*/
