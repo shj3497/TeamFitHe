@@ -69,31 +69,6 @@
 			<li><a href="memberLoginForm.do">로그인<i class="fas fa-user-plus"></i></a></li>
 		</ul>
 		
-		<!-- 
-		<div v-else class="login_member" v-cloak v-on:mouseover="testtest" v-on:mouseout="testtesttest">
-			<span>{{session_mid}}</span>
-			<div id="login_info_tab" style="visibility:hidden;">
-				<ul class="navbar_icons2">
-					<li><a href="mypage.do">내정보</a></li>
-					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
-					<li><a href="memberLogout.do">로그아웃</a></li>
-				</ul>
-			</div>
-		</div>
-		 -->
-		<!-- 
-		<ul v-else class="login_member" v-on:mouseover="my_info_true" v-on:mouseout="my_info_false">
-			<li>{{session_mid}}</li>
-			<li id="login_info_tab" class="navbar_icons2" style="visibility:hidden;">
-				<ul>
-					<li><a href="mypage.do">내정보</a></li>
-					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
-					<li><a href="memberLogout.do">로그아웃</a></li>
-				</ul>
-			</li>
-		</ul>
-		 -->
-		
 		<div v-else class= "login_member" v-on:mouseover="my_info_true" v-on:mouseout="my_info_false">
 			<span><i class="fas fa-user-circle"></i></span>&nbsp;&nbsp;
 			<span>{{session_mid}}&nbsp;</span>
@@ -108,7 +83,7 @@
 		</div>
 		
 		<!--@pad @phone-->
-		<a href="#" class="navbar_toggleBtn">
+		<a href="#" class="navbar_toggleBtn" onClick="nav_toggle();">
 			<i class="fas fa-bars"></i>
 		</a>
 	</nav>
@@ -129,6 +104,22 @@
 	}
 </script>
 <!-- --------------------------------------------------------------------------------- -->
+<script>
+function nav_toggle(){
+	const toggleBtn = document.querySelector('.navbar_toggleBtn');
+	const menu = document.querySelector('.navbar_menu');
+	const icons = document.querySelector('.navbar_icons');
+	const loginM = document.querySelector('.navbar_icons2');
+
+	// 햄버거 btn 클릭시 메뉴/아이콘 펼침
+	toggleBtn.addEventListener('click', () => {
+	    //active속성 활용하여 토글 이벤트 적용
+	    menu.classList.toggle('active');
+	    icons.classList.toggle('active');
+	    loginM.classList.toggle('active');
+	});
+}
+</script>
 
 </body>
 </html>
