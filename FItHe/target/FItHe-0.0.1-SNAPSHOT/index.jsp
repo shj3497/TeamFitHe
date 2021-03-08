@@ -17,7 +17,7 @@
 <script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 <!--common script-->
 <script src="${pageContext.request.contextPath}/include/main/js/menu.js" defer></script>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
 <!--javaScript-->
 <script src="${pageContext.request.contextPath}/include/main/js/main.js" defer></script>
 </head>

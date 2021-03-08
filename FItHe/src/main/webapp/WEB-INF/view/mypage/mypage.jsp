@@ -16,7 +16,7 @@
 <title>board</title>
 <script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 <script src="${pageContext.request.contextPath}/include/mypage/mypage/main.js" defer></script>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript">
 

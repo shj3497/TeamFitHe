@@ -8,14 +8,8 @@ import java.util.Locale;
 import com.fithe.community.vo.CommunityVO;
 import com.fithe.notice.vo.NoticeVO;
 
-public abstract class CalculateUtil { // new SimpleDateFormat("EEE MMM d HH:mm:ss z yyyy");
+public abstract class CalculateUtil { 
 	
-	/**
-	 * 2021-02-13 최영 작성
-	 * 글 작성시 ninsertdate validation 하는 함수
-	 * @param list
-	 * @return
-	 */
 	public static List<NoticeVO> getNoticeTimeGAP(List<NoticeVO> list){
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss", Locale.KOREA);
@@ -24,25 +18,21 @@ public abstract class CalculateUtil { // new SimpleDateFormat("EEE MMM d HH:mm:s
 		for (int i = 0; i < list.size(); i++) {
 			
 			try {
-				Date dbDate = sdf.parse(list.get(i).getNinsertdate());
+				// db에서 받아온 날짜 형태 맞춰주기
+				Date dbDate = sdf.parse(list.get(i).getNinsertdate()); // 게시글에 입력된 작성일자 및 시간
 				sysdate = sdf.parse(sdf.format(sysdate));
 				
 				long dateDif = sysdate.getTime() - dbDate.getTime();
 				long day = dateDif / (24*60*60*1000); // 일
 				long hour = dateDif / (60*60*1000); // 시간
 				long minute = dateDif / (60*1000); // 분
-//				long second = dateDif / (1000); // 초
-//				System.out.println("두 날짜의 날짜 차이: " + second + "초");
-//				System.out.println("두 날짜의 날짜 차이: " + minute + "분");
-//				System.out.println("두 날짜의 날짜 차이: " + hour + "시간");
-//				System.out.println("두 날짜의 날짜 차이: " + day + "일");
 				
-				// if else 많이 쓰는게 더러워 보여서 상항 연산자 사용
+				// if else 많이 쓰게 되어서 코드 수를 단축을 위해 상항 연산자 사용
 				String result = (day==0? 
 									(hour==0?
 										(minute==0? "방금":String.valueOf(minute) + "분 전") 
 													  :String.valueOf(hour) + "시간 전")
-												 : list.get(i).getNinsertdate().substring(0, 10));
+												 : list.get(i).getNinsertdate().substring(0, 10)); // yyyy-mm-dd
 				
 				list.get(i).setNinsertdate(result);
 			} catch (Exception e) {

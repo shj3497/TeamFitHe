@@ -12,7 +12,7 @@
 <head>
 	<meta charset="UTF-8">
     <title>REPLY BOARD</title>
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script  src="//code.jquery.com/jquery-latest.min.js"></script>
 
     <script type="text/javascript" defer>
     	$(document).ready(function(){

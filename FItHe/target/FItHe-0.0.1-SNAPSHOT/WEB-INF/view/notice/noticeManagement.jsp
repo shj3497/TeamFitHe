@@ -23,7 +23,7 @@
 	<script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 	<!--common script-->
 	<script src="${ctx}/js/menu.js" defer></script>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<!--javascript-->
 	<script type="text/javascript">
 

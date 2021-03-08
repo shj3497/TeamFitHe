@@ -38,8 +38,6 @@ public class CommunityController {
 	private ChaebunService chaebunSerivice;
 	@Autowired(required = false)
 	private NoticeService noticeService; 
-	@Autowired(required = false)
-	private MemberService memberService;
 	
 	@RequestMapping(value="communityList")
 	public ModelAndView communityList(@ModelAttribute BoardPagingVO pvo,
@@ -62,8 +60,6 @@ public class CommunityController {
 		System.out.println("keyfilter >>> : " + pvo.getKeyfilter());
 		System.out.println("keyword >>> : " + pvo.getKeyword());
 		System.out.println("pvo.getOrder_by() >>> : " + pvo.getOrder_by());
-//		if (pvo.getOrder_by() == null) {pvo.setOrder_by("CHIT");}
-//		if (pvo.getOrder_sc() == null) {pvo.setOrder_sc("DESC");}
 		
 		BoardPagingVO _pvo = new BoardPagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		_pvo.setKeyfilter(pvo.getKeyfilter());

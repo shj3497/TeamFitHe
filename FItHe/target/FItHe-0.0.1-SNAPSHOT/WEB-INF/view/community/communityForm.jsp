@@ -20,7 +20,7 @@
     <!--common script-->
     <script src="${ctx}/include/js/main.js" defer></script>
     <script src="${ctx}/include/js/common.js" defer></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
     <!--javascript-->
     <script src="${ctx}/common/webedit/dist/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
     <script type="text/javascript">

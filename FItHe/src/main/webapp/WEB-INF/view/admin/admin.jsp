@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>manager</title>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/include/js/common.js"></script>
 <!--common stylesheet-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/include/admin/admin_memberList/css/style.css">

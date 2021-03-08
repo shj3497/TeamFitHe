@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title> 입력 폼</title>
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function() {
