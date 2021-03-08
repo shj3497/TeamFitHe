@@ -406,13 +406,12 @@ function displayInfowindow(marker, title) {
  
 // 현재 위치 불러오기
 function myLocation(){
-	//주소-좌표 변환 객체를 생성합니다
+	//주소-좌표 변환 객체를 생성
 	var geocoder = new kakao.maps.services.Geocoder();
 
-	// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 	if (navigator.geolocation) {
 	    
-	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+	    // GeoLocation을 이용해서 접속 위치
 	    navigator.geolocation.getCurrentPosition(function(position) {
 	        
 	        var lat = position.coords.latitude, // 위도
@@ -421,8 +420,8 @@ function myLocation(){
 	            console.log("현재 위도 >>> : " + lat);
 	            console.log("현재 경도 >>> : " + lon);
 	        
-	        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-	            message = '<div style="padding:5px;">현재위치</div>'; // 인포윈도우에 표시될 내용입니다
+	        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성
+	            message = '<div style="padding:5px;">현재위치</div>'; // 인포윈도우에 표시될 내용
 	        
 	      	displayMarker(locPosition, message);
 	        

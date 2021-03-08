@@ -59,7 +59,7 @@
 		</div>
 		<!--menu-->
 		<ul class="navbar_menu">
-			<li><a href="#">기초체력 태스트</a></li>
+			<li><a href="http://localhost:5000">기초체력 테스트</a></li> <!-- https://fithe.shop 으로 변경할 예정 -->
 			<li><a href="kakaomaplist.do" target="_blank">헬스장 찾기</a></li>
 			<li><a href="youtube.do">운동시작히기</a></li>
 			<li><a href="communityList.do">커뮤니티</a></li>				
