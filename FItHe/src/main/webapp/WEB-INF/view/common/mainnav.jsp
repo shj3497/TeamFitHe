@@ -62,7 +62,7 @@
 			<li><a href="#">기초체력 태스트</a></li>
 			<li><a href="kakaomaplist.do" target="_blank">헬스장 찾기</a></li>
 			<li><a href="youtube.do">운동시작히기</a></li>
-			<li><a href="communityList.do">커뮤니티</a></li>				
+			<li><a href="communityList.do">커뮤니티</a></li>			
 		</ul>
 		<!--login icon-->
 		<ul v-if="session_chk==='null'" class="navbar_icons" v-cloak>
@@ -78,7 +78,7 @@
 					<li><a href="mailto:testshj3497@gmail.com">고객지원</a></li>
 					<li><button class="logout_btn" onclick="logoutM()">로그아웃</button></li>
 					<!-- <li><a href="memberLogout.do">로그아웃</a></li> -->
-				</ul>
+				</ul>				
 			</div>
 		</div>
 		
@@ -109,7 +109,7 @@ function nav_toggle(){
 	const toggleBtn = document.querySelector('.navbar_toggleBtn');
 	const menu = document.querySelector('.navbar_menu');
 	const icons = document.querySelector('.navbar_icons');
-	const loginM = document.querySelector('.navbar_icons2');
+	const loginM = document.querySelector('.navbar_icons2_ul');
 
 	// 햄버거 btn 클릭시 메뉴/아이콘 펼침
 	toggleBtn.addEventListener('click', () => {

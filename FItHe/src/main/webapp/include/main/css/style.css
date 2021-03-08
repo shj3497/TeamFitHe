@@ -142,7 +142,7 @@ ul, li{
     padding: 8px 12px;
     
 }
-.navbar_menu li:hover, .navbar_menu li a:hover{
+.navbar_menu li:not(.member_field):hover, .navbar_menu li:not(.member_field) a:hover{
     color: var(--accent-color);
     transition: all 0.5s;
     transform: scale(1.1);
@@ -354,6 +354,12 @@ ul, li{
 		margin-right : 55px;
 		display: none;
 	}
+	.member_field{display: block;}
+
+	/*
+	.navbar_icons2_ul{
+		visibility: visile;
+	}
 	
 	.navbar_icons2{
 		display: flex;
@@ -362,10 +368,14 @@ ul, li{
   	  	right: 10px;
   	  	margin-top: 180px;
 	}
-	/*.navbar_icons2 li, */
-	.navbar_icons2 ul li a {
+	
+	
+		.navbar_icons2 ul li a {
 	    display: none;
 	    width: 100px;
 	    background-color: whitesmoke;
-	}	
+	}
+	*/
+	
+	
 }
