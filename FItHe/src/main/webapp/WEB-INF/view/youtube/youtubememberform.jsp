@@ -22,7 +22,7 @@
 	<title>check</title>
 	<script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 	<!--common script-->
-	 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script src="${pageContext.request.contextPath}/include/youtube/js/menu.js" defer></script>
 	<!--javascript--->
 	<script type="text/javascript">

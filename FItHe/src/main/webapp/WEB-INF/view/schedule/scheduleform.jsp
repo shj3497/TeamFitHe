@@ -11,10 +11,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<script src="//code.jquery.com/jquery-latest.min.js"></script>
 		<style>
 			.calendar_section{width: 85%; positoin: absolute; margin: auto; padding: 200px 0 30px;}
 		</style>
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<!-- fullcalendar cdn -->
 		<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js"></script>

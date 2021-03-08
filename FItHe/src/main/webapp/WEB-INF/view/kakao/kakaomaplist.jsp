@@ -8,6 +8,8 @@
 <head>
     <meta charset="utf-8">
     <title>헬스장 검색</title>
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=95566946608e4e8a5e5c79a52670fe02&libraries=services"></script>
     <!--common stylesheet-->
 	<link rel="stylesheet" href="${ctx}/include/main/css/style.css">
 	<!--style-->
@@ -18,9 +20,7 @@
 	<script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 	<!--common script-->
 	<script src="${ctx}/include/main/js/menu.js" defer></script>    
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!-- javascript -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2c2bc208d89c3b89832ac410d98c7a02&libraries=services"></script>
     <script type="text/javascript">
     	$(document).ready(function(){
     		$("#arroundbtn").on("click", function(){

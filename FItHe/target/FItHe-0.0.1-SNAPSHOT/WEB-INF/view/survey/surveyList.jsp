@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script  src="//code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	

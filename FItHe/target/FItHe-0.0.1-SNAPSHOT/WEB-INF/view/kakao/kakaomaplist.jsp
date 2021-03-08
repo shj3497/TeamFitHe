@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <title>헬스장 검색</title>
     <link rel="stylesheet" href="${ctx}/css/kakaomap.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2c2bc208d89c3b89832ac410d98c7a02&libraries=services"></script>
     <script type="text/javascript">
     	$(document).ready(function(){

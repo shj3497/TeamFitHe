@@ -22,10 +22,9 @@
     <script src="https://kit.fontawesome.com/8af2116aa4.js" 
             crossorigin="anonymous"></script>
 	<!--common script-->
-   	<script src="${ctx}/include/js/menu.js" defer></script>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+   	<script src="${ctx}/include/js/main.js" defer></script>
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
-		
 	$(document).ready(function(){
 		// 작성 버튼 누름
 		$("#cformbtn").on("click", function(){

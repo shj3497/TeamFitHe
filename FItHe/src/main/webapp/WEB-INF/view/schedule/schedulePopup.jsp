@@ -29,7 +29,7 @@
 		</style>
 		<!-- datepicker -->
 		<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="//code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script>
 			$(function(){
