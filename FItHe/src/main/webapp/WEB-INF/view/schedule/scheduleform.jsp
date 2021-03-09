@@ -87,8 +87,11 @@
 		</script>
 	</head>
 	<body>
+		
 		<!--navigator-->
 		<jsp:include page="../common/mainnav.jsp"></jsp:include>
+		
+		<div style="height: 20px"></div>
 		
 		<div class="calendar_section">
 			<div id='calendar'></div>
