@@ -23,7 +23,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/8af2116aa4.js" crossorigin="anonymous"></script>
 	<!--common script-->
-	<script src="${ctx}/js/menu.js" defer></script>
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<!--javascript-->
 	<script type="text/javascript">
@@ -159,9 +158,10 @@
 					<!--menu link-->
 					<div class="menu_link">
 						<ul>
-							<li><a href="#">회원관리</a></li>
-							<li><a href="#">게시판 관리</a></li>
-							<li><a href="#">공지사항 관리</a></li>
+							<li><a href="memberList.do">회원 관리</a></li>
+							<li><a href="communityManagement.do">게시판 관리</a></li>
+							<li><a href="noticeManagement.do">공지사항 관리</a></li>
+							<li><a href="youtubeList.do">동영상 관리</a></li>
 						</ul>
 					</div>
 				</div>
@@ -271,7 +271,7 @@
 									<%-- 페이지 1일때만 표시 --%>
 										<%-- 공지 숨기기 체크 박스 unchecked 되면 --%>
 											<c:forEach items="${noticeExposureList}" var="notice">
-												<tr class="notice_tr" data-num="${notice.nnum}">
+												<tr data-num="${notice.nnum}">
 													<td>
 														<input type="checkbox" name="rowCheck" value="${notice.nnum}">
 													</td>													

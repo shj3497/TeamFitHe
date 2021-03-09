@@ -32,7 +32,7 @@ public class NaverController {
 	// https://developers.naver.com/docs/login/bi/ 네이버 로그인 로고
 	private final static String CLIENT_ID = "Oy7GSP_ga_SO__OGWLtY";
 	private final static String CLIENT_SECRET = "sisgTorDDi";
-	private final static String REDIRECT_URI = "http://localhost:8088/FitHe/naverLogin.do";
+	private final static String REDIRECT_URI = "http://localhost:8088/FItHe/naverLogin.do";
 	private final static String SESSION_STATE = "oauth_state";
 	
 	// 프로필 조회 API URL
@@ -126,7 +126,7 @@ public class NaverController {
 	}
 	*/
 	
-	@RequestMapping(value="naverLogin.do", produces="application/json;charset=utf-8", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="naverLogin", produces="application/json;charset=utf-8", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView naverLogin(@RequestParam String code, @RequestParam String state, HttpSession session) 
 									throws IOException{
 		
@@ -167,7 +167,7 @@ public class NaverController {
 		session.setAttribute("mid", nemail_a.concat("(N)"));
 		
 		// 메인페이지로 이동시킬것
-		mav.setViewName("member/loginsuccess");
+		mav.setViewName("mainpage/mainpage");
 		
 		return mav;
 	}

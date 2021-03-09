@@ -233,7 +233,7 @@ public class MemberController {
 			
 			// 사용자가 로그인에 성공하면 이동하는 페이지
 			// 메인페이지로 이동해야함
-			return "member/loginsuccess";
+			return "mainpage/mainpage";
 		}else {
 			// 로그인에 실패하면 보여지는 페이지
 			result = "PW가 일치하지 않습니다.";

@@ -42,7 +42,7 @@ public class KakaoController {
 		private Logger logger = Logger.getLogger(KakaoController.class);
 		
 		private final static String K_CLIENT_ID = "a8696ed73671985ffe695c01ef5ac010";
-		private final static String K_REDIRECT_URI = "http://localhost:8088/FitHe/kakaoLogin.do";
+		private final static String K_REDIRECT_URI = "http://localhost:8088/FItHe/kakaoLogin.do";
 		
 		public static String getAuthorizationUrl(HttpSession session) {
 			String kakaoUrl = "https://kauth.kakao.com/oauth/authorize?" + 
@@ -169,7 +169,7 @@ public class KakaoController {
 			
 			
 			// 메인페이지로 이동시키면 된다.
-			mav.setViewName("member/loginsuccess");
+			mav.setViewName("mainpage/mainpage");
 			
 			return mav;
 		}

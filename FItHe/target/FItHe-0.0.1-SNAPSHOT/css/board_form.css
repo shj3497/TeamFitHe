@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /*------게시글 작성 및 수정------*/
 
+.content_head{
+	margin-bottom: 40px;
+}
+
 /*board_title*/
 form>div:nth-of-type(1){
     margin-bottom: 40px;

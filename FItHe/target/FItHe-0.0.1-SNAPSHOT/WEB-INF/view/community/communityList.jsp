@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--common stylesheet-->
-    <link rel="stylesheet" href="${ctx}/css/style.css">
+    <link rel="stylesheet" href="${ctx}/include/main/css/style.css"><!-- ${ctx}/css/style.css -->
 	<!--style-->
 	<link rel="stylesheet" href="${ctx}/css/board.css">
     <!--font-->
@@ -25,7 +25,6 @@
    	<script src="${ctx}/include/js/main.js" defer></script>
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
-		
 	$(document).ready(function(){
 		// 작성 버튼 누름
 		$("#cformbtn").on("click", function(){
@@ -168,7 +167,8 @@
 			
 			<!-- community board head -->
 			<div class="content_head">
-				<p>자유 게시판</p>
+				<p><a href="communityList.do" style="padding-right: 20px;">자유 게시판</a></p>
+				<p><a href="noticeList.do" style="color: lightgray;">공지 게시판</a></p>
 			</div>
 	
 			<div class="content_group">
@@ -177,7 +177,7 @@
 				<div class="board_content_bar">
 					<!-- ========== 옵션선택 시작 ========== -->
 					<div>
-						<input type="checkbox" id="noticeDisplayChk" name="noticeDisplayChk" /> 공지글 숨기기
+						<input type="checkbox" id="noticeDisplayChk" name="noticeDisplayChk" /> 공지글 숨기기&nbsp;&nbsp;
 						<select id="cntPerPage" name="sel" onchange="selChange()">
 							<option value="5"
 								<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
@@ -190,6 +190,7 @@
 						</select>
 					</div>
 					<!-- ========== 옵션선택 끝  ========== -->
+					
 					<!-- ========== 검색창  시작 ========== -->
 					<div class="board_search">
 						<select id="keyfilter" name="keyfilter">
@@ -202,6 +203,7 @@
 					</div>
 					<!-- ========== 검색창  끝   ========== -->
 				</div> <!-- end of <div class="board_content_bar">-->
+				
 				<!-- board table -->
                <div class="board_list">
                   <table class="board_list_table">
@@ -249,8 +251,8 @@
                                     </tr>
                                  </c:forEach>
                         </c:if>
-
                         <!-- === 공지사항 끝 === -->
+                        
                         <c:if test="${empty communityList}">
                            <tr>
                               <td colspan="4">등록된 게시글이 없습니다.</td>
@@ -277,9 +279,10 @@
                   </table>
                </div>
                <!--end of <div class="board_list">-->
+               
 				<!-- 글쓰기 버튼 -->
 				<div class="board_write">
-					<input type="button" id="cformbtn" name="cformbtn" class="com_btn" value="작성" />
+					<input type="button" id="cformbtn" name="cformbtn" class="write_btn" value="작성" />
 					<br>
 				</div>
 				<!-- ========== 페이지 목록 시작 ========== -->
@@ -306,5 +309,8 @@
 			</div><!--end of <div class="content_wrap">-->
 		</div><!--end of <div class="fithe_wrap">-->
 	</form>
+	
+	<!-- footer -->
+	<jsp:include page="../common/mainfooter.jsp"></jsp:include>
 </body>
 </html>

@@ -1,5 +1,14 @@
 @charset "utf-8";
 
+/*title link*/
+.content_head{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 20px;	
+}
+
+
 /* board content list select & search */
 .board_content_bar{
 	display: flex;
@@ -8,6 +17,7 @@
 	margin-bottom: 10px;
 }
 .board_content_bar div{width: 49%;}
+
 /* search*/
 .board_search{
 	display: flex;
@@ -16,8 +26,26 @@
 	height: 30px;
 }
 
+/* button */
+.com_btn{
+	width:100px;
+	border: 1px solid lightgray;
+	border-radius: 4px;
+}
+.write_btn{
+	width: 100px;
+	height: 30px;
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 4px;
+	color: gray;
+}
+.write_btn:hover{	
+	border: 1px solid #03CFCF;
+	color: #03CFCF;
+}
 
-/*############################################ HERE*/
+
 /* table list */
 .board_list{width:100%}
 .board_list_table{
@@ -26,9 +54,12 @@
 	word-break:nowrap;
 	background-color: white;
 }
-/*############################################ END*/
 
-
+/*notice head*/
+.board_list_head tr:first-of-type{
+	background-color: whitesmoke;
+	font-size: 10pt;
+}
 
 /*except notice*/
 .board_list_head_tr{
@@ -44,7 +75,6 @@
 }
 
 
-/*############################################ HERE*/
 /*글번호 안보이게*/
 /*글번호 없으면 tr의 첫번째 td가 제목*/
 .board_list_table td:nth-of-type(1){
@@ -65,9 +95,16 @@
 }
 
 /*notice*/
+.notice_tr td:first-of-type{
+	display: flex;
+	height: 30px;
+	flex-direction: row;
+	align-items: center;
+}
 .notice__alarm{
 	display: inline-block;
 	width:40px;	
+	margin-right: 10px;
 	background-color: var(--accent-color);
 	color:white;	
 	border-radius: 10%;
@@ -75,7 +112,7 @@
 	text-align: center;
 }
 .noticeDetail{font-weight: 600;}
-/*############################################ END*/
+
 
 /*추천 또는 댓글 수?*/
 .ref_num{color:var(--accent-color); border: 1px gray;}
@@ -93,20 +130,26 @@
 	font-size: 10pt;
 }
 
+
+
 /*-----------------------------------------*/
 /* mobile version */
 @media screen and (max-width: 768px){
 	/*board content list select & search*/
+	.board_search{
+	justify-content: flex-start;
+	}
+	
 	.board_content_bar{
 		flex-direction: column-reverse; 
 		justify-content:flex-start;
 	}
 	.board_content_bar div{ 
 		width: 95%;
-		padding: 10px; 
-		background-color: darkorange;
+		padding: 10px;
 	}
-	/*############################################ HERE*/
+	
+		
 	/*scrollbar design*/
 	.board_list{width:100%;	overflow-x:auto; white-space: nowrap;}
 	.board_list_table{width: auto; margin-bottom: 5px;}
