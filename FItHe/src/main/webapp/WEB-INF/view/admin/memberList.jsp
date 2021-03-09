@@ -149,9 +149,9 @@
 				<!--menu link-->
 				<div class="menu_link">
 					<ul>
-						<li><a href="memberList.do">회원관리</a></li>
-						<li><a href="#">게시판 관리</a></li>
-						<li><a href="#">공지사항 관리</a></li>
+						<li><a href="memberList.do">회원 관리</a></li>
+						<li><a href="communityManagement.do">게시판 관리</a></li>
+						<li><a href="noticeManagement.do">공지사항 관리</a></li>
 						<li><a href="youtubeList.do">동영상 관리</a></li>
 					</ul>
 				</div>
