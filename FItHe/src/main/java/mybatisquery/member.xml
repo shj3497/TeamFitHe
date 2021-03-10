@@ -257,8 +257,7 @@
 	<!-- 관리자가 탈퇴 시킬때 -->
 	<!-- 회원 탈퇴 -->
 	<delete id="memberDelete" parameterType="com.fithe.member.vo.MemberVO">
-		DELTE	
-		FROM	FIT_MEMBER
+		DELETE 	FROM 	FIT_MEMBER
 		WHERE	MID = #{mid, jdbcType=VARCHAR}
 	</delete>
 </mapper>

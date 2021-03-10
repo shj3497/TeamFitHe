@@ -96,8 +96,8 @@
     				alert("댓글이 등록되었습니다.");
     				console.log("resData >>> : " + resData);
 					window.location.reload();
-    				rboardFormData();
-    				replyList(bnum);
+    				// rboardFormData();
+    				// replyList(bnum);
     			}
     			function whenError(e){
     				//console.log("e >>> : " + e.responseText);
@@ -154,7 +154,7 @@
 				//alert("D >>> : ");
 				
 				var num = $(this).parents("li").attr("dataNum");
-				alert("num >>> : " + num);
+				// alert("num >>> : " + num);
 				var target = $(this).parents(".rbmemoItem");
 				console.log("target >>> : " + target);
 				
@@ -164,7 +164,7 @@
 					 "rnum" : num,
 				};
 				 dataParam = $("#rboardForm").serialize();
-				alert("dataParam >>> : " + dataParam);
+				// alert("dataParam >>> : " + dataParam);
 				if(confirm("정말 삭제하시겠습니까?")==true){
 					
 					$.ajax({
