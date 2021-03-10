@@ -60,7 +60,7 @@ public class KakaoController {
 			
 			postParams.add(new BasicNameValuePair("grant_type","authorization_code"));
 			postParams.add(new BasicNameValuePair("client_id","a8696ed73671985ffe695c01ef5ac010"));
-			postParams.add(new BasicNameValuePair("redirect_uri","http://localhost:8088/FitHe/kakaoLogin.do"));
+			postParams.add(new BasicNameValuePair("redirect_uri","http://localhost:8088/FItHe/kakaoLogin.do"));
 			postParams.add(new BasicNameValuePair("code", authorize_code));
 			
 			final HttpClient client = HttpClientBuilder.create().build(); 
