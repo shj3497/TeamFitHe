@@ -143,7 +143,7 @@ public class CommunityController {
 		return mav;
 	}
 	
-	@RequestMapping(value="communityDetail", method=RequestMethod.POST)
+	@RequestMapping(value="communityDetail", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView communityDetail(@ModelAttribute CommunityVO cvo) {
 		logger.info("CommunityController communityDetail");
 		
