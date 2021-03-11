@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>버튼동작 확인을 위한 임시페이지</title>
 </head>
+<script>
+location.href="mainpageForm.do";
+</script>
 <body>
 	<a href="test.do">클릭클릭!!</a><br>
 	<a href="memberInsertForm.do">회원가입 폼</a><br>

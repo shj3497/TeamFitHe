@@ -54,7 +54,7 @@ public abstract class CalculateUtil {
 			
 			try {
 				Date dbDate = sdf.parse(list.get(i).getCinsertdate());
-				sysdate = sdf.parse(sdf.format(sysdate));
+				sysdate = sdf.parse(sdf.format(sysdate)); // 형태 변환
 				
 				long dateDif = sysdate.getTime() - dbDate.getTime();
 				long day = dateDif / (24*60*60*1000); // 일

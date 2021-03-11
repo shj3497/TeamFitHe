@@ -94,7 +94,7 @@
 				function whenSuccess(resData){
 					
 					if(resData == 1){
-						alert("중복된 ID입니다.")
+						alert("중복된 ID입니다.");
 						$('#mid').val('');
 						$('#mid').focus();
 					}else if(resData == 0){
